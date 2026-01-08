@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    { "id": "x", "type": "input" },
+    { "id": "w", "type": "wasm", "wasm": "opaque.wasm" }
+  ],
+  "edges": [
+    { "from": "x.out", "to": "w.x" }
+  ],
+  "outputs": { "y": "w.out" }
+}

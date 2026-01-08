@@ -1,0 +1,447 @@
+{
+  "source": "libs/mathjs/examples/matrices.js",
+  "slug": "matrices_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 26,
+    "core": 0,
+    "extended": 26,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "matrices_js_001",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 8,
+      "expr": "a",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_002",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 10,
+      "expr": "b",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 0,
+        "unit": "b"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_003",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 11,
+      "expr": "b.size()",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "No access to method \"size\""
+      },
+      "mathjsError": "No access to method \"size\"",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_004",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 15,
+      "expr": "array",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol array"
+      },
+      "mathjsError": "Undefined symbol array",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_005",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 19,
+      "expr": "clone",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": "function theTypedFn(arg0, arg1) {\n          if (arguments.length === len0 && test00(arg0) && test01(arg1))\n            return fn0.apply(this, arguments);\n          if (arguments.length === len1 && test10(arg0) && test11(arg1))\n            return fn1.apply(this, arguments);\n          if (arguments.length === len2 && test20(arg0) && test21(arg1))\n            return fn2.apply(this, arguments);\n          if (arguments.length === len3 && test30(arg0) && test31(arg1))\n            return fn3.apply(this, arguments);\n          if (arguments.length === len4 && test40(arg0) && test41(arg1))\n            return fn4.apply(this, arguments);\n          if (arguments.length === len5 && test50(arg0) && test51(arg1))\n            return fn5.apply(this, arguments);\n          return generic.apply(this, arguments);\n        }",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 0.000001,
+      "compareMode": "assignment"
+    },
+    {
+      "id": "matrices_js_006",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 24,
+      "expr": "map(a, sqrt)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_007",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 26,
+      "expr": "factorial(c)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol c"
+      },
+      "mathjsError": "Undefined symbol c",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_008",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 32,
+      "expr": "d",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol d"
+      },
+      "mathjsError": "Undefined symbol d",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_009",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 34,
+      "expr": "e",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": 2.718281828459045,
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_010",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 41,
+      "expr": "f",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol f"
+      },
+      "mathjsError": "Undefined symbol f",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_011",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 43,
+      "expr": "g",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 0,
+        "unit": "g"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_012",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 50,
+      "expr": "h",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 0,
+        "unit": "h"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_013",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 51,
+      "expr": "h.subset(index([1, 2], [1, 2]))",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "No access to method \"subset\""
+      },
+      "mathjsError": "No access to method \"subset\"",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "matrices_js_014",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 53,
+      "expr": "i",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__complex": true,
+        "re": 0,
+        "im": 1
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_015",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 54,
+      "expr": "i.subset(index(range(1, 4)))",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "No access to method \"subset\""
+      },
+      "mathjsError": "No access to method \"subset\"",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "matrices_js_016",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 62,
+      "expr": "p",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol p"
+      },
+      "mathjsError": "Undefined symbol p",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_017",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 64,
+      "expr": "p21",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol p21"
+      },
+      "mathjsError": "Undefined symbol p21",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_018",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 72,
+      "expr": "j",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol j"
+      },
+      "mathjsError": "Undefined symbol j",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_019",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 73,
+      "expr": "j.size()",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol j"
+      },
+      "mathjsError": "Undefined symbol j",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_020",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 84,
+      "expr": "k",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol k"
+      },
+      "mathjsError": "Undefined symbol k",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_021",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 91,
+      "expr": "m",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 0,
+        "unit": "m"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "matrices_js_022",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 96,
+      "expr": "range(1, 6)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "matrices_js_023",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 97,
+      "expr": "range(0, 18, 3)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15,
+          18
+        ]
+      },
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "matrices_js_024",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 98,
+      "expr": "range('2:-1:-3')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          2,
+          1,
+          0,
+          -1,
+          -2,
+          -3
+        ]
+      },
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "matrices_js_025",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 99,
+      "expr": "factorial(range('1:6'))",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          1,
+          2,
+          6,
+          24,
+          120,
+          720
+        ]
+      },
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "matrices_js_026",
+      "source": "libs/mathjs/examples/matrices.js",
+      "line": 106,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

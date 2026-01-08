@@ -1,0 +1,7 @@
+// Translated from libs/mathjs/examples/browser/angle_configuration.html
+// MathZig translation (edit this file directly)
+// Cases: 1 (core=0, extended=1)
+
+// line 40 [extended] — default expression input
+sin(45)
+

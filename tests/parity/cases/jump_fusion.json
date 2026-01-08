@@ -1,0 +1,52 @@
+[
+  {
+    "id": "jump_fusion_ternary_index_true",
+    "expr": "v = [10; 20; 30]; 1 > 0 ? v[1] : v[2]",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0,
+    "note": "get_index fusion in ternary true branch must not shift jump targets"
+  },
+  {
+    "id": "jump_fusion_ternary_index_false",
+    "expr": "v = [10; 20; 30]; 0 > 1 ? v[1] : v[2]",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0,
+    "note": "Regression: previously returned null instead of 30 (jump target shifted by fusion)"
+  },
+  {
+    "id": "jump_fusion_ternary_load_mul_false",
+    "expr": "a = 2; b = 3; a > 99 ? a * b : a - b",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0,
+    "note": "Regression: load_mul/load_sub fusion in ternary branches shifted the false-branch target"
+  },
+  {
+    "id": "jump_fusion_while_const_index",
+    "expr": "v = [10; 20; 30]; s = 0; k = 0; while (k < 3) { s = s + v[1]; k = k + 1 }; s",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0,
+    "note": "Regression: get_index fusion inside while body corrupted the backward jump"
+  },
+  {
+    "id": "jump_fusion_while_dyn_index",
+    "expr": "v = [10; 20; 30]; s = 0; k = 0; while (k < 3) { s = s + v[k]; k = k + 1 }; s",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0,
+    "note": "Loop accumulation over dynamic matrix index"
+  }
+]

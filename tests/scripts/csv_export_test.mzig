@@ -1,0 +1,28 @@
+# Test CSV Export
+
+# 1. Export Series
+s = series([0, 10, 20], [1.1, 2.2, 3.3])
+write_csv("tests/scripts/data/export_series.csv", s)
+
+# Verify Series
+# s_back = read_csv("tests/scripts/data/export_series.csv", { time: "time", val: "value" })
+# assert(s_back.val[0], 1.1)
+# assert(s_back.val[2], 3.3)
+
+# 2. Export Matrix
+m = [1.5, 2.5; 3.5, 4.5]
+write_csv("tests/scripts/data/export_matrix.csv", m)
+
+# 3. Export Record
+r = { a: s, b: s * 10 }
+write_csv("tests/scripts/data/export_record.csv", r)
+
+# Verify Record
+# r_back = read_csv("tests/scripts/data/export_record.csv", { time: "time", a: "a", b: "b" })
+# assert(r_back.a[1], 2.2)
+# assert(r_back.b[1], 22.0)
+
+# 4. Test Options (Delimiter)
+write_csv("tests/scripts/data/export_pipe.csv", s, { delimiter: "|" })
+
+"CSV Export Test Completed"

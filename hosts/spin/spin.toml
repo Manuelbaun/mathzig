@@ -1,0 +1,19 @@
+spin_manifest_version = 2
+
+[application]
+name = "mathzig-aot-spin"
+version = "0.1.0"
+description = "Host MathZig freestanding AOT modules inside Spin via wasmi"
+authors = ["MathZig"]
+
+[[trigger.http]]
+route = "/..."
+component = "mathzig-aot"
+
+[component.mathzig-aot]
+source = "target/wasm32-wasip2/release/mathzig_aot_spin.wasm"
+allowed_outbound_hosts = []
+
+[component.mathzig-aot.build]
+command = "cargo build --target wasm32-wasip2 --release"
+watch = ["src/**/*.rs", "Cargo.toml", "wasm/**/*.wasm"]

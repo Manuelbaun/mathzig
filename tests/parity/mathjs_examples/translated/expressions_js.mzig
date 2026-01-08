@@ -1,0 +1,183 @@
+// Translated from libs/mathjs/examples/expressions.js
+// MathZig translation (edit this file directly)
+// Cases: 51 (core=18, extended=33)
+
+// line 22 [core]
+sqrt(3^2 + 4^2)
+
+// line 23 [core]
+sqrt(-4)
+
+// line 24 [core]
+2 inch to cm
+
+// line 25 [core]
+cos(45 deg)
+
+// line 43 [core]
+a * b
+
+// line 43 [extended]
+a * b', scope)) // 12
+
+// variable assignments are written to the scope
+print(evaluate('c = 2.3 + 4.5', scope)) // 6.8
+print(scope.c) // 6.8
+
+// scope can contain both variables and functions
+scope.hello = function (name) {
+  return 'hello, ' + name + '!'
+}
+print(evaluate('hello("hero")', scope)) // "hello, hero!"
+
+// define a function as an expression
+const f = evaluate('f(x) = x ^ a', scope)
+print(f(2)) // 8
+print(scope.f(2)) // 8
+
+// 2. using function parse
+//
+// Function `parse` parses expressions into a node tree. The syntax is
+// similar to function `evaluate`.
+// Function `parse` accepts a single expression or an array with
+// expressions as first argument. The function returns a node tree, which
+// then can be compiled against math, and then evaluated against an (optional
+// scope. This scope is a regular JavaScript Object. The scope will be used
+// to resolve symbols, and to write assigned variables or function.
+console.log('\n2. USING FUNCTION MATH.PARSE
+
+// line 46 [core]
+c = 2.3 + 4.5
+
+// line 47 [extended] — direct JS API call
+scope.c
+
+// line 53 [extended]
+hello("hero")
+
+// line 56 [extended] — mathjs returns function object
+f(x) = x ^ a
+
+// line 57 [extended] — direct JS API call
+f(2)
+
+// line 58 [extended] — direct JS API call
+scope.f(2)
+
+// line 74 [extended] — direct JS API call
+node1.toString()
+
+// line 78 [extended] — direct JS API call
+node1.evaluate()
+
+// line 84 [extended] — direct JS API call
+node2.toString()
+
+// line 89 [extended] — direct JS API call
+code2.evaluate(scope2)
+
+// line 111 [extended] — direct JS API call
+code3.evaluate()
+
+// line 120 [extended] — direct JS API call
+scope3.a
+
+// line 133 [extended] — direct JS API call
+myParser.evaluate('sqrt(3^2 + 4^2)')
+
+// line 134 [extended] — direct JS API call
+myParser.evaluate('sqrt(-4)')
+
+// line 135 [extended] — direct JS API call
+myParser.evaluate('2 inch to cm')
+
+// line 136 [extended] — direct JS API call
+myParser.evaluate('cos(45 deg)')
+
+// line 140 [extended] — direct JS API call
+myParser.evaluate('x = 7 / 2')
+
+// line 140 [core]
+x = 7 / 2
+
+// line 141 [extended] — direct JS API call
+myParser.evaluate('x + 3')
+
+// line 141 [core]
+x + 3
+
+// line 142 [extended] — mathjs returns function object
+f2(x, y) = x^y
+
+// line 142 [extended] — direct JS API call
+myParser.evaluate('f2(x, y) = x^y')
+
+// line 143 [core]
+f2(2, 3)
+
+// line 143 [extended] — direct JS API call
+myParser.evaluate('f2(2, 3)')
+
+// line 150 [core]
+k = [1, 2; 3, 4]
+
+// line 150 [extended] — direct JS API call
+myParser.evaluate('k = [1, 2; 3, 4]')
+
+// line 151 [core]
+l = zeros(2, 2)
+
+// line 151 [extended] — direct JS API call
+myParser.evaluate('l = zeros(2, 2)')
+
+// line 152 [core]
+l[1, 1:2] = [5, 6]
+
+// line 152 [extended] — direct JS API call
+myParser.evaluate('l[1, 1:2] = [5, 6]')
+
+// line 153 [core]
+l
+
+// line 153 [extended] — direct JS API call
+myParser.evaluate('l')
+
+// line 154 [core]
+l[2, :] = [7, 8]
+
+// line 154 [extended] — direct JS API call
+myParser.evaluate('l[2, :] = [7, 8]')
+
+// line 156 [core]
+m = k * l
+
+// line 156 [extended] — direct JS API call
+myParser.evaluate('m = k * l')
+
+// line 157 [extended] — direct JS API call
+myParser.evaluate('n = m[2, 1]')
+
+// line 157 [core]
+n = m[2, 1]
+
+// line 158 [extended] — direct JS API call
+myParser.evaluate('n = m[:, 1]')
+
+// line 158 [core]
+n = m[:, 1]
+
+// line 170 [core]
+i / 2
+
+// line 170 [extended] — direct JS API call
+myParser.evaluate('i / 2')
+
+// line 174 [extended]
+hello("hero")
+
+// line 174 [extended] — direct JS API call
+myParser.evaluate('hello("hero")')
+
+// line 183 [extended] — variable reference requires JS object state
+value
+

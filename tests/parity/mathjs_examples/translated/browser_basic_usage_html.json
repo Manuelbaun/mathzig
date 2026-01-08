@@ -1,0 +1,280 @@
+{
+  "source": "libs/mathjs/examples/browser/basic_usage.html",
+  "slug": "browser_basic_usage_html",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 16,
+    "core": 4,
+    "extended": 11,
+    "unsupported": 1
+  },
+  "cases": [
+    {
+      "id": "browser_basic_usage_html_001",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 11,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_002",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 17,
+      "expr": "math.round(math.e, 3)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "browser_basic_usage_html_003",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 18,
+      "expr": "math.atan2(3, -3) / math.pi",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "browser_basic_usage_html_004",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 19,
+      "expr": "math.log(10000, 10)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_005",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 20,
+      "expr": "math.sqrt(-4)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_006",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 21,
+      "expr": "math.pow([[-1, 2], [3, 1]], 2)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_007",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 22,
+      "expr": "math.derivative('x^2 + x', 'x')",
+      "tier": "unsupported",
+      "category": "api",
+      "setup": [],
+      "reason": "symbolic derivative unsupported",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_008",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 25,
+      "expr": "12 / (2.3 + 0.7)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "expected": 4,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_009",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 25,
+      "expr": "math.evaluate('12 / (2.3 + 0.7)')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "12 / (2.3 + 0.7)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_010",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 26,
+      "expr": "12.7 cm to inch",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "12 / (2.3 + 0.7)"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 5,
+        "unit": "inch"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "browser_basic_usage_html_011",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 26,
+      "expr": "math.evaluate('12.7 cm to inch')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "12 / (2.3 + 0.7)",
+        "12.7 cm to inch"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "browser_basic_usage_html_012",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 27,
+      "expr": "9 / 3 + 2i",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "12 / (2.3 + 0.7)",
+        "12.7 cm to inch"
+      ],
+      "expected": {
+        "__complex": true,
+        "re": 3,
+        "im": 2
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_013",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 27,
+      "expr": "math.evaluate('9 / 3 + 2i')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "12 / (2.3 + 0.7)",
+        "12.7 cm to inch",
+        "9 / 3 + 2i"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_014",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 28,
+      "expr": "det([-1, 2; 3, 1])",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "12 / (2.3 + 0.7)",
+        "12.7 cm to inch",
+        "9 / 3 + 2i"
+      ],
+      "expected": -7,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_015",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 28,
+      "expr": "math.evaluate('det([-1, 2; 3, 1])')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "12 / (2.3 + 0.7)",
+        "12.7 cm to inch",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "browser_basic_usage_html_016",
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "line": 35,
+      "expr": "a",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "12 / (2.3 + 0.7)",
+        "12.7 cm to inch",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

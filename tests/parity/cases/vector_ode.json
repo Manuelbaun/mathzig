@@ -1,0 +1,10 @@
+[
+  {
+    "id": "vector_ode_01",
+    "expr": "simple3d(t, y) = [y[1]; y[2]; y[0]]; ode_solve_euler(\"simple3d\", [1; 2; 3], [0, 1], 0.1)",
+    "vars": {},
+    "expected": { "tag": "matrix" },
+    "tolerance": 1e-6,
+    "skip": ["ts_wasm_vm"]
+  }
+]

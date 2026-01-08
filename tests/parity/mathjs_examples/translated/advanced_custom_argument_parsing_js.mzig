@@ -1,0 +1,25 @@
+// Translated from libs/mathjs/examples/advanced/custom_argument_parsing.js
+// MathZig translation (edit this file directly)
+// Cases: 7 (core=0, extended=7)
+
+// line 40 [extended]
+integrate(2*x, x, 0, 2)
+
+// line 41 [extended]
+integrate(2*x, x, 0, 2, 0.01)
+
+// line 89 [extended]
+integrate(x^0.5, x, 0, 1)
+
+// line 92 [extended] — mathjs returns function object
+f(x) = 2 * x
+
+// line 93 [extended] — mathjs returns function object
+f(x) = 2 * x
+
+// line 94 [extended]
+integrate(f(x), x, 0, 2)
+
+// line 94 [extended]
+integrate(f(x), x, 0, 2)
+

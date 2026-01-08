@@ -1,0 +1,16 @@
+.{
+    .name = .mathzig,
+    .version = "0.15.2",
+    .dependencies = .{
+        .zigimg = .{
+            .url = "git+https://github.com/zigimg/zigimg?ref=master#9714df09f76891323c7fdbbbf23a17b79024fffb",
+            .hash = "zigimg-0.1.0-8_eo2j4mFwCU7tWnqvkYtzqe-OPRn_bxEql_IJhW85LT",
+        },
+        .uucode = .{
+            .url = "git+https://github.com/jacobsandlund/uucode#2826a37a4562284fdacd8fa029d49509cc9bffcd",
+            .hash = "uucode-0.2.0-ZZjBPlK5VADj7fdoq7G8LIHzD5o6FSkcBXXrRWr4jnrA",
+        },
+    },
+    .paths = .{""},
+    .fingerprint = 0x78ea7ed4f1914d1b,
+}

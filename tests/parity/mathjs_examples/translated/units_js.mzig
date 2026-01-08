@@ -1,0 +1,64 @@
+// Translated from libs/mathjs/examples/units.js
+// MathZig translation (edit this file directly)
+// Cases: 20 (core=10, extended=10)
+
+// line 9 [extended] — variable reference requires JS object state
+a
+
+// line 10 [extended] — variable reference requires JS object state
+b
+
+// line 15 [core]
+a + b
+
+// line 16 [core]
+b * 2
+
+// line 17 [extended]
+unit('1 m') / unit('1 s')
+
+// line 18 [extended]
+pow(unit('12 in'), 3)
+
+// line 23 [extended] — direct JS API call
+b.to('cm')
+
+// line 24 [extended] — direct JS API call
+to(b, 'inch')
+
+// line 25 [extended] — direct JS API call
+b.toNumber('cm')
+
+// line 26 [extended] — direct JS API call
+number(b, 'cm')
+
+// line 31 [core]
+2 inch to cm
+
+// line 32 [core]
+cos(45 deg)
+
+// line 33 [extended] — Unexpected type of argument in function to (expected: Array or DenseMatrix or Matrix, actual: Unit, index: 1)
+90 km/h to m/s
+
+// line 38 [core]
+number(5 cm, mm)
+
+// line 43 [core]
+100000 N / m^2
+
+// line 44 [core]
+9.81 m/s^2 * 100 kg * 40 m
+
+// line 81 [core]
+[1, 0, 0] T
+
+// line 82 [core]
+[0, 1, 0] m/s
+
+// line 83 [core]
+1 C
+
+// line 94 [extended] — variable reference requires JS object state
+value
+

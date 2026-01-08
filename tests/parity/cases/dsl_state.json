@@ -1,0 +1,10 @@
+[
+  {
+    "id": "dsl_shadow_01",
+    "setup": ["p = 10", "shadow(p) = p * 2"],
+    "expr": "shadow(5)",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  }
+]

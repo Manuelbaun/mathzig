@@ -1,0 +1,307 @@
+{
+  "source": "libs/mathjs/examples/basic_usage.js",
+  "slug": "basic_usage_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 17,
+    "core": 14,
+    "extended": 2,
+    "unsupported": 1
+  },
+  "cases": [
+    {
+      "id": "basic_usage_js_001",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 23,
+      "expr": "round(e, 3)",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "expected": 2.718,
+      "tolerance": 0.000001
+    },
+    {
+      "id": "basic_usage_js_002",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 24,
+      "expr": "atan2(3, -3) / pi",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "expected": 0.75,
+      "tolerance": 0.000001
+    },
+    {
+      "id": "basic_usage_js_003",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 25,
+      "expr": "log(10000, 10)",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "expected": 4,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_004",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 26,
+      "expr": "sqrt(-4)",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__complex": true,
+        "re": 0,
+        "im": 2
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_005",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 27,
+      "expr": "pow([[-1, 2], [3, 1]], 2)",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          [
+            7,
+            0
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_006",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 28,
+      "expr": "derivative('x^2 + x', 'x')",
+      "tier": "unsupported",
+      "category": "api",
+      "setup": [],
+      "reason": "symbolic derivative unsupported",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_007",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 33,
+      "expr": "1.2 * (2 + 4.5)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "expected": 7.8,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_008",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 34,
+      "expr": "12.7 cm to inch",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "1.2 * (2 + 4.5)"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 5,
+        "unit": "inch"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "basic_usage_js_009",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 35,
+      "expr": "sin(45 deg) ^ 2",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch"
+      ],
+      "expected": 0.4999999999999999,
+      "tolerance": 0.000001
+    },
+    {
+      "id": "basic_usage_js_010",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 36,
+      "expr": "9 / 3 + 2i",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2"
+      ],
+      "expected": {
+        "__complex": true,
+        "re": 3,
+        "im": 2
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_011",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 37,
+      "expr": "det([-1, 2; 3, 1])",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2",
+        "9 / 3 + 2i"
+      ],
+      "expected": -7,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_012",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 46,
+      "expr": "a",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_013",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 51,
+      "expr": "4 + [5, 6]",
+      "tier": "core",
+      "category": "translated",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          9,
+          10
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_014",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 52,
+      "expr": "5 mm * 3",
+      "tier": "core",
+      "category": "translated",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 15,
+        "unit": "mm"
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_015",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 53,
+      "expr": "[2, 3, 4] - 5",
+      "tier": "core",
+      "category": "translated",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          -3,
+          -2,
+          -1
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_016",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 54,
+      "expr": "[2, 3] + [4, 5]",
+      "tier": "core",
+      "category": "translated",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          6,
+          8
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "basic_usage_js_017",
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "line": 61,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "1.2 * (2 + 4.5)",
+        "12.7 cm to inch",
+        "sin(45 deg) ^ 2",
+        "9 / 3 + 2i",
+        "det([-1, 2; 3, 1])"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

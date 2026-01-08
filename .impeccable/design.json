@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-07T00:00:00.000Z",
+  "title": "Design System: MathZig Console",
+  "extensions": {
+    "colorMeta": {
+      "hue-neutral": {
+        "role": "neutral",
+        "displayName": "Slate Neutral Hue",
+        "canonical": "255",
+        "purpose": "Cool slate tint for all neutral surfaces and operator tokens."
+      },
+      "bg-app": {
+        "role": "neutral",
+        "displayName": "App Slate",
+        "canonical": "oklch(19% 0.006 255)",
+        "cssVar": "--bg-app",
+        "tonalRamp": [
+          "oklch(12% 0.005 255)",
+          "oklch(14% 0.005 255)",
+          "oklch(16% 0.006 255)",
+          "oklch(19% 0.006 255)",
+          "oklch(23% 0.007 255)",
+          "oklch(29% 0.009 255)",
+          "oklch(38% 0.010 255)",
+          "oklch(48% 0.010 255)"
+        ]
+      },
+      "bg-panel": {
+        "role": "neutral",
+        "displayName": "Panel Slate",
+        "canonical": "oklch(23% 0.007 255)",
+        "cssVar": "--bg-panel",
+        "tonalRamp": [
+          "oklch(14% 0.005 255)",
+          "oklch(17% 0.006 255)",
+          "oklch(19% 0.006 255)",
+          "oklch(23% 0.007 255)",
+          "oklch(27% 0.008 255)",
+          "oklch(31% 0.009 255)",
+          "oklch(38% 0.010 255)",
+          "oklch(46% 0.010 255)"
+        ]
+      },
+      "bg-inset": {
+        "role": "neutral",
+        "displayName": "Console Inset",
+        "canonical": "oklch(16% 0.005 255)",
+        "cssVar": "--bg-inset",
+        "tonalRamp": [
+          "oklch(10% 0.004 255)",
+          "oklch(12% 0.005 255)",
+          "oklch(14% 0.005 255)",
+          "oklch(16% 0.005 255)",
+          "oklch(19% 0.006 255)",
+          "oklch(23% 0.007 255)",
+          "oklch(29% 0.009 255)",
+          "oklch(36% 0.009 255)"
+        ]
+      },
+      "bg-active": {
+        "role": "neutral",
+        "displayName": "Active Row",
+        "canonical": "oklch(29% 0.009 255)",
+        "cssVar": "--bg-active"
+      },
+      "bg-overlay": {
+        "role": "neutral",
+        "displayName": "Overlay Slate",
+        "canonical": "oklch(25% 0.008 255)",
+        "cssVar": "--bg-overlay"
+      },
+      "bg-raised": {
+        "role": "neutral",
+        "displayName": "Raised Surface",
+        "canonical": "oklch(21% 0.007 255)",
+        "cssVar": "--bg-raised"
+      },
+      "border-subtle": {
+        "role": "neutral",
+        "displayName": "Subtle Border",
+        "canonical": "oklch(38% 0.010 255)",
+        "cssVar": "--border-subtle"
+      },
+      "border-focus": {
+        "role": "primary",
+        "displayName": "Focus Cyan",
+        "canonical": "oklch(70% 0.14 215)",
+        "cssVar": "--border-focus",
+        "tonalRamp": [
+          "oklch(35% 0.10 215)",
+          "oklch(45% 0.12 215)",
+          "oklch(55% 0.13 215)",
+          "oklch(62% 0.14 215)",
+          "oklch(70% 0.14 215)",
+          "oklch(76% 0.13 215)",
+          "oklch(82% 0.11 215)",
+          "oklch(88% 0.08 215)"
+        ]
+      },
+      "fg-primary": {
+        "role": "neutral",
+        "displayName": "Primary Text",
+        "canonical": "oklch(90% 0.005 255)",
+        "cssVar": "--fg-primary",
+        "tonalRamp": [
+          "oklch(30% 0.006 255)",
+          "oklch(42% 0.007 255)",
+          "oklch(54% 0.007 255)",
+          "oklch(68% 0.008 255)",
+          "oklch(78% 0.006 255)",
+          "oklch(84% 0.005 255)",
+          "oklch(90% 0.005 255)",
+          "oklch(95% 0.004 255)"
+        ]
+      },
+      "fg-secondary": {
+        "role": "neutral",
+        "displayName": "Secondary Text",
+        "canonical": "oklch(68% 0.008 255)",
+        "cssVar": "--fg-secondary"
+      },
+      "fg-muted": {
+        "role": "neutral",
+        "displayName": "Muted Text",
+        "canonical": "oklch(54% 0.007 255)",
+        "cssVar": "--fg-muted"
+      },
+      "syntax-keyword": {
+        "role": "secondary",
+        "displayName": "Syntax Keyword Blue",
+        "canonical": "oklch(76% 0.13 230)",
+        "cssVar": "--color-keyword",
+        "tonalRamp": [
+          "oklch(35% 0.09 230)",
+          "oklch(45% 0.10 230)",
+          "oklch(55% 0.11 230)",
+          "oklch(65% 0.12 230)",
+          "oklch(76% 0.13 230)",
+          "oklch(80% 0.12 230)",
+          "oklch(85% 0.10 230)",
+          "oklch(90% 0.07 230)"
+        ]
+      },
+      "syntax-number": {
+        "role": "secondary",
+        "displayName": "Number Mint",
+        "canonical": "oklch(82% 0.11 155)",
+        "cssVar": "--color-number",
+        "tonalRamp": [
+          "oklch(40% 0.07 155)",
+          "oklch(50% 0.08 155)",
+          "oklch(60% 0.09 155)",
+          "oklch(70% 0.10 155)",
+          "oklch(82% 0.11 155)",
+          "oklch(86% 0.10 155)",
+          "oklch(90% 0.08 155)",
+          "oklch(94% 0.06 155)"
+        ]
+      },
+      "syntax-string": {
+        "role": "secondary",
+        "displayName": "String Apricot",
+        "canonical": "oklch(80% 0.11 45)",
+        "cssVar": "--color-string"
+      },
+      "syntax-type": {
+        "role": "tertiary",
+        "displayName": "Syntax Type Aqua",
+        "canonical": "oklch(78% 0.12 195)",
+        "cssVar": "--color-type",
+        "tonalRamp": [
+          "oklch(38% 0.08 195)",
+          "oklch(48% 0.09 195)",
+          "oklch(58% 0.10 195)",
+          "oklch(68% 0.11 195)",
+          "oklch(78% 0.12 195)",
+          "oklch(82% 0.11 195)",
+          "oklch(86% 0.09 195)",
+          "oklch(92% 0.06 195)"
+        ]
+      },
+      "syntax-function": {
+        "role": "secondary",
+        "displayName": "Function Wheat",
+        "canonical": "oklch(86% 0.09 95)",
+        "cssVar": "--color-function"
+      },
+      "syntax-variable": {
+        "role": "secondary",
+        "displayName": "Variable Periwinkle",
+        "canonical": "oklch(80% 0.12 275)",
+        "cssVar": "--color-variable",
+        "tonalRamp": [
+          "oklch(38% 0.08 275)",
+          "oklch(48% 0.09 275)",
+          "oklch(58% 0.10 275)",
+          "oklch(68% 0.11 275)",
+          "oklch(80% 0.12 275)",
+          "oklch(84% 0.11 275)",
+          "oklch(88% 0.09 275)",
+          "oklch(92% 0.06 275)"
+        ]
+      },
+      "syntax-operator": {
+        "role": "neutral",
+        "displayName": "Operator Neutral",
+        "canonical": "oklch(84% 0.004 255)",
+        "cssVar": "--color-operator"
+      },
+      "syntax-comment": {
+        "role": "neutral",
+        "displayName": "Comment Sage",
+        "canonical": "oklch(60% 0.05 145)",
+        "cssVar": "--color-comment"
+      },
+      "status-success": {
+        "role": "primary",
+        "displayName": "Success Green",
+        "canonical": "oklch(76% 0.13 150)",
+        "cssVar": "--status-success",
+        "tonalRamp": [
+          "oklch(35% 0.09 150)",
+          "oklch(45% 0.10 150)",
+          "oklch(55% 0.11 150)",
+          "oklch(65% 0.12 150)",
+          "oklch(76% 0.13 150)",
+          "oklch(80% 0.12 150)",
+          "oklch(86% 0.10 150)",
+          "oklch(92% 0.07 150)"
+        ]
+      },
+      "status-error": {
+        "role": "primary",
+        "displayName": "Error Coral",
+        "canonical": "oklch(74% 0.16 22)",
+        "cssVar": "--status-error",
+        "tonalRamp": [
+          "oklch(35% 0.12 22)",
+          "oklch(45% 0.13 22)",
+          "oklch(55% 0.14 22)",
+          "oklch(64% 0.15 22)",
+          "oklch(74% 0.16 22)",
+          "oklch(78% 0.14 22)",
+          "oklch(84% 0.12 22)",
+          "oklch(90% 0.09 22)"
+        ]
+      },
+      "status-warn": {
+        "role": "primary",
+        "displayName": "Warn Amber",
+        "canonical": "oklch(82% 0.13 80)",
+        "cssVar": "--status-warn"
+      }
+    },
+    "typographyMeta": {
+      "body": {
+        "displayName": "UI Body",
+        "purpose": "Default interface text, metadata, shortcut labels."
+      },
+      "mono": {
+        "displayName": "REPL Mono",
+        "purpose": "Expressions, results, variable names, console output."
+      },
+      "label": {
+        "displayName": "Panel Label",
+        "purpose": "Uppercase section headers and toolbar labels."
+      },
+      "title": {
+        "displayName": "Component Title",
+        "purpose": "Inspector titles, plot headers, brand weight."
+      }
+    },
+    "shadows": [
+      {
+        "name": "modal-lift",
+        "value": "0 16px 40px color-mix(in oklch, var(--bg-inset) 75%, transparent)",
+        "purpose": "Inspector window elevation only."
+      },
+      {
+        "name": "drawer-lift",
+        "value": "8px 0 24px color-mix(in oklch, var(--bg-inset) 70%, transparent)",
+        "purpose": "Mobile sidebar drawer shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-hint",
+        "value": "opacity 0.2s ease-out",
+        "purpose": "Input hint fade on focus."
+      },
+      {
+        "name": "ease-loader",
+        "value": "1s infinite ease-out",
+        "purpose": "WASM loader bar sweep."
+      },
+      {
+        "name": "ease-loader-fade",
+        "value": "opacity 0.3s ease-out",
+        "purpose": "Loader overlay dismiss."
+      },
+      {
+        "name": "ease-drawer",
+        "value": "transform 0.2s ease-out",
+        "purpose": "Mobile sidebar slide."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "768px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Toolbar actions: Clear, LaTeX toggle, plot controls.",
+      "html": "<button type=\"button\" class=\"ds-btn-ghost\">Clear</button>",
+      "css": ".ds-btn-ghost { background: var(--bg-active); color: var(--fg-secondary); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 4px 8px; font-family: var(--font-ui); font-size: 10px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; cursor: pointer; transition: color 0.15s ease-out, border-color 0.15s ease-out; } .ds-btn-ghost:hover { color: var(--fg-primary); border-color: var(--fg-secondary); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button Danger",
+      "kind": "button",
+      "refersTo": "button-ghost-danger",
+      "description": "Destructive actions such as Reset VM.",
+      "html": "<button type=\"button\" class=\"ds-btn-ghost-danger\">Reset VM</button>",
+      "css": ".ds-btn-ghost-danger { background: var(--bg-active); color: var(--status-error); border: 1px solid color-mix(in oklch, var(--status-error) 45%, transparent); border-radius: 8px; padding: 4px 8px; font-family: var(--font-ui); font-size: 10px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; cursor: pointer; transition: color 0.15s ease-out, border-color 0.15s ease-out; } .ds-btn-ghost-danger:hover { border-color: var(--status-error); } .ds-btn-ghost-danger:focus-visible { outline: 2px solid var(--status-error); outline-offset: 2px; }"
+    },
+    {
+      "name": "REPL Input",
+      "kind": "input",
+      "refersTo": "input-repl",
+      "description": "Primary expression entry at the bottom of the console.",
+      "html": "<div class=\"ds-input-bar\"><span class=\"ds-prompt\">➜</span><input type=\"text\" class=\"ds-input-repl\" placeholder=\"Enter expression...\" spellcheck=\"false\" /></div>",
+      "css": ".ds-input-bar { display: flex; align-items: center; gap: 10px; background: var(--bg-panel); padding: 12px 16px; border-top: 1px solid var(--border-subtle); } .ds-prompt { color: var(--color-keyword); font-family: var(--font-mono); font-weight: 700; } .ds-input-repl { flex: 1; background: transparent; border: none; color: var(--fg-primary); font-family: var(--font-mono); font-size: 14px; caret-color: var(--color-keyword); } .ds-input-repl::placeholder { color: var(--fg-secondary); } .ds-input-repl:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; border-radius: 2px; }"
+    },
+    {
+      "name": "Panel Header",
+      "kind": "custom",
+      "refersTo": "panel-header",
+      "description": "Uppercase section label for sidebar panels.",
+      "html": "<div class=\"ds-panel-header\"><span>Quick Ref</span></div>",
+      "css": ".ds-panel-header { padding: 10px 16px; font-family: var(--font-ui); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--fg-secondary); background: var(--bg-panel); border-bottom: 1px solid var(--border-subtle); }"
+    },
+    {
+      "name": "List Item",
+      "kind": "custom",
+      "refersTo": "list-item",
+      "description": "Clickable quick-ref row; inserts expression into REPL input.",
+      "html": "<button type=\"button\" class=\"ds-list-item\"><code>det(m)</code> <span class=\"ds-list-label\">Determinant</span></button>",
+      "css": ".ds-list-item { width: 100%; text-align: left; padding: 6px 14px; display: flex; align-items: center; justify-content: space-between; background: transparent; border: none; cursor: pointer; color: var(--fg-primary); font-family: var(--font-mono); font-size: 11px; line-height: 1.3; } .ds-list-item code { color: var(--color-keyword); } .ds-list-label { color: var(--fg-secondary); font-family: var(--font-ui); } .ds-list-item:hover { background: var(--bg-active); } .ds-list-item:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -2px; }"
+    },
+    {
+      "name": "Status Indicator",
+      "kind": "chip",
+      "refersTo": "status-indicator",
+      "description": "WASM runtime connection state in the header.",
+      "html": "<div class=\"ds-status ready\"><span class=\"ds-status-dot\"></span><span>Ready</span></div>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui); font-size: 12px; font-weight: 600; color: var(--fg-secondary); background: var(--bg-active); border: 1px solid var(--border-subtle); padding: 5px 10px; border-radius: 12px; } .ds-status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fg-secondary); } .ds-status.ready { color: var(--status-success); border-color: var(--status-success); } .ds-status.ready .ds-status-dot { background: var(--status-success); }"
+    },
+    {
+      "name": "Variable Row",
+      "kind": "custom",
+      "description": "Sidebar variable entry with type badge and truncated value.",
+      "html": "<button type=\"button\" class=\"ds-var-item\"><span class=\"ds-var-name\">x</span><span class=\"ds-var-meta\"><span class=\"ds-var-type\">number</span><span class=\"ds-var-value\">42</span></span></button>",
+      "css": ".ds-var-item { width: 100%; padding: 6px 16px; display: flex; justify-content: space-between; align-items: baseline; background: transparent; border: none; cursor: pointer; text-align: left; } .ds-var-name { color: var(--color-variable); font-family: var(--font-mono); font-size: 12px; } .ds-var-meta { display: flex; align-items: center; gap: 6px; } .ds-var-type { font-size: 9px; color: var(--fg-secondary); text-transform: uppercase; } .ds-var-value { color: var(--color-number); font-family: var(--font-mono); font-size: 12px; } .ds-var-item:hover { background: var(--bg-active); } .ds-var-item:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -2px; }"
+    },
+    {
+      "name": "Log Entry",
+      "kind": "custom",
+      "description": "Console output block with prompt line and result.",
+      "html": "<div class=\"ds-log-entry\"><div class=\"ds-log-input\">sin(pi/4)</div><div class=\"ds-log-result number\">0.7071</div></div>",
+      "css": ".ds-log-entry { margin-bottom: 12px; padding: 8px 12px; background: color-mix(in oklch, var(--bg-active) 25%, transparent); border: 1px solid var(--border-subtle); border-radius: 4px; } .ds-log-input { color: var(--fg-secondary); font-family: var(--font-mono); font-size: 13px; margin-bottom: 4px; } .ds-log-result { color: var(--fg-primary); font-family: var(--font-mono); font-size: 13px; line-height: 1.5; white-space: pre-wrap; } .ds-log-result.number { color: var(--color-number); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Clear Instrument",
+    "overview": "MathZig Console is a workstation surface for engineers and scientists who evaluate expressions, inspect variables, and plot results without leaving a REPL mindset. The interface borrows the spatial logic of an IDE (header, sidebar, console, input bar) but strips away file-tree chrome. Density is a feature: monospace output, tight panel headers, and syntax-colored values let users scan numbers and types at speed.\n\nThe system is dark-first because the primary scene is a developer at a desk, often in a dim room, running repeated evaluations while watching console output and variable state. Surfaces use cool slate neutrals (hue 255) for clarity over long sessions.",
+    "keyCharacteristics": [
+      "IDE-native three-pane layout: sidebar (260px), console (flex), input bar (fixed bottom)",
+      "Syntax-colored output with independent hues, not warm-neutral bleed",
+      "Compact 11–13px type scale tuned for data density, not marketing display",
+      "Tonal layering for depth; shadows reserved for modals and mobile drawer",
+      "REPL-first interaction: keyboard history, click-to-insert examples, variable inspector"
+    ],
+    "rules": [
+      {
+        "name": "The Syntax-Only Color Rule",
+        "body": "Syntax palette colors appear only on typed content (keywords, numbers, strings, types). UI chrome stays neutral slate plus Focus Cyan. Never splash syntax aqua on a button background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tonal Depth Rule",
+        "body": "Surface hierarchy is conveyed by background step (inset → app → raised → panel → active), not by colored side stripes or gradient fills on panels.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono-for-Data Rule",
+        "body": "Any user-authored or computed value renders in JetBrains Mono. Inter is for chrome, never for numbers the user is evaluating.",
+        "section": "typography"
+      },
+      {
+        "name": "The Fixed Scale Rule",
+        "body": "Type sizes are fixed rem/px steps (9, 10, 11, 12, 13, 14). No fluid clamp headings. Sidebar and console density must not shift with viewport width.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Panel Rule",
+        "body": "Sidebar sections, toolbar, and log entries are flat at rest. Elevation is a response to overlay or runtime state, never default decoration.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use CSS custom properties from :root for all new surfaces and text colors.",
+      "Do render computed values, expressions, and variable names in JetBrains Mono.",
+      "Do keep panel headers at 11px uppercase with 0.5px letter-spacing.",
+      "Do use border-subtle (1px) for dividers between panels, table cells, and plot frames.",
+      "Do reserve status-success, status-error, and status-warn strictly for runtime state.",
+      "Do collapse long console output with <details> rather than infinite scroll blocks.",
+      "Do label range sliders with <label for=\"id\"> (see Lorenz controls pattern)."
+    ],
+    "donts": [
+      "Don't use border-left or border-right greater than 1px as a colored accent on list items, log entries, or callouts. Use background tint or full borders instead.",
+      "Don't apply backdrop-filter blur on overlays. Use solid tinted bg-overlay.",
+      "Don't use decorative gradients on icons, status pills, or panel headers.",
+      "Don't use pure #000 or #fff. Tint neutrals toward hue-neutral.",
+      "Don't load syntax colors onto button backgrounds or panel chrome.",
+      "Don't hide the entire sidebar on mobile without providing an alternative path to variables and quick-ref commands.",
+      "Don't set outline: none globally without :focus-visible replacements.",
+      "Don't add marketing hero metrics, card grids, or modal-first flows for features that fit inline in the console."
+    ]
+  }
+}

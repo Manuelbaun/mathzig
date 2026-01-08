@@ -1,0 +1,25 @@
+{
+  "source": "libs/mathjs/examples/browser/angle_configuration.html",
+  "slug": "browser_angle_configuration_html",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 1,
+    "core": 0,
+    "extended": 1,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "browser_angle_configuration_html_001",
+      "source": "libs/mathjs/examples/browser/angle_configuration.html",
+      "line": 40,
+      "expr": "sin(45)",
+      "tier": "extended",
+      "category": "html_input",
+      "setup": [],
+      "expected": 0.8509035245341184,
+      "reason": "default expression input",
+      "tolerance": 0.000001
+    }
+  ]
+}

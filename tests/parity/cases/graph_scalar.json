@@ -1,0 +1,12 @@
+[
+  {
+    "id": "graph_scalar_chain_equivalent_expression",
+    "expr": "((x * 2 + y) - 1.25) / x",
+    "vars": { "x": 3, "y": 4 },
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12,
+    "note": "B1 scalar graph golden expression for x -> double -> sum -> result chain"
+  }
+]

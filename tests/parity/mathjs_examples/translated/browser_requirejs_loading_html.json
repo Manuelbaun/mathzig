@@ -1,0 +1,24 @@
+{
+  "source": "libs/mathjs/examples/browser/requirejs_loading.html",
+  "slug": "browser_requirejs_loading_html",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 1,
+    "core": 0,
+    "extended": 1,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "browser_requirejs_loading_html_001",
+      "source": "libs/mathjs/examples/browser/requirejs_loading.html",
+      "line": 14,
+      "expr": "1.2 * (2 + 4.5)",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "expected": 7.8,
+      "tolerance": 1e-9
+    }
+  ]
+}

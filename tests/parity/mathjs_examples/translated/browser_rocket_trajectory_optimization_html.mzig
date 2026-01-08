@@ -1,0 +1,199 @@
+// Translated from libs/mathjs/examples/browser/rocket_trajectory_optimization.html
+// MathZig translation (edit this file directly)
+// Cases: 64 (core=0, extended=64)
+
+// line 61 [extended]
+G = 6.67408e-11 m^3 kg^-1 s^-2
+
+// line 62 [extended]
+mbody = 5.9724e24 kg
+
+// line 63 [extended]
+mu = G * mbody
+
+// line 64 [extended]
+g0 = 9.80665 m/s^2
+
+// line 65 [extended]
+r0 = 6371 km
+
+// line 66 [extended]
+t0 = 0 s
+
+// line 67 [extended]
+dt = 0.5 s
+
+// line 68 [extended]
+tfinal = 149.5 s
+
+// line 69 [extended]
+isp_sea = 282 s
+
+// line 70 [extended]
+isp_vac = 311 s
+
+// line 71 [extended]
+gamma0 = 89.99970 deg
+
+// line 72 [extended]
+v0 = 1 m/s
+
+// line 73 [extended]
+phi0 = 0 deg
+
+// line 74 [extended]
+m1 = 433100 kg
+
+// line 75 [extended]
+m2 = 111500 kg
+
+// line 76 [extended]
+m3 = 1700 kg
+
+// line 77 [extended]
+mp = 5000 kg
+
+// line 78 [extended]
+m0 = m1+m2+m3+mp
+
+// line 79 [extended]
+dm = 2750 kg/s
+
+// line 80 [extended]
+A = (3.66 m)^2 * pi
+
+// line 81 [extended]
+dragCoef = 0.2
+
+// line 84 [extended] — mathjs returns function object
+gravity(r) = mu / r^2
+
+// line 85 [extended] — mathjs returns function object
+angVel(r, v, gamma) = v/r * cos(gamma) * rad
+
+// line 86 [extended] — mathjs returns function object
+density(r) = 1.2250 kg/m^3 * exp(-g0 * (r - r0) / (83246.8 m^2/s^2))
+
+// line 87 [extended] — mathjs returns function object
+drag(r, v) = 1/2 * density(r) .* v.^2 * A * dragCoef
+
+// line 88 [extended] — mathjs returns function object
+isp(r) = isp_vac + (isp_sea - isp_vac) * density(r)/density(r0)
+
+// line 89 [extended] — mathjs returns function object
+thrust(isp) = g0 * isp * dm
+
+// line 91 [extended] — mathjs returns function object
+drdt(r, v, m, phi, gamma, t) = v sin(gamma)
+
+// line 92 [extended] — mathjs returns function object
+dvdt(r, v, m, phi, gamma, t) = - gravity(r) * sin(gamma) + (thrust(isp(r)) - drag(r, v)) / m
+
+// line 93 [extended] — mathjs returns function object
+dmdt(r, v, m, phi, gamma, t) = - dm
+
+// line 94 [extended] — mathjs returns function object
+dphidt(r, v, m, phi, gamma, t) = angVel(r, v, gamma)
+
+// line 95 [extended] — mathjs returns function object
+dgammadt(r, v, m, phi, gamma, t) = angVel(r, v, gamma) - gravity(r) * cos(gamma) / v * rad
+
+// line 96 [extended] — mathjs returns function object
+dtdt(r, v, m, phi, gamma, t) = 1
+
+// line 99 [extended]
+result_stage1 = ndsolve([drdt, dvdt, dmdt, dphidt, dgammadt, dtdt], [r0, v0, m0, phi0, gamma0, t0], dt, tfinal)
+
+// line 102 [extended]
+dm = 0 kg/s
+
+// line 103 [extended]
+tfinal = 10 s
+
+// line 104 [extended] — requires mathjs scope object
+x = flatten(result_stage1[end,:])
+
+// line 105 [extended] — requires mathjs scope object
+x[3] = m2+m3+mp
+
+// line 106 [extended]
+result_interstage = ndsolve([drdt, dvdt, dmdt, dphidt, dgammadt, dtdt], x, dt, tfinal)
+
+// line 109 [extended]
+dm = 270.8 kg/s
+
+// line 110 [extended]
+isp_vac = 348 s
+
+// line 111 [extended]
+tfinal = 350 s
+
+// line 112 [extended] — requires mathjs scope object
+x = flatten(result_interstage[end,:])
+
+// line 113 [extended]
+result_stage2 = ndsolve([drdt, dvdt, dmdt, dphidt, dgammadt, dtdt], x, dt, tfinal)
+
+// line 117 [extended]
+tfinal = 900 s
+
+// line 118 [extended]
+dt = 10 s
+
+// line 119 [extended] — requires mathjs scope object
+x = flatten(result_stage2[end,:])
+
+// line 120 [extended]
+result_unpowered1 = ndsolve([drdt, dvdt, dmdt, dphidt, dgammadt, dtdt], x, dt, tfinal)
+
+// line 124 [extended]
+tfinal = 39 s
+
+// line 126 [extended] — requires mathjs scope object
+x = flatten(result_unpowered1[end,:])
+
+// line 127 [extended]
+result_insertion = ndsolve([drdt, dvdt, dmdt, dphidt, dgammadt, dtdt], x, dt, tfinal)
+
+// line 131 [extended]
+tfinal = 250 s
+
+// line 133 [extended] — requires mathjs scope object
+x = flatten(result_insertion[end,:])
+
+// line 134 [extended]
+result_unpowered2 = ndsolve([drdt, dvdt, dmdt, dphidt, dgammadt, dtdt], x, dt, tfinal)
+
+// line 144 [extended]
+${resultName}[:end-1, :]
+
+// line 152 [extended]
+concat('
+        + `(${resultName}[:,4] - phi0) * r0 / rad / km,`  // Surface distance from start (in km)
+        + `(${resultName}[:,1] - r0) / km`                // Height above surface (in km)
+        +
+
+// line 170 [extended] — requires mathjs scope object
+result[:,[2,6]]
+
+// line 176 [extended] — requires mathjs scope object
+concat((result[:, 1] - r0), result[:, 6])
+
+// line 182 [extended] — requires mathjs scope object
+result[:, [5,6]]
+
+// line 188 [extended] — requires mathjs scope object
+concat(diff(result[:, 2]) ./ diff(result[:, 6]), result[:end-1, 6])
+
+// line 194 [extended] — requires mathjs scope object
+result
+
+// line 198 [extended]
+drag(${r},${v})/${m}
+
+// line 204 [extended] — requires mathjs scope object
+result[:, [1,4]]
+
+// line 210 [extended]
+map(0:0.25:360, function(angle) = rotate([r0/km, 0], angle))
+

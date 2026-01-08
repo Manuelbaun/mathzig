@@ -1,0 +1,188 @@
+# ============================================================================
+# MathZig Master Replay Script
+# ============================================================================
+
+# --- 1. Scalar Arithmetic & Constants ---
+2 + 3 * 4           # 14
+(10 - 2) / 4        # 2
+2^10                # 1024
+5 % 3               # 2
+-5 + 10             # 5
+
+pi                  # 3.14159...
+e                   # 2.71828...
+tau                 # 6.28318...
+phi                 # 1.61803...
+inf > 10^100        # true
+nan == nan          # true
+
+sin(pi/2)           # 1
+sqrt(16)            # 4
+abs(-42)            # 42
+log(e)              # 1
+exp(0)              # 1
+clamp(5, 0, 10)     # 5
+
+# --- 2. Complex Numbers ---
+1 + 2i
+3 - 4i
+i^2                 # -1
+(1 + i) * (1 - i)   # 2
+re(5 + 3i)          # 5
+im(5 + 3i)          # 3
+conj(10 + i)        # 10 - i
+abs(3 + 4i)         # 5
+arg(i)              # pi/2
+
+# --- 3. Units & Conversions ---
+10m
+500cm
+10m + 500cm         # 15m
+10m - 2000mm        # 8m
+2km * 3km           # 6000000 m^2
+10m / 2s            # 5 m/s
+
+# Conversions
+1km to m            # 1000
+1000m in km         # 1
+50km/h to m/s       # 13.888...
+60min as h          # 1
+100W * 1h as J      # 360000
+conv(100, degC)     # 373.15 (Normalized K)
+conv(373.15, degC)  # 100 (Back to Celsius)
+
+# Unit-Scalar mixing
+10m * 2             # 20m
+5 * 10kg            # 50kg
+100 / 10s           # 10 s^-1
+
+# Compound units (explicit syntax)
+10 [m/s]
+5.5 [kg*m/s^2]      # 5.5 N
+22 [degC]
+
+# --- 4. Matrices ---
+A = [1, 2; 3, 4]
+B = [5, 6; 7, 8]
+A + B
+A - B
+A * B
+A .* B              # Element-wise mul
+A ./ B              # Element-wise div
+A .^ 2              # Element-wise power
+
+# Broadcasting
+A + 10
+A - 5
+A * 2
+A / 2
+
+# Vectors
+V_row = [1, 2, 3]
+V_col = [1; 2; 3]
+V_row * V_col       # Dot product (Matrix 1x1)
+dot([1, 2, 3], [4, 5, 6]) # 32
+
+# Functions
+det(A)              # -2
+inv([4, 7; 2, 6])
+transpose(A)
+trace(A)            # 5
+size(A)
+diag(A)             # [1; 4]
+norm([3, 4])        # 5
+
+# Reshaping
+flatten(A)          # 4x1
+reshape([1, 2, 3, 4, 5, 6], 2, 3)
+identity(3)
+zeros(2, 2)
+ones(1, 5)
+
+# --- 5. Time Series ---
+# Constructors
+S1 = series([10, 20, 15, 30, 25])
+S2 = series([0, 10, 30, 60, 100], [100, 110, 150, 130, 120])
+
+# Basic Aggregations
+sum(S1)             # 100
+mean(S1)            # 20
+min(S1)             # 10
+max(S1)             # 30
+len(S1)             # 5
+
+# Temporal Aggregation
+twa(S2)             # Time-weighted average
+
+# Cumulative Ops
+cumsum(S1)
+cummax(S1)
+cummin(S1)
+
+# Advanced Indicators & Calculus
+derivative(S2)
+integrate(S2)
+diff(S1, 1)
+pct_change(S1, 1)
+
+# Moving Averages
+sma(S1, 2)
+ema(S1, 10)         # Half-life 10
+rsi(S1, 3)
+
+# Rolling Windows (Sample-based)
+rolling_sum(S1, 2)
+rolling_mean(S1, 2)
+rolling_stddev(S1, 2)
+
+# Rolling Windows (Duration-based)
+rolling_sum(S2, 30s)
+rolling_mean(S2, 60s)
+
+# Advanced (Returning Records)
+bollinger(S1, 3, 2)
+macd(S1, 2, 3, 2)
+
+# --- 6. Predicates & Resampling ---
+# Predicates (where clause)
+sum(S1) where value > 15
+mean(S2) where time > 50
+twa(S2) where value < 140
+count(S2) where dt > 15
+mean(S1) where value >= 10 and value <= 20
+
+# Resampling
+resample(S2, 30s)
+align(S1, S2)
+
+# Cleaning & Filling
+S_missing = series([0, 10, 20, 30], [1, nan, 3, nan])
+dropna(S_missing)
+fillna(S_missing, 0)
+fillna(S_missing, "forward")
+fillna(S_missing, "linear")
+clip(S1, 12, 28)
+
+# Range selection
+head(S1, 3)
+tail(S1, 2)
+since(S2, 50s)
+between(S2, 10, 70)
+
+# --- 7. Variables, Records & Control Flow ---
+# Standard Assignment (supported in scripts)
+var_x = 10 + 5
+var_y = var_x * 2
+var_x + var_y       # 45
+
+# Records
+R = {a: 1, b: 2, c: [1, 2; 3, 4]}
+R.a                 # 1
+R["b"]              # 2
+size(R.c)
+
+# Control Flow
+var_x > 0 ? 1 : 0   # 1
+var_x < 0 ? 1 : 0   # 0
+true || (1/0)       # true (short-circuit)
+false && (1/0)      # false (short-circuit)

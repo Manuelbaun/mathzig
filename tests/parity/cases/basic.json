@@ -1,0 +1,11 @@
+[
+  { "id": "arith_1", "expr": "1 + 2 * 3", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "arith_2", "expr": "(10 - 2) / 4", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "pow_1", "expr": "2 ^ 3", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "ternary_1", "expr": "1 < 2 ? 10 : 20", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "matrix_1", "expr": "[1, 2; 3, 4]", "vars": {}, "expected": { "tag": "matrix", "shape": [2, 2] }, "tolerance": 0 },
+  { "id": "record_1", "expr": "{a: 1, b: 2}", "vars": {}, "expected": { "tag": "record", "keys": ["a", "b"] }, "tolerance": 0 },
+  { "id": "undefined_1", "expr": "{a: 1}.b", "vars": {}, "expected": { "tag": "undefined" }, "tolerance": 0 },
+  { "id": "undefined_dyn", "expr": "r = {a: 1}; r[\"b\"]", "vars": {}, "expected": { "tag": "undefined" }, "tolerance": 0 },
+  { "id": "undefined_present", "expr": "{a: 1}.a", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 }
+]

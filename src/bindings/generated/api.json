@@ -1,0 +1,900 @@
+{
+  "classes": {
+    "MathZig": {
+      "description": "The main MathZig evaluation context",
+      "methods": [
+        {
+          "name": "compile",
+          "export_name": "mathzig_compile",
+          "description": "Compiles an expression string",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "expr", "type": "[]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" }
+          ],
+          "return_type": "*CompiledExpr", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "freeExpr",
+          "export_name": "mathzig_free_expr",
+          "description": "Frees a compiled expression",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "other" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "eval",
+          "export_name": "mathzig_eval",
+          "description": "Evaluates an expression string directly",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "expr", "type": "[]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" }
+          ],
+          "return_type": "Value", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "setVariable",
+          "export_name": "mathzig_set_variable",
+          "description": "Sets a numeric variable",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "name", "type": "[]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" },
+            { "name": "val", "type": "f64", "ffi_type": "f64", "binding": "f64" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "addVariableIndexed",
+          "export_name": "mathzig_add_variable_indexed",
+          "description": "Adds a variable and returns its index",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "name", "type": "[]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" },
+            { "name": "initial_val", "type": "f64", "ffi_type": "f64", "binding": "f64" }
+          ],
+          "return_type": "u24", "ffi_return_type": "u32"
+        },
+        {
+          "name": "setByIndex",
+          "export_name": "mathzig_set_by_index",
+          "description": "Sets a variable value by index",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "index", "type": "i32", "ffi_type": "i32", "binding": "i32" },
+            { "name": "val", "type": "f64", "ffi_type": "f64", "binding": "f64" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "setByIndexFast",
+          "export_name": "mathzig_set_by_index_fast",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "index", "type": "i32", "ffi_type": "i32", "binding": "i32" },
+            { "name": "val", "type": "f64", "ffi_type": "f64", "binding": "f64" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "getVariablesPtr",
+          "export_name": "mathzig_get_variables_ptr",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "[*]f64", "ffi_return_type": "?[*]f64"
+        },
+        {
+          "name": "toLaTeX",
+          "export_name": "mathzig_to_latex",
+          "description": "Generates LaTeX from an expression string",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "expr", "type": "[*:0]u8", "ffi_type": "?[*:0]const u8", "binding": "string" }
+          ],
+          "return_type": "?[*:0]const u8", "ffi_return_type": "?[*:0]const u8"
+        },
+        {
+          "name": "getError",
+          "export_name": "mathzig_get_error",
+          "description": "Returns the last error message",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "[*:0]u8", "ffi_return_type": "?[*:0]const u8"
+        },
+        {
+          "name": "getMemoryUsed",
+          "export_name": "mathzig_get_memory_used",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "getMemoryReserved",
+          "export_name": "mathzig_get_memory_reserved",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "getMemoryPeak",
+          "export_name": "mathzig_get_memory_peak",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "resetMemory",
+          "export_name": "mathzig_reset_memory",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "version",
+          "export_name": "mathzig_version",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "[*:0]u8", "ffi_return_type": "?[*:0]const u8"
+        },
+        {
+          "name": "getFunctions",
+          "export_name": "mathzig_get_functions",
+          "description": "Returns a JSON array of defined user function names",
+          "args": [
+            { "name": "self", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "[*:0]u8", "ffi_return_type": "?[*:0]const u8"
+        },
+        {
+          "name": "createSeries",
+          "export_name": "mathzig_create_series",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "timestamps", "type": "?[*]const f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "values", "type": "?[*]const f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "count", "type": "usize", "ffi_type": "usize", "binding": "usize" },
+            { "name": "sample_mode", "type": "usize", "ffi_type": "usize", "binding": "usize" }
+          ],
+          "return_type": "Series", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "compilePolynomial",
+          "export_name": "mathzig_compile_polynomial",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "var_index", "type": "i32", "ffi_type": "i32", "binding": "i32" },
+            { "name": "coefficients", "type": "?[*]const f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "count", "type": "u32", "ffi_type": "u32", "binding": "u32" }
+          ],
+          "return_type": "CompiledExpr", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "setSeries",
+          "export_name": "mathzig_set_series",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "name", "type": "[]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" },
+            { "name": "series", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "[*]u8" }
+          ],
+          "return_type": "bool", "ffi_return_type": "bool"
+        },
+        {
+          "name": "setDebug",
+          "export_name": "mathzig_set_debug",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "debug", "type": "bool", "ffi_type": "bool", "binding": "bool" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "writeCsv",
+          "export_name": "mathzig_write_csv",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "var_name", "type": "[]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" },
+            { "name": "path", "type": "[]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" }
+          ],
+          "return_type": "bool", "ffi_return_type": "bool"
+        },
+        {
+          "name": "getLastErrorOffset",
+          "export_name": "mathzig_get_last_error_offset",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "u32", "ffi_return_type": "u32"
+        },
+        {
+          "name": "recordNew",
+          "export_name": "mathzig_record_new",
+          "description": "Creates an empty engine record owned by this context's arena",
+          "args": [
+            { "name": "ctx", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "?*anyopaque", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "recordSetWire",
+          "export_name": "mathzig_record_set_wire",
+          "description": "Sets one record field from a wire f64 + kind byte",
+          "args": [
+            { "name": "ctx", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "rec", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "?*anyopaque" },
+            { "name": "key", "type": "?[*:0]const u8", "ffi_type": "?[*:0]const u8", "binding": "string" },
+            { "name": "wire", "type": "f64", "ffi_type": "f64", "binding": "f64" },
+            { "name": "kind", "type": "u8", "ffi_type": "u8", "binding": "u8" }
+          ],
+          "return_type": "bool", "ffi_return_type": "bool"
+        },
+        {
+          "name": "callBuiltinWire",
+          "export_name": "mathzig_call_builtin",
+          "description": "Delegates an AOT wire-format builtin call through the VM",
+          "args": [
+            { "name": "ctx", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "builtin_id", "type": "i32", "ffi_type": "i32", "binding": "i32" },
+            { "name": "argc", "type": "i32", "ffi_type": "i32", "binding": "i32" },
+            { "name": "args_ptr", "type": "?[*]const f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "kinds_ptr", "type": "?[*]const u8", "ffi_type": "?[*]const u8", "binding": "?[*]const u8" },
+            { "name": "pred_ptr", "type": "?[*]const u8", "ffi_type": "?[*]const u8", "binding": "?[*]const u8" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        }
+      ]
+    },
+    "CompiledExpr": {
+      "description": "A compiled mathematical expression",
+      "methods": [
+        {
+          "name": "evaluate",
+          "export_name": "mathzig_evaluate",
+          "description": "Evaluates the expression",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "context" },
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "Value", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "evaluateFast",
+          "export_name": "mathzig_evaluate_fast",
+          "description": "Evaluates as f64 with minimal overhead",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "context" },
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "getBytecodeSize",
+          "export_name": "mathzig_expr_bytecode_size",
+          "description": "",
+          "args": [
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "getNumInstructions",
+          "export_name": "mathzig_expr_num_instructions",
+          "description": "",
+          "args": [
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "getNumVariables",
+          "export_name": "mathzig_expr_num_variables",
+          "description": "",
+          "args": [
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "getNumConstants",
+          "export_name": "mathzig_expr_num_constants",
+          "description": "",
+          "args": [
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "getStackSize",
+          "export_name": "mathzig_expr_stack_size",
+          "description": "",
+          "args": [
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "evaluateBatch",
+          "export_name": "mathzig_evaluate_batch",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "context" },
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "var_index", "type": "i32", "ffi_type": "i32", "binding": "i32" },
+            { "name": "inputs", "type": "[*]f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "outputs", "type": "[*]f64", "ffi_type": "?[*]f64", "binding": "[*]f64" },
+            { "name": "count", "type": "i32", "ffi_type": "i32", "binding": "i32" }
+          ],
+          "return_type": "i32", "ffi_return_type": "i32"
+        },
+        {
+          "name": "evaluateBatchSIMD",
+          "export_name": "mathzig_batch_eval_simd",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "context" },
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "var_index", "type": "u8", "ffi_type": "u8", "binding": "u8" },
+            { "name": "inputs", "type": "[*]f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "outputs", "type": "[*]f64", "ffi_type": "?[*]f64", "binding": "[*]f64" },
+            { "name": "count", "type": "u32", "ffi_type": "u32", "binding": "u32" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "evaluateBatchParallel",
+          "export_name": "mathzig_batch_eval_parallel",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "context" },
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "var_index", "type": "u8", "ffi_type": "u8", "binding": "u8" },
+            { "name": "inputs", "type": "[*]f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "outputs", "type": "[*]f64", "ffi_type": "?[*]f64", "binding": "[*]f64" },
+            { "name": "count", "type": "u32", "ffi_type": "u32", "binding": "u32" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "evaluateBatchComplexSIMD",
+          "export_name": "mathzig_batch_eval_complex_simd",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "context" },
+            { "name": "expr", "type": "*CompiledExpr", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "var_index", "type": "u8", "ffi_type": "u8", "binding": "u8" },
+            { "name": "re_in", "type": "[*]f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "im_in", "type": "[*]f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "re_out", "type": "[*]f64", "ffi_type": "?[*]f64", "binding": "[*]f64" },
+            { "name": "im_out", "type": "[*]f64", "ffi_type": "?[*]f64", "binding": "[*]f64" },
+            { "name": "count", "type": "u32", "ffi_type": "u32", "binding": "u32" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        }
+      ]
+    },
+    "Value": {
+      "description": "A dynamically typed MathZig value",
+      "methods": [
+        {
+          "name": "retain",
+          "export_name": "mathzig_retain",
+          "description": "",
+          "args": [
+            { "name": "ptr", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "tag", "type": "u8", "ffi_type": "u8", "binding": "u8" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "release",
+          "export_name": "mathzig_release",
+          "description": "",
+          "args": [
+            { "name": "ptr", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "tag", "type": "u8", "ffi_type": "u8", "binding": "u8" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "toNumber",
+          "export_name": "mathzig_value_to_number",
+          "description": "",
+          "args": [
+            { "name": "ptr", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "tag", "type": "u8", "ffi_type": "u8", "binding": "u8" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "real",
+          "export_name": "mathzig_value_real",
+          "description": "",
+          "args": [
+            { "name": "ptr", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "imag",
+          "export_name": "mathzig_value_imag",
+          "description": "",
+          "args": [
+            { "name": "ptr", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        }
+      ]
+    },
+    "Record": {
+      "description": "A set of named fields",
+      "methods": [
+        {
+          "name": "len",
+          "export_name": "mathzig_record_len",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*Record", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "getField",
+          "export_name": "mathzig_record_get_field",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*Record", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "key", "type": "[*:0]u8", "ffi_type": "?[*:0]const u8", "binding": "string" }
+          ],
+          "return_type": "Value", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "keyAt",
+          "export_name": "mathzig_record_key_at",
+          "description": "NUL-terminated key of the i-th field (staging buffer, valid until next call)",
+          "args": [
+            { "name": "self", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "index", "type": "u32", "ffi_type": "u32", "binding": "u32" }
+          ],
+          "return_type": "?[*:0]const u8", "ffi_return_type": "?[*:0]const u8"
+        },
+        {
+          "name": "valueWireAt",
+          "export_name": "mathzig_record_value_wire_at",
+          "description": "Wire (f64) of the i-th field's value",
+          "args": [
+            { "name": "self", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "index", "type": "u32", "ffi_type": "u32", "binding": "u32" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "valueKindAt",
+          "export_name": "mathzig_record_value_kind_at",
+          "description": "Kind byte of the i-th field's value (0=number..5=record, 255=missing)",
+          "args": [
+            { "name": "self", "type": "?*anyopaque", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "index", "type": "u32", "ffi_type": "u32", "binding": "u32" }
+          ],
+          "return_type": "u8", "ffi_return_type": "u8"
+        }
+      ]
+    },
+    "Series": {
+      "description": "A time-series of floating point values",
+      "methods": [
+        {
+          "name": "len",
+          "export_name": "mathzig_series_len",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*Series", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "duration",
+          "export_name": "mathzig_series_duration",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*Series", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "getTimestampsPtr",
+          "export_name": "mathzig_series_get_timestamps_ptr",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*Series", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "[*]f64", "ffi_return_type": "?[*]const f64"
+        },
+        {
+          "name": "getValuesPtr",
+          "export_name": "mathzig_series_get_values_ptr",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*Series", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "[*]f64", "ffi_return_type": "?[*]const f64"
+        },
+        {
+          "name": "free",
+          "export_name": "mathzig_free_series",
+          "description": "",
+          "args": [
+            { "name": "self", "type": "*Series", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        }
+      ]
+    },
+    "Globals": {
+      "description": "Global library functions",
+      "methods": [
+        {
+          "name": "allocAligned",
+          "export_name": "mathzig_alloc_aligned",
+          "description": "",
+          "args": [
+            { "name": "alignment", "type": "usize", "ffi_type": "usize", "binding": "usize" },
+            { "name": "size", "type": "usize", "ffi_type": "usize", "binding": "usize" }
+          ],
+          "return_type": "?[*]u8", "ffi_return_type": "?[*]u8"
+        },
+        {
+          "name": "free",
+          "export_name": "mathzig_free",
+          "description": "",
+          "args": [
+            { "name": "ptr", "type": "?[*]u8", "ffi_type": "?[*]u8", "binding": "[*]u8" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "getLastNumber",
+          "export_name": "mathzig_get_last_number",
+          "description": "",
+          "args": [
+
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "getLastTag",
+          "export_name": "mathzig_get_last_tag",
+          "description": "",
+          "args": [
+
+          ],
+          "return_type": "u8", "ffi_return_type": "u8"
+        },
+        {
+          "name": "getLastPtr",
+          "export_name": "mathzig_get_last_ptr",
+          "description": "",
+          "args": [
+
+          ],
+          "return_type": "?*anyopaque", "ffi_return_type": "?*anyopaque"
+        },
+        {
+          "name": "formatLastValue",
+          "export_name": "mathzig_format_last_value",
+          "description": "Formats the last evaluation result into a buffer",
+          "args": [
+            { "name": "ctx", "type": "*MathZig", "ffi_type": "?*anyopaque", "binding": "this" },
+            { "name": "buffer", "type": "[*]u8", "ffi_type": "?[*]u8", "binding": "[*]u8" },
+            { "name": "len", "type": "usize", "ffi_type": "usize", "binding": "usize" }
+          ],
+          "return_type": "usize", "ffi_return_type": "usize"
+        },
+        {
+          "name": "version",
+          "export_name": "mathzig_version_number",
+          "description": "",
+          "args": [
+
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "lastWireKind",
+          "export_name": "mathzig_last_wire_kind",
+          "description": "Kind of the last delegated builtin result (0=number,1=matrix,2=series,3=complex,4=string,5=record,255=none)",
+          "args": [
+
+          ],
+          "return_type": "u8", "ffi_return_type": "u8"
+        },
+        {
+          "name": "builtinId",
+          "export_name": "mathzig_builtin_id",
+          "description": "Resolves a builtin name to its BuiltinFn discriminant",
+          "args": [
+            { "name": "name", "type": "[*:0]u8", "ffi_type": "?[*:0]const u8", "binding": "string" }
+          ],
+          "return_type": "i32", "ffi_return_type": "i32"
+        },
+        {
+          "name": "matrixFromData",
+          "export_name": "mathzig_matrix_from_data",
+          "description": "Creates an engine matrix from a row-major f64 buffer",
+          "args": [
+            { "name": "rows", "type": "u32", "ffi_type": "u32", "binding": "u32" },
+            { "name": "cols", "type": "u32", "ffi_type": "u32", "binding": "u32" },
+            { "name": "data", "type": "?[*]const f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" }
+          ],
+          "return_type": "?*anyopaque", "ffi_return_type": "?*anyopaque"
+        }
+      ]
+    },
+    "Matrix": {
+      "description": "A high-performance dense matrix",
+      "methods": [
+        {
+          "name": "rows",
+          "export_name": "mathzig_matrix_rows",
+          "description": "",
+          "args": [
+            { "name": "m", "type": "*Matrix", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "u32", "ffi_return_type": "u32"
+        },
+        {
+          "name": "cols",
+          "export_name": "mathzig_matrix_cols",
+          "description": "",
+          "args": [
+            { "name": "m", "type": "*Matrix", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "u32", "ffi_return_type": "u32"
+        },
+        {
+          "name": "getData",
+          "export_name": "mathzig_matrix_get_data",
+          "description": "",
+          "args": [
+            { "name": "m", "type": "*Matrix", "ffi_type": "?*anyopaque", "binding": "this" }
+          ],
+          "return_type": "[*]f64", "ffi_return_type": "?[*]const f64"
+        },
+        {
+          "name": "multiply",
+          "export_name": "mathzig_gemm",
+          "description": "Computes C = A * B",
+          "args": [
+            { "name": "rows_a", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "cols_a", "type": "u32", "ffi_type": "u32", "binding": "this.cols" },
+            { "name": "cols_b", "type": "u32", "ffi_type": "u32", "binding": "other.cols" },
+            { "name": "A", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "stride_a", "type": "u32", "ffi_type": "u32", "binding": "this.stride" },
+            { "name": "B", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "other.data" },
+            { "name": "stride_b", "type": "u32", "ffi_type": "u32", "binding": "other.stride" },
+            { "name": "C", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "out.data" },
+            { "name": "stride_c", "type": "u32", "ffi_type": "u32", "binding": "out.stride" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "multiplyParallel",
+          "export_name": "mathzig_gemm_parallel",
+          "description": "",
+          "args": [
+            { "name": "ctx", "type": "*Pool__struct_30004", "ffi_type": "?*anyopaque", "binding": "context" },
+            { "name": "rows_a", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "cols_a", "type": "u32", "ffi_type": "u32", "binding": "this.cols" },
+            { "name": "cols_b", "type": "u32", "ffi_type": "u32", "binding": "other.cols" },
+            { "name": "A", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "stride_a", "type": "u32", "ffi_type": "u32", "binding": "this.stride" },
+            { "name": "B", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "other.data" },
+            { "name": "stride_b", "type": "u32", "ffi_type": "u32", "binding": "other.stride" },
+            { "name": "C", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "out.data" },
+            { "name": "stride_c", "type": "u32", "ffi_type": "u32", "binding": "out.stride" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "inverse",
+          "export_name": "mathzig_matrix_inverse",
+          "description": "Computes the inverse of the matrix in-place",
+          "args": [
+            { "name": "n", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "A", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "this.data" },
+            { "name": "stride_a", "type": "u32", "ffi_type": "u32", "binding": "this.stride" },
+            { "name": "allocator", "type": "Allocator", "ffi_type": "?*anyopaque", "binding": "context.allocator" }
+          ],
+          "return_type": "bool", "ffi_return_type": "bool"
+        },
+        {
+          "name": "determinant",
+          "export_name": "mathzig_determinant",
+          "description": "Computes the determinant of the matrix",
+          "args": [
+            { "name": "n", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "A", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "stride_a", "type": "u32", "ffi_type": "u32", "binding": "this.stride" },
+            { "name": "allocator", "type": "Allocator", "ffi_type": "?*anyopaque", "binding": "context.allocator" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "gemv",
+          "export_name": "mathzig_gemv",
+          "description": "",
+          "args": [
+            { "name": "rows", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "cols", "type": "u32", "ffi_type": "u32", "binding": "this.cols" },
+            { "name": "alpha", "type": "f64", "ffi_type": "f64", "binding": "f64" },
+            { "name": "A", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "stride_a", "type": "u32", "ffi_type": "u32", "binding": "u32" },
+            { "name": "x", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "beta", "type": "f64", "ffi_type": "f64", "binding": "f64" },
+            { "name": "y", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "[*]f64" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "gemvSimple",
+          "export_name": "mathzig_gemv_simple",
+          "description": "",
+          "args": [
+            { "name": "rows", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "cols", "type": "u32", "ffi_type": "u32", "binding": "this.cols" },
+            { "name": "A", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "stride_a", "type": "u32", "ffi_type": "u32", "binding": "u32" },
+            { "name": "x", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "[*]const f64" },
+            { "name": "y", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "[*]f64" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "sum",
+          "export_name": "mathzig_matrix_sum",
+          "description": "",
+          "args": [
+            { "name": "rows", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "cols", "type": "u32", "ffi_type": "u32", "binding": "this.cols" },
+            { "name": "data", "type": "[*]f64", "ffi_type": "?[*]const f64", "binding": "this.data" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "mean",
+          "export_name": "mathzig_matrix_mean",
+          "description": "",
+          "args": [
+            { "name": "rows", "type": "u32", "ffi_type": "u32", "binding": "this.rows" },
+            { "name": "cols", "type": "u32", "ffi_type": "u32", "binding": "this.cols" },
+            { "name": "data", "type": "[*]f64", "ffi_type": "?[*]const f64", "binding": "this.data" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        }
+      ]
+    },
+    "Vector": {
+      "description": "A 1D floating point vector",
+      "methods": [
+        {
+          "name": "add",
+          "export_name": "mathzig_vec_add",
+          "description": "",
+          "args": [
+            { "name": "a", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "b", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "other.data" },
+            { "name": "c", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "out.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "sub",
+          "export_name": "mathzig_vec_sub",
+          "description": "",
+          "args": [
+            { "name": "a", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "b", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "other.data" },
+            { "name": "c", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "out.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "dot",
+          "export_name": "mathzig_vec_dot",
+          "description": "",
+          "args": [
+            { "name": "a", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "b", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "other.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "norm",
+          "export_name": "mathzig_vec_norm",
+          "description": "",
+          "args": [
+            { "name": "a", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "scale",
+          "export_name": "mathzig_vec_scale",
+          "description": "",
+          "args": [
+            { "name": "alpha", "type": "f64", "ffi_type": "f64", "binding": "f64" },
+            { "name": "a", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "b", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "out.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "scaleInplace",
+          "export_name": "mathzig_vec_scale_inplace",
+          "description": "",
+          "args": [
+            { "name": "alpha", "type": "f64", "ffi_type": "f64", "binding": "f64" },
+            { "name": "a", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "this.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "axpy",
+          "export_name": "mathzig_vec_axpy",
+          "description": "",
+          "args": [
+            { "name": "alpha", "type": "f64", "ffi_type": "f64", "binding": "f64" },
+            { "name": "x", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "y", "type": "[]f64", "ffi_type": "?[*]f64", "binding": "other.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "void", "ffi_return_type": "void"
+        },
+        {
+          "name": "sum",
+          "export_name": "mathzig_vec_sum",
+          "description": "",
+          "args": [
+            { "name": "a", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        },
+        {
+          "name": "mean",
+          "export_name": "mathzig_vec_mean",
+          "description": "",
+          "args": [
+            { "name": "a", "type": "[]const f64", "ffi_type": "?[*]const f64", "binding": "this.data" },
+            { "name": "len", "type": "u32", "ffi_type": "u32", "binding": "this.len" }
+          ],
+          "return_type": "f64", "ffi_return_type": "f64"
+        }
+      ]
+    }
+  }
+}

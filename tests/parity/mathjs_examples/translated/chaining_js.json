@@ -1,0 +1,141 @@
+{
+  "source": "libs/mathjs/examples/chaining.js",
+  "slug": "chaining_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 8,
+    "core": 0,
+    "extended": 8,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "chaining_js_001",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 10,
+      "expr": "a",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "chaining_js_002",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 18,
+      "expr": "b",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 0,
+        "unit": "b"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "chaining_js_003",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 26,
+      "expr": "str",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol str"
+      },
+      "mathjsError": "Undefined symbol str",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "chaining_js_004",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 31,
+      "expr": "myChain.valueOf()",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myChain"
+      },
+      "mathjsError": "Undefined symbol myChain",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "chaining_js_005",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 32,
+      "expr": "myChain + 2",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myChain"
+      },
+      "mathjsError": "Undefined symbol myChain",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "chaining_js_006",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 39,
+      "expr": "v",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol v"
+      },
+      "mathjsError": "Undefined symbol v",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "chaining_js_007",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 45,
+      "expr": "m",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 0,
+        "unit": "m"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "chaining_js_008",
+      "source": "libs/mathjs/examples/chaining.js",
+      "line": 51,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

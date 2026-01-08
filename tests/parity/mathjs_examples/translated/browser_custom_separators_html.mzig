@@ -1,0 +1,7 @@
+// Translated from libs/mathjs/examples/browser/custom_separators.html
+// MathZig translation (edit this file directly)
+// Cases: 1 (core=0, extended=1)
+
+// line 42 [extended] — default expression input
+sum(3,4; 2,1; 2,0)
+

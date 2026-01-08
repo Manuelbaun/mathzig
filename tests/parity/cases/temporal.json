@@ -1,0 +1,10 @@
+[
+  {
+    "id": "temporal_duration_01",
+    "expr": "duration(series([0, 10], [1, 2]))",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0,
+    "skip": ["ts_wasm_vm"]
+  }
+]

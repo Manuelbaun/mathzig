@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ts_align_01",
+    "expr": "align(series([0, 5], [1, 2]), series([3, 8], [3, 4]))",
+    "vars": {},
+    "expected": { "tag": "series", "shape": [4] },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "ts_asof_join_02",
+    "expr": "last(asof_join([0, 2, 4, 6], series([1, 3, 5], [100, 101, 102])))",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  }
+]

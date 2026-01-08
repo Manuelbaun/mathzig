@@ -1,0 +1,40 @@
+// Translated from libs/mathjs/examples/complex_numbers.js
+// MathZig translation (edit this file directly)
+// Cases: 12 (core=2, extended=10)
+
+// line 7 [extended] — variable reference requires JS object state
+a
+
+// line 10 [extended] — direct JS API call
+a.re
+
+// line 11 [extended] — direct JS API call
+a.im
+
+// line 15 [extended] — variable reference requires JS object state
+clone
+
+// line 23 [extended] — variable reference requires JS object state
+b
+
+// line 28 [extended] — requires mathjs scope object
+a + b
+
+// line 29 [extended] — requires mathjs scope object
+a * b
+
+// line 30 [extended] — requires mathjs scope object
+sin(a)
+
+// line 33 [core]
+sqrt(4)
+
+// line 34 [core]
+sqrt(-4)
+
+// line 40 [extended] — variable reference requires JS object state
+c
+
+// line 62 [extended] — variable reference requires JS object state
+value
+

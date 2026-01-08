@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ts_master_sma_long",
+    "expr": "last(sma(series(range(0, 1000), range(0, 1000)), 50))",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12,
+    "note": "SMA on a 1000-point series"
+  },
+  {
+    "id": "ts_master_rsi_simd",
+    "expr": "last(rsi(series(range(0, 500), sin(range(0, 500) / 10)), 14))",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12,
+    "note": "RSI on a sine wave series to trigger SIMD paths"
+  },
+  {
+    "id": "ts_master_bollinger",
+    "expr": "bol = bollinger(series(range(0, 100), range(0, 100)), 20, 2.0); last(bol.upper) - last(bol.lower)",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-9,
+    "note": "Bollinger Bands width on linear series"
+  },
+  {
+    "id": "ts_master_resample_large",
+    "expr": "len(resample(series(range(0, 1000), range(0, 1000)), 10, \"mean\"))",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0,
+    "note": "Resampling a large series"
+  },
+  {
+    "id": "ts_master_cumsum_derivative",
+    "expr": "s = series(range(0, 100), ones(1, 100)); last(derivative(cumsum(s)))",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-9,
+    "note": "Chained cumsum and derivative"
+  }
+]

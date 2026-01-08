@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --font-ui: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Fira Code", Consolas, monospace;
+
+  --color-app: oklch(18% 0.008 255);
+  --color-panel: oklch(22% 0.009 255);
+  --color-inset: oklch(15% 0.006 255);
+  --color-raised: oklch(26% 0.01 255);
+  --color-active: oklch(30% 0.012 255);
+  --color-overlay: oklch(24% 0.01 255);
+
+  --color-line: oklch(38% 0.012 255);
+  --color-focus: oklch(72% 0.14 215);
+
+  --color-fg: oklch(92% 0.006 255);
+  --color-fg-secondary: oklch(70% 0.01 255);
+  --color-fg-muted: oklch(55% 0.008 255);
+
+  --color-keyword: oklch(76% 0.13 230);
+  --color-number: oklch(82% 0.11 155);
+  --color-string: oklch(80% 0.11 45);
+  --color-type: oklch(78% 0.12 195);
+  --color-function: oklch(86% 0.09 95);
+  --color-variable: oklch(80% 0.12 275);
+
+  --color-err: oklch(74% 0.16 22);
+  --color-ok: oklch(76% 0.13 150);
+  --color-warn: oklch(82% 0.13 80);
+
+  --font-sans: var(--font-ui);
+}
+
+@layer base {
+  :root {
+    --bg-app: var(--color-app);
+    --bg-panel: var(--color-panel);
+    --bg-inset: var(--color-inset);
+    --bg-active: var(--color-active);
+    --bg-overlay: var(--color-overlay);
+    --bg-raised: var(--color-raised);
+    --border-subtle: var(--color-line);
+    --border-focus: var(--color-focus);
+    --fg-primary: var(--color-fg);
+    --fg-secondary: var(--color-fg-secondary);
+    --fg-muted: var(--color-fg-muted);
+    --status-error: var(--color-err);
+    --status-success: var(--color-ok);
+    --status-warn: var(--color-warn);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    background: var(--color-app);
+    color: var(--color-fg);
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background-clip: padding-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--color-focus);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

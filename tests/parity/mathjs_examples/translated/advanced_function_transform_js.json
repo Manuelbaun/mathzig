@@ -1,0 +1,28 @@
+{
+  "source": "libs/mathjs/examples/advanced/function_transform.js",
+  "slug": "advanced_function_transform_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 1,
+    "core": 0,
+    "extended": 1,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "advanced_function_transform_js_001",
+      "source": "libs/mathjs/examples/advanced/function_transform.js",
+      "line": 37,
+      "expr": "addIt(2, 4)",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined function addIt"
+      },
+      "mathjsError": "Undefined function addIt",
+      "tolerance": 1e-9
+    }
+  ]
+}

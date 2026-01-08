@@ -1,0 +1,413 @@
+{
+  "source": "libs/mathjs/examples/units.js",
+  "slug": "units_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 20,
+    "core": 10,
+    "extended": 10,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "units_js_001",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 9,
+      "expr": "a",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "preSetup": [
+        "a = 45 * cm"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 45,
+        "unit": "cm"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "units_js_002",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 10,
+      "expr": "b",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "preSetup": [
+        "b = 0.1m"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 0.1,
+        "unit": "m"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "units_js_003",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 15,
+      "expr": "a + b",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "preSetup": [
+        "a = 45 * cm",
+        "b = 0.1m"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 55,
+        "unit": "cm"
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "units_js_004",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 16,
+      "expr": "b * 2",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "preSetup": [
+        "b = 0.1m"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 0.2,
+        "unit": "m"
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "units_js_005",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 17,
+      "expr": "unit('1 m') / unit('1 s')",
+      "tier": "extended",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 1,
+        "unit": "m / s"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_006",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 18,
+      "expr": "pow(unit('12 in'), 3)",
+      "tier": "extended",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 1727.9999999999995,
+        "unit": "in^3"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_007",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 23,
+      "expr": "b.to('cm')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "preSetup": [
+        "b = 0.1m"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 10,
+        "unit": "cm"
+      },
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_008",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 24,
+      "expr": "to(b, 'inch')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "preSetup": [
+        "b = 0.1m"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 3.9370078740157486,
+        "unit": "inch"
+      },
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_009",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 25,
+      "expr": "b.toNumber('cm')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "preSetup": [
+        "b = 0.1m"
+      ],
+      "expected": 10,
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_010",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 26,
+      "expr": "number(b, 'cm')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "preSetup": [
+        "b = 0.1m"
+      ],
+      "expected": 10,
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_011",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 31,
+      "expr": "2 inch to cm",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 5.08,
+        "unit": "cm"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_012",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 32,
+      "expr": "cos(45 deg)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm"
+      ],
+      "expected": 0.7071067811865476,
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_013",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 33,
+      "expr": "90 km/h to m/s",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "preSetup": [
+        "h = 1 m"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Unexpected type of argument in function to (expected: Array or DenseMatrix or Matrix, actual: Unit, index: 1)"
+      },
+      "mathjsError": "Unexpected type of argument in function to (expected: Array or DenseMatrix or Matrix, actual: Unit, index: 1)",
+      "reason": "Unexpected type of argument in function to (expected: Array or DenseMatrix or Matrix, actual: Unit, index: 1)",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_014",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 38,
+      "expr": "number(5 cm, mm)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": 50,
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_015",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 43,
+      "expr": "100000 N / m^2",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)",
+        "number(5 cm, mm)"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 100000,
+        "unit": "N / m^2"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_016",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 44,
+      "expr": "9.81 m/s^2 * 100 kg * 40 m",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)",
+        "number(5 cm, mm)",
+        "100000 N / m^2"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 39240,
+        "unit": "(m kg m) / s^2"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_017",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 81,
+      "expr": "[1, 0, 0] T",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)",
+        "number(5 cm, mm)",
+        "100000 N / m^2",
+        "9.81 m/s^2 * 100 kg * 40 m"
+      ],
+      "preSetup": [
+        "T = 65 degF"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          {
+            "__unit": true,
+            "value": 65,
+            "unit": "degF"
+          },
+          {
+            "__unit": true,
+            "value": 0,
+            "unit": "degF"
+          },
+          {
+            "__unit": true,
+            "value": 0,
+            "unit": "degF"
+          }
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "units_js_018",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 82,
+      "expr": "[0, 1, 0] m/s",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)",
+        "number(5 cm, mm)",
+        "100000 N / m^2",
+        "9.81 m/s^2 * 100 kg * 40 m",
+        "[1, 0, 0] T"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          {
+            "__unit": true,
+            "value": 0,
+            "unit": "m / s"
+          },
+          {
+            "__unit": true,
+            "value": 1,
+            "unit": "m / s"
+          },
+          {
+            "__unit": true,
+            "value": 0,
+            "unit": "m / s"
+          }
+        ]
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "units_js_019",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 83,
+      "expr": "1 C",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)",
+        "number(5 cm, mm)",
+        "100000 N / m^2",
+        "9.81 m/s^2 * 100 kg * 40 m",
+        "[1, 0, 0] T",
+        "[0, 1, 0] m/s"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 1,
+        "unit": "C"
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "units_js_020",
+      "source": "libs/mathjs/examples/units.js",
+      "line": 94,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "2 inch to cm",
+        "cos(45 deg)",
+        "number(5 cm, mm)",
+        "100000 N / m^2",
+        "9.81 m/s^2 * 100 kg * 40 m",
+        "[1, 0, 0] T",
+        "[0, 1, 0] m/s",
+        "1 C"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

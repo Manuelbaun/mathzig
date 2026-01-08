@@ -1,0 +1,82 @@
+// Translated from libs/mathjs/examples/matrices.js
+// MathZig translation (edit this file directly)
+// Cases: 26 (core=0, extended=26)
+
+// line 8 [extended] — variable reference requires JS object state
+a
+
+// line 10 [extended] — variable reference requires JS object state
+b
+
+// line 11 [extended] — direct JS API call
+b.size()
+
+// line 15 [extended] — variable reference requires JS object state
+array
+
+// line 19 [extended] — variable reference requires JS object state
+clone
+
+// line 24 [extended] — direct JS API call
+map(a, sqrt)
+
+// line 26 [extended] — direct JS API call
+factorial(c)
+
+// line 32 [extended] — variable reference requires JS object state
+d
+
+// line 34 [extended] — variable reference requires JS object state
+e
+
+// line 41 [extended] — variable reference requires JS object state
+f
+
+// line 43 [extended] — variable reference requires JS object state
+g
+
+// line 50 [extended] — variable reference requires JS object state
+h
+
+// line 51 [extended] — direct JS API call
+h.subset(index([1, 2], [1, 2]))
+
+// line 53 [extended] — variable reference requires JS object state
+i
+
+// line 54 [extended] — direct JS API call
+i.subset(index(range(1, 4)))
+
+// line 62 [extended] — variable reference requires JS object state
+p
+
+// line 64 [extended] — variable reference requires JS object state
+p21
+
+// line 72 [extended] — variable reference requires JS object state
+j
+
+// line 73 [extended] — direct JS API call
+j.size()
+
+// line 84 [extended] — variable reference requires JS object state
+k
+
+// line 91 [extended] — variable reference requires JS object state
+m
+
+// line 96 [extended] — direct JS API call
+range(1, 6)
+
+// line 97 [extended] — direct JS API call
+range(0, 18, 3)
+
+// line 98 [extended] — direct JS API call
+range('2:-1:-3')
+
+// line 99 [extended] — direct JS API call
+factorial(range('1:6'))
+
+// line 106 [extended] — variable reference requires JS object state
+value
+

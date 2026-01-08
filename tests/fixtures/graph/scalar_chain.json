@@ -1,0 +1,12 @@
+{
+  "nodes": [
+    { "id": "x", "type": "input" },
+    { "id": "mul", "type": "expr", "expr": "x * 2", "inputs": ["x"] },
+    { "id": "add", "type": "expr", "expr": "x + 1", "inputs": ["x"] }
+  ],
+  "edges": [
+    { "from": "x.out", "to": "mul.x" },
+    { "from": "mul.out", "to": "add.x" }
+  ],
+  "outputs": { "y": "add.out" }
+}

@@ -1,0 +1,76 @@
+[
+  {
+    "id": "sim_rocket_stage1_end",
+    "expr": "last(result_stage1)",
+    "setup": [
+      "G = 6.67408e-11 m^3 / (kg * s^2)",
+      "mbody = 5.9724e24 kg",
+      "mu = G * mbody",
+      "g0 = 9.80665 m/s^2",
+      "r0 = 6371 km",
+      "isp_sea = 282 s",
+      "isp_vac = 311 s",
+      "gamma0 = 89.99970 deg",
+      "v0 = 1 m/s",
+      "phi0 = 0 deg",
+      "m1 = 433100 kg",
+      "m2 = 111500 kg",
+      "m3 = 1700 kg",
+      "mp = 5000 kg",
+      "m0 = m1+m2+m3+mp",
+      "dm = 2750 kg/s",
+      "A = (3.66 m)^2 * pi",
+      "dragCoef = 0.2",
+      "mu_v = conv(mu, m^3/s^2)",
+      "g0_v = conv(g0, m/s^2)",
+      "r0_v = conv(r0, m)",
+      "dm_v = conv(dm, kg/s)",
+      "A_v = conv(A, m^2)",
+      "isp_sea_v = conv(isp_sea, s)",
+      "isp_vac_v = conv(isp_vac, s)",
+      "density_v(r) = 1.2250 * exp(-g0_v * (r - r0_v) / 83246.8)",
+      "isp_v(r) = isp_vac_v + (isp_sea_v - isp_vac_v) * density_v(r)/density_v(r0_v)",
+      "thrust_v(isp) = g0_v * isp * dm_v",
+      "drag_v(r, v) = 1/2 * density_v(r) * v^2 * A_v * dragCoef",
+      "rad = 1",
+      "rocket_deriv(t, y) = [y[1, 0] * sin(y[4, 0]); -mu_v / y[0, 0]^2 * sin(y[4, 0]) + (thrust_v(isp_v(y[0, 0])) - drag_v(y[0, 0], y[1, 0])) / y[2, 0]; -dm_v; y[1, 0]/y[0, 0] * cos(y[4, 0]) * rad; (y[1, 0]/y[0, 0] * cos(y[4, 0]) - (mu_v / y[0, 0]^2) * cos(y[4, 0]) / y[1, 0]) * rad]",
+      "tfinal = 149.5",
+      "y0 = [r0_v; v0; m0; phi0; gamma0]",
+      "result_stage1 = ode_solve_euler(\"rocket_deriv\", y0, [0, tfinal], 2.0)"
+    ],
+    "vars": {},
+    "expected": { "tag": "matrix" },
+    "tolerance": 1e-10,
+    "skip": ["ts_wasm_vm"],
+    "note": "Complete Rocket ODE simulation (Stage 1)"
+  },
+  {
+    "id": "sim_lorenz_final",
+    "expr": "last(result_lorenz)",
+    "setup": [
+      "sigma = 10",
+      "beta = 8/3",
+      "rho = 28",
+      "f(t, u) = [sigma * (u[1] - u[0]); u[0] * (rho - u[2]) - u[1]; u[0] * u[1] - beta * u[2]]",
+      "result_lorenz = ode_solve(\"f\", [1; 1; 0], [0, 1.0], 0.01)"
+    ],
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [1, 4] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"],
+    "note": "Lorenz Attractor 3D ODE final state"
+  },
+  {
+    "id": "sim_decay_rk4",
+    "expr": "last(result_decay)",
+    "setup": [
+      "decay_deriv(t, y) = -0.5 * y",
+      "result_decay = ode_solve(\"decay_deriv\", [1], [0, 2], 0.25)"
+    ],
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [1, 2] },
+    "tolerance": 1e-10,
+    "skip": ["ts_wasm_vm"],
+    "note": "RK4 decay ODE locks host driver stepping"
+  }
+]

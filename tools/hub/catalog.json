@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "title": "MathZig Developer Hub",
+  "description": "Single catalog of commands, options, env vars, and artifact locations. Run via: bun run hub",
+  "data_locations": [
+    {
+      "id": "progress-packages",
+      "path": "tests/artifacts/progress/packages/<version_id>/",
+      "description": "Versioned progress packages (correctness + features + perf). Append-only, sorted by seq."
+    },
+    {
+      "id": "progress-index",
+      "path": "tests/artifacts/progress/index.json",
+      "description": "Registry of all progress packages (sorted by seq)."
+    },
+    {
+      "id": "gate-runs",
+      "path": "tests/artifacts/runs/<feature_id>/",
+      "description": "Feature gate output: steps.json, summary.md, step logs."
+    },
+    {
+      "id": "parity",
+      "path": "tests/artifacts/parity/",
+      "description": "Parity CSVs and reports per feature_id × backend."
+    },
+    {
+      "id": "perf-log",
+      "path": "tests/artifacts/performance/performance_log.csv",
+      "description": "Append-only performance CSV."
+    },
+    {
+      "id": "perf-snapshots",
+      "path": "tests/artifacts/performance/snapshots/",
+      "description": "Structured perf snapshots (JSON)."
+    },
+    {
+      "id": "perf-dashboard",
+      "path": "tests/artifacts/performance/dashboard/index.html",
+      "description": "Static Plan-08 Chart.js dashboard."
+    },
+    {
+      "id": "app-data",
+      "path": "apps/progress/public/data/",
+      "description": "Flattened JSON for apps/progress UI (generated, gitignored)."
+    }
+  ],
+  "env_globals": [
+    {
+      "name": "FEATURE_GATE_PARITY_BACKENDS",
+      "default": "zig_vm,ts_ffi",
+      "description": "Comma list of parity backends for feature gate / matrix evidence."
+    },
+    {
+      "name": "FEATURE_GATE_BENCH_MODE",
+      "default": "zig",
+      "description": "Perf capture mode after correctness: zig | ts | all."
+    },
+    {
+      "name": "FEATURE_GATE_BENCH_TIER",
+      "default": "smoke",
+      "description": "Label only until real tier filtering lands (smoke|standard|full)."
+    },
+    {
+      "name": "PERF_STRICT",
+      "default": "0",
+      "description": "1/true: perf/compare failures fail the gate. Default soft."
+    },
+    {
+      "name": "PERF_SAMPLES",
+      "default": "5",
+      "description": "Samples per perf measurement."
+    },
+    {
+      "name": "PERF_WARMUP",
+      "default": "1",
+      "description": "Warmup runs discarded before sampling."
+    },
+    {
+      "name": "PROGRESS_DISABLE",
+      "default": "0",
+      "description": "1/true: skip writing progress package after gate."
+    },
+    {
+      "name": "PROGRESS_REFRESH_APP",
+      "default": "0",
+      "description": "1/true: rebuild progress index after package write."
+    },
+    {
+      "name": "PROGRESS_DIR",
+      "default": "tests/artifacts/progress",
+      "description": "Override progress artifacts root (tests / isolation)."
+    },
+    {
+      "name": "MATHZIG_THREADS",
+      "default": "host",
+      "description": "Thread count for matrix / some runners."
+    }
+  ],
+  "commands": [
+    {
+      "id": "correct",
+      "category": "workflows",
+      "title": "Correctness (staged) — recommended",
+      "summary": "Zig → each backend parity (zig_vm, ts_ffi, ts_wasm_vm, wasm_aot) → boundary. No packaging, no perf. See docs/guides/testing.md",
+      "cmd": ["bun", "tools/testing/correctness.ts"],
+      "npm": "correct",
+      "primary": true,
+      "protocol_order": 0,
+      "args": [
+        { "name": "stage", "optional": true, "hint": "all|zig|backends|boundary|zig_vm|ts_ffi|ts_wasm_vm|wasm_aot" },
+        { "name": "--quick", "optional": true, "flag": true },
+        { "name": "--task-id=", "optional": true }
+      ],
+      "artifacts": ["tests/artifacts/correctness/", "tests/artifacts/parity/"]
+    },
+    {
+      "id": "correct-zig",
+      "category": "workflows",
+      "title": "Correctness: Zig only",
+      "summary": "vm-baseline + zig build test — native source of truth",
+      "cmd": ["bun", "tools/testing/correctness.ts", "zig"],
+      "npm": "correct:zig",
+      "args": []
+    },
+    {
+      "id": "correct-backends",
+      "category": "workflows",
+      "title": "Correctness: all backends (parity)",
+      "summary": "Parity JSON on zig_vm, then ts_ffi, ts_wasm_vm, wasm_aot one at a time",
+      "cmd": ["bun", "tools/testing/correctness.ts", "backends"],
+      "npm": "correct:backends",
+      "args": [{ "name": "--quick", "optional": true, "flag": true }]
+    },
+    {
+      "id": "correct-boundary",
+      "category": "workflows",
+      "title": "Correctness: TS FFI/WASM boundary",
+      "summary": "Focused host-glue tests only (not full bun test)",
+      "cmd": ["bun", "tools/testing/correctness.ts", "boundary"],
+      "npm": "correct:boundary",
+      "args": []
+    },
+    {
+      "id": "measure",
+      "category": "workflows",
+      "title": "Measure performance (after correctness)",
+      "summary": "Speed only (ops/s). Does not re-check correctness.",
+      "cmd": ["bun", "tools/testing/measure.ts"],
+      "npm": "measure",
+      "args": [
+        { "name": "feature_id", "required": true },
+        { "name": "mode", "optional": true, "default": "zig", "hint": "zig|ts|all" }
+      ],
+      "env": ["PERF_SAMPLES", "PERF_WARMUP"],
+      "artifacts": ["tests/artifacts/performance/performance_log.csv"]
+    },
+    {
+      "id": "build",
+      "category": "build",
+      "title": "Build library (TS bindings path)",
+      "summary": "Primary JS/TS build via tools/build.ts",
+      "cmd": ["bun", "tools/build.ts"],
+      "npm": "build",
+      "args": []
+    },
+    {
+      "id": "build-zig-release",
+      "category": "build",
+      "title": "Zig ReleaseFast",
+      "summary": "Optimized native library/binaries",
+      "cmd": ["zig", "build", "-Doptimize=ReleaseFast"],
+      "args": []
+    },
+    {
+      "id": "build-perf-tools",
+      "category": "build",
+      "title": "Zig + perf tools (ReleaseFast)",
+      "summary": "Build perf_runner and related tools. Note: may fail on Zig 0.16 if Timer API not fixed.",
+      "cmd": ["zig", "build", "-Dperf-tools=true", "-Doptimize=ReleaseFast"],
+      "args": []
+    },
+    {
+      "id": "test-vm-baseline",
+      "category": "test",
+      "title": "Zig VM baseline",
+      "summary": "Source-of-truth baseline. Must pass before parity claims.",
+      "cmd": ["zig", "build", "vm-baseline", "--summary", "all"],
+      "npm": "test:zig:vm-baseline",
+      "protocol_order": 1,
+      "args": []
+    },
+    {
+      "id": "test-zig",
+      "category": "test",
+      "title": "All Zig tests",
+      "summary": "Full Zig test suite",
+      "cmd": ["zig", "build", "test", "--summary", "all"],
+      "npm": "test:zig:all",
+      "protocol_order": 2,
+      "args": []
+    },
+    {
+      "id": "test-ts",
+      "category": "test",
+      "title": "All TypeScript/Bun tests",
+      "summary": "bun test (full suite; may include known failures)",
+      "cmd": ["bun", "test"],
+      "npm": "test:ts",
+      "protocol_order": 3,
+      "args": []
+    },
+    {
+      "id": "test-progress-unit",
+      "category": "test",
+      "title": "Progress tooling unit tests",
+      "summary": "Gate steps, package writer, features, app-data, progress helpers",
+      "cmd": [
+        "bun",
+        "test",
+        "tests/ts/feature_gate_steps.test.ts",
+        "tests/ts/feature_gate_progress.test.ts",
+        "tests/ts/progress_package.test.ts",
+        "tests/ts/progress_features.test.ts",
+        "tests/ts/progress_app_data.test.ts"
+      ],
+      "args": []
+    },
+    {
+      "id": "test-all",
+      "category": "test",
+      "title": "Full correctness stack",
+      "summary": "vm-baseline → zig test → bun test → parity full",
+      "cmd": ["bun", "run", "test:all"],
+      "npm": "test:all",
+      "protocol_order": 0,
+      "args": []
+    },
+    {
+      "id": "parity-quick",
+      "category": "parity",
+      "title": "Parity quick",
+      "summary": "Cross-backend parity (quick tier)",
+      "cmd": ["bun", "tests/parity/cli.ts", "--quick"],
+      "npm": "test:parity:quick",
+      "protocol_order": 4,
+      "args": [
+        { "name": "--backends", "hint": "zig_vm,ts_ffi,ts_wasm_vm,wasm_aot", "optional": true },
+        { "name": "--task-id", "hint": "feature_id for artifact names", "optional": true }
+      ]
+    },
+    {
+      "id": "parity-full",
+      "category": "parity",
+      "title": "Parity full",
+      "summary": "Cross-backend parity (full). Zig VM is reference.",
+      "cmd": ["bun", "tests/parity/cli.ts", "--full"],
+      "npm": "test:parity:full",
+      "protocol_order": 5,
+      "args": [
+        { "name": "--backends", "hint": "comma backends", "optional": true },
+        { "name": "--task-id", "hint": "feature_id", "optional": true }
+      ]
+    },
+    {
+      "id": "parity-compare",
+      "category": "parity",
+      "title": "Compare parity runs",
+      "summary": "Diff baseline vs after parity CSVs",
+      "cmd": ["bun", "tools/testing/compare_parity.ts"],
+      "npm": "test:parity:compare",
+      "args": [
+        { "name": "baseline_id", "required": true },
+        { "name": "after_id", "required": true }
+      ]
+    },
+    {
+      "id": "parity-coverage",
+      "category": "parity",
+      "title": "Parity catalog coverage (inventory: cases × backend skip/runnable %)",
+      "summary": "Honest catalog report for tests/parity/cases/*.json. Not live execution; not a migration-map TODO grep. See tools/testing/parity_case_coverage.ts.",
+      "cmd": ["bun", "tools/testing/parity_case_coverage.ts"],
+      "npm": "test:parity:coverage",
+      "args": []
+    },
+    {
+      "id": "status-report",
+      "category": "docs",
+      "title": "Regenerate docs/STATUS.md from artifacts",
+      "cmd": ["bun", "tools/status_report.ts"],
+      "npm": "status:report",
+      "args": []
+    },
+    {
+      "id": "feature-gate",
+      "category": "gate",
+      "title": "Legacy mega-gate (prefer `correct` + `measure`)",
+      "summary": "OLD: full bun test + perf + progress package in one script. Prefer staged correctness.ts then measure.ts.",
+      "cmd": ["bun", "tools/testing/feature_gate.ts"],
+      "npm": "test:feature-gate",
+      "primary": false,
+      "args": [
+        { "name": "feature_id", "required": true, "hint": "e.g. 0102_my_feature or progress_e2e_YYYYMMDD" },
+        { "name": "baseline_feature_id", "optional": true },
+        { "name": "max_regression_pct", "optional": true, "default": "5" }
+      ],
+      "env": [
+        "FEATURE_GATE_PARITY_BACKENDS",
+        "FEATURE_GATE_BENCH_MODE",
+        "FEATURE_GATE_BENCH_TIER",
+        "PERF_STRICT",
+        "PERF_SAMPLES",
+        "PROGRESS_DISABLE",
+        "PROGRESS_REFRESH_APP"
+      ],
+      "artifacts": [
+        "tests/artifacts/runs/<feature_id>/steps.json",
+        "tests/artifacts/runs/<feature_id>/summary.md",
+        "tests/artifacts/progress/packages/<version_id>/",
+        "tests/artifacts/parity/",
+        "tests/artifacts/performance/performance_log.csv"
+      ]
+    },
+    {
+      "id": "feature-gate-matrix",
+      "category": "gate",
+      "title": "Feature gate thread matrix",
+      "summary": "Re-run gate at thread counts 1,2,4,8 (or custom)",
+      "cmd": ["bun", "tools/testing/feature_gate_matrix.ts"],
+      "npm": "test:feature-gate:matrix",
+      "args": [
+        { "name": "task_base_id", "required": true },
+        { "name": "baseline_base_id", "optional": true },
+        { "name": "max_regression_pct", "optional": true, "default": "5" },
+        { "name": "thread_counts", "optional": true, "default": "1,2,4,8" }
+      ]
+    },
+    {
+      "id": "perf-record",
+      "category": "perf",
+      "title": "Record performance",
+      "summary": "Run zig/ts/all perf runners → performance_log.csv",
+      "cmd": ["bun", "tests/performance/record_performance.ts"],
+      "npm": "test:perf",
+      "args": [
+        { "name": "feature_id", "required": true, "default": "baseline" },
+        { "name": "mode", "required": false, "default": "all", "hint": "all|zig|ts" }
+      ],
+      "env": ["PERF_SAMPLES", "PERF_WARMUP", "STRICT"]
+    },
+    {
+      "id": "perf-record-zig",
+      "category": "perf",
+      "title": "Record performance (zig only)",
+      "cmd": ["bun", "tests/performance/record_performance.ts", "baseline", "zig"],
+      "npm": "test:perf:record:zig",
+      "args": []
+    },
+    {
+      "id": "perf-compare",
+      "category": "perf",
+      "title": "Compare perf CSV (markdown)",
+      "cmd": ["bun", "tools/testing/compare_perf.ts"],
+      "npm": "test:perf:compare",
+      "args": [
+        { "name": "baseline_feature_id", "required": true },
+        { "name": "after_feature_id", "required": true },
+        { "name": "max_regression_pct", "optional": true, "default": "5" },
+        { "name": "suite", "optional": true, "default": "all", "hint": "all|zig|ts" }
+      ]
+    },
+    {
+      "id": "perf-env-check",
+      "category": "perf",
+      "title": "Perf environment check",
+      "cmd": ["bun", "tests/performance/perf_env_check.ts"],
+      "npm": "test:perf:env-check",
+      "args": []
+    },
+    {
+      "id": "bench",
+      "category": "perf",
+      "title": "Bench capture → snapshot",
+      "summary": "Orchestrate record + refs + snapshot + index",
+      "cmd": ["bun", "tools/bench/run.ts"],
+      "npm": "bench",
+      "args": [
+        { "name": "--feature", "optional": true, "default": "baseline" },
+        { "name": "--tier", "optional": true, "default": "standard", "hint": "smoke|standard|full (label; smoke does not filter yet)" },
+        { "name": "--mode", "optional": true, "default": "all", "hint": "all|zig|ts" },
+        { "name": "--tag", "optional": true },
+        { "name": "--refs-only", "optional": true, "flag": true },
+        { "name": "--skip-perf", "optional": true, "flag": true }
+      ]
+    },
+    {
+      "id": "bench-smoke",
+      "category": "perf",
+      "title": "Bench smoke tier",
+      "cmd": ["bun", "tools/bench/run.ts", "--tier", "smoke"],
+      "npm": "bench:smoke",
+      "args": []
+    },
+    {
+      "id": "bench-dashboard",
+      "category": "perf",
+      "title": "Build static perf dashboard",
+      "cmd": ["bun", "tools/bench/build_dashboard.ts"],
+      "npm": "bench:dashboard",
+      "args": []
+    },
+    {
+      "id": "bench-open",
+      "category": "perf",
+      "title": "Build + open static perf dashboard",
+      "cmd": ["bun", "run", "bench:open"],
+      "npm": "bench:open",
+      "args": []
+    },
+    {
+      "id": "progress-package",
+      "category": "progress",
+      "title": "Write progress version package",
+      "summary": "From steps.json (+ optional snapshot). Always-new sortable version_id.",
+      "cmd": ["bun", "tools/progress/write_package.ts"],
+      "npm": "progress:package",
+      "args": [
+        { "name": "--feature", "required": true },
+        { "name": "--steps", "optional": true },
+        { "name": "--bench-mode", "optional": true, "default": "zig" },
+        { "name": "--tier", "optional": true, "default": "smoke" },
+        { "name": "--snapshot", "optional": true },
+        { "name": "--compare", "optional": true, "flag": true },
+        { "name": "--baseline-version", "optional": true }
+      ],
+      "artifacts": ["tests/artifacts/progress/packages/<version_id>/"]
+    },
+    {
+      "id": "progress-index",
+      "category": "progress",
+      "title": "Rebuild progress index",
+      "cmd": ["bun", "tools/progress/build_progress_index.ts"],
+      "npm": "progress:index",
+      "args": []
+    },
+    {
+      "id": "progress-app-data",
+      "category": "progress",
+      "title": "Export app data for apps/progress",
+      "summary": "Flatten packages → apps/progress/public/data/*.json",
+      "cmd": ["bun", "tools/progress/build_app_data.ts"],
+      "npm": "progress:app-data",
+      "args": []
+    },
+    {
+      "id": "progress-compare",
+      "category": "progress",
+      "title": "Structured perf compare (SoT)",
+      "cmd": ["bun", "tools/progress/compare_performance.ts"],
+      "npm": "progress:compare",
+      "args": [
+        { "name": "baseline_feature_id", "required": true },
+        { "name": "after_feature_id", "required": true },
+        { "name": "max_regression_pct", "optional": true },
+        { "name": "suite", "optional": true }
+      ]
+    },
+    {
+      "id": "progress-features",
+      "category": "progress",
+      "title": "Refresh feature matrix for a package",
+      "cmd": ["bun", "tools/progress/features_matrix_refresh.ts"],
+      "npm": "progress:features",
+      "args": [
+        { "name": "--feature", "optional": true },
+        { "name": "--package", "optional": true },
+        { "name": "--backends", "optional": true },
+        { "name": "--run-parity", "optional": true, "flag": true }
+      ]
+    },
+    {
+      "id": "progress-dev",
+      "category": "apps",
+      "title": "Progress dashboard (dev server)",
+      "summary": "http://localhost:5174 — needs public/data (run progress-app-data first)",
+      "cmd": ["bun", "--cwd", "apps/progress", "dev"],
+      "npm": "progress:dev",
+      "args": []
+    },
+    {
+      "id": "progress-build",
+      "category": "apps",
+      "title": "Progress app-data + production build",
+      "cmd": ["bun", "run", "progress:build"],
+      "npm": "progress:build",
+      "args": []
+    },
+    {
+      "id": "console-dev",
+      "category": "apps",
+      "title": "Console app (dev server)",
+      "cmd": ["bun", "--cwd", "apps/console", "dev"],
+      "args": []
+    },
+    {
+      "id": "console-build",
+      "category": "apps",
+      "title": "Console production build",
+      "cmd": ["bun", "--cwd", "apps/console", "build"],
+      "args": []
+    },
+    {
+      "id": "overview",
+      "category": "test",
+      "title": "Testing overview report",
+      "cmd": ["bun", "tools/testing/testing_overview.ts"],
+      "npm": "test:overview",
+      "args": []
+    },
+    {
+      "id": "wasm-compile-aot",
+      "category": "wasm",
+      "title": "Compile WASM AOT",
+      "cmd": ["bun", "tools/wasm/compile_wasm_aot.ts"],
+      "npm": "wasm:compile-aot",
+      "args": []
+    },
+    {
+      "id": "wasm-optimize",
+      "category": "wasm",
+      "title": "Optimize WASM",
+      "cmd": ["bun", "tools/wasm/optimize_wasm.ts"],
+      "npm": "wasm:optimize",
+      "args": []
+    },
+    {
+      "id": "wasm-compare",
+      "category": "wasm",
+      "title": "WASM compare suite",
+      "cmd": ["bun", "tools/wasm/wasm_compare/compare.ts"],
+      "npm": "wasm:compare",
+      "args": []
+    },
+    {
+      "id": "version-bump",
+      "category": "release",
+      "title": "Bump src/VERSION",
+      "cmd": ["bun", "tools/testing/bump_version.ts"],
+      "npm": "version:bump",
+      "args": [{ "name": "part", "required": true, "hint": "major|minor|patch|x.y.z" }]
+    },
+    {
+      "id": "e2e-progress",
+      "category": "workflows",
+      "title": "Legacy: feature-gate + app-data (prefer correct + measure)",
+      "summary": "Optional packaging path. Daily correctness: bun run correct. Perf: bun run measure -- <id> zig.",
+      "workflow": true,
+      "steps": ["feature-gate", "progress-app-data"],
+      "cmd": ["bun", "tools/hub/cli.ts", "workflow", "e2e-progress"],
+      "args": [
+        { "name": "feature_id", "required": true },
+        { "name": "baseline_feature_id", "optional": true }
+      ],
+      "env": [
+        "FEATURE_GATE_BENCH_MODE",
+        "FEATURE_GATE_PARITY_BACKENDS",
+        "PERF_STRICT",
+        "PROGRESS_REFRESH_APP"
+      ]
+    }
+  ],
+  "categories": [
+    { "id": "workflows", "label": "Workflows (start here)", "order": 0 },
+    { "id": "gate", "label": "Feature gate", "order": 1 },
+    { "id": "test", "label": "Test", "order": 2 },
+    { "id": "parity", "label": "Parity", "order": 3 },
+    { "id": "perf", "label": "Performance / bench", "order": 4 },
+    { "id": "progress", "label": "Progress packages + matrix", "order": 5 },
+    { "id": "apps", "label": "Apps (console / progress UI)", "order": 6 },
+    { "id": "build", "label": "Build", "order": 7 },
+    { "id": "wasm", "label": "WASM", "order": 8 },
+    { "id": "release", "label": "Release", "order": 9 }
+  ]
+}

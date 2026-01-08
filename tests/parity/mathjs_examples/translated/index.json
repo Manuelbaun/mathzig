@@ -1,0 +1,392 @@
+{
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "files": [
+    {
+      "source": "libs/mathjs/examples/advanced/convert_fraction_to_bignumber.js",
+      "slug": "advanced_convert_fraction_to_bignumber_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_convert_fraction_to_bignumber_js.json",
+      "total": 2,
+      "core": 2,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/custom_argument_parsing.js",
+      "slug": "advanced_custom_argument_parsing_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_custom_argument_parsing_js.json",
+      "total": 7,
+      "core": 0,
+      "extended": 7,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/custom_datatype.js",
+      "slug": "advanced_custom_datatype_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_custom_datatype_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/custom_evaluate_using_factories.js",
+      "slug": "advanced_custom_evaluate_using_factories_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_custom_evaluate_using_factories_js.json",
+      "total": 1,
+      "core": 0,
+      "extended": 1,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/custom_evaluate_using_import.js",
+      "slug": "advanced_custom_evaluate_using_import_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_custom_evaluate_using_import_js.json",
+      "total": 1,
+      "core": 0,
+      "extended": 1,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/custom_loading.js",
+      "slug": "advanced_custom_loading_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_custom_loading_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/custom_relational_functions.js",
+      "slug": "advanced_custom_relational_functions_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_custom_relational_functions_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "slug": "advanced_custom_scope_objects_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_custom_scope_objects_js.json",
+      "total": 10,
+      "core": 0,
+      "extended": 10,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/expression_trees.js",
+      "slug": "advanced_expression_trees_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_expression_trees_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/function_transform.js",
+      "slug": "advanced_function_transform_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_function_transform_js.json",
+      "total": 1,
+      "core": 0,
+      "extended": 1,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/more_secure_eval.js",
+      "slug": "advanced_more_secure_eval_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_more_secure_eval_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/web_server/math_worker.js",
+      "slug": "advanced_web_server_math_worker_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_web_server_math_worker_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/advanced/web_server/server.js",
+      "slug": "advanced_web_server_server_js",
+      "path": "tests/parity/mathjs_examples/translated/advanced_web_server_server_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/algebra.js",
+      "slug": "algebra_js",
+      "path": "tests/parity/mathjs_examples/translated/algebra_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/basic_usage.js",
+      "slug": "basic_usage_js",
+      "path": "tests/parity/mathjs_examples/translated/basic_usage_js.json",
+      "total": 17,
+      "core": 14,
+      "extended": 2,
+      "unsupported": 1
+    },
+    {
+      "source": "libs/mathjs/examples/bignumbers.js",
+      "slug": "bignumbers_js",
+      "path": "tests/parity/mathjs_examples/translated/bignumbers_js.json",
+      "total": 12,
+      "core": 2,
+      "extended": 10,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/angle_configuration.html",
+      "slug": "browser_angle_configuration_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_angle_configuration_html.json",
+      "total": 1,
+      "core": 0,
+      "extended": 1,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/basic_usage.html",
+      "slug": "browser_basic_usage_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_basic_usage_html.json",
+      "total": 16,
+      "core": 4,
+      "extended": 11,
+      "unsupported": 1
+    },
+    {
+      "source": "libs/mathjs/examples/browser/currency_conversion.html",
+      "slug": "browser_currency_conversion_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_currency_conversion_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/custom_separators.html",
+      "slug": "browser_custom_separators_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_custom_separators_html.json",
+      "total": 1,
+      "core": 0,
+      "extended": 1,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/lorenz.html",
+      "slug": "browser_lorenz_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_lorenz_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/lorenz_interactive.html",
+      "slug": "browser_lorenz_interactive_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_lorenz_interactive_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/plot.html",
+      "slug": "browser_plot_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_plot_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/pretty_printing_with_mathjax.html",
+      "slug": "browser_pretty_printing_with_mathjax_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_pretty_printing_with_mathjax_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/printing_html.html",
+      "slug": "browser_printing_html_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_printing_html_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/requirejs_loading.html",
+      "slug": "browser_requirejs_loading_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_requirejs_loading_html.json",
+      "total": 1,
+      "core": 0,
+      "extended": 1,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/rocket_trajectory_optimization.html",
+      "slug": "browser_rocket_trajectory_optimization_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_rocket_trajectory_optimization_html.json",
+      "total": 64,
+      "core": 0,
+      "extended": 64,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/webworkers/webworkers.html",
+      "slug": "browser_webworkers_webworkers_html",
+      "path": "tests/parity/mathjs_examples/translated/browser_webworkers_webworkers_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/browser/webworkers/worker.js",
+      "slug": "browser_webworkers_worker_js",
+      "path": "tests/parity/mathjs_examples/translated/browser_webworkers_worker_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/chaining.js",
+      "slug": "chaining_js",
+      "path": "tests/parity/mathjs_examples/translated/chaining_js.json",
+      "total": 8,
+      "core": 0,
+      "extended": 8,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/code_editor/getExpressions.js",
+      "slug": "code_editor_getExpressions_js",
+      "path": "tests/parity/mathjs_examples/translated/code_editor_getExpressions_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/code_editor/index.html",
+      "slug": "code_editor_index_html",
+      "path": "tests/parity/mathjs_examples/translated/code_editor_index_html.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/code_editor/main.js",
+      "slug": "code_editor_main_js",
+      "path": "tests/parity/mathjs_examples/translated/code_editor_main_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/code_editor/mathjs-lang.js",
+      "slug": "code_editor_mathjs-lang_js",
+      "path": "tests/parity/mathjs_examples/translated/code_editor_mathjs-lang_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "slug": "complex_numbers_js",
+      "path": "tests/parity/mathjs_examples/translated/complex_numbers_js.json",
+      "total": 12,
+      "core": 2,
+      "extended": 10,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/expressions.js",
+      "slug": "expressions_js",
+      "path": "tests/parity/mathjs_examples/translated/expressions_js.json",
+      "total": 51,
+      "core": 18,
+      "extended": 33,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/fractions.js",
+      "slug": "fractions_js",
+      "path": "tests/parity/mathjs_examples/translated/fractions_js.json",
+      "total": 11,
+      "core": 3,
+      "extended": 8,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/import.js",
+      "slug": "import_js",
+      "path": "tests/parity/mathjs_examples/translated/import_js.json",
+      "total": 15,
+      "core": 1,
+      "extended": 14,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/matrices.js",
+      "slug": "matrices_js",
+      "path": "tests/parity/mathjs_examples/translated/matrices_js.json",
+      "total": 26,
+      "core": 0,
+      "extended": 26,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/objects.js",
+      "slug": "objects_js",
+      "path": "tests/parity/mathjs_examples/translated/objects_js.json",
+      "total": 9,
+      "core": 7,
+      "extended": 2,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/serialization.js",
+      "slug": "serialization_js",
+      "path": "tests/parity/mathjs_examples/translated/serialization_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/sparse_matrices.js",
+      "slug": "sparse_matrices_js",
+      "path": "tests/parity/mathjs_examples/translated/sparse_matrices_js.json",
+      "total": 0,
+      "core": 0,
+      "extended": 0,
+      "unsupported": 0
+    },
+    {
+      "source": "libs/mathjs/examples/units.js",
+      "slug": "units_js",
+      "path": "tests/parity/mathjs_examples/translated/units_js.json",
+      "total": 20,
+      "core": 10,
+      "extended": 10,
+      "unsupported": 0
+    }
+  ]
+}

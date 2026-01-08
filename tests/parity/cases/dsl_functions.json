@@ -1,0 +1,6 @@
+[
+  { "id": "dsl_fn_01", "expr": "f(x) = x * 2; f(10)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "dsl_fn_02", "expr": "add(a, b) = a + b; add(5, 7)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "dsl_fn_03", "expr": "double(x) = x * 2; quad(x) = double(double(x)); quad(3)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "dsl_fn_nested_local_01", "expr": "outer(a) = { inner(x) = x + 1; inner(a) }; outer(5)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 }
+]

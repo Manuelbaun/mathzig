@@ -1,0 +1,57 @@
+[
+  {
+    "id": "add_xy",
+    "dsl": "x + y",
+    "params": ["x", "y"],
+    "zig_expr": "x + y"
+  },
+  {
+    "id": "add_xyz",
+    "dsl": "x + y + z",
+    "params": ["x", "y", "z"],
+    "zig_expr": "x + y + z"
+  },
+  {
+    "id": "mul_add",
+    "dsl": "x * 2 + y",
+    "params": ["x", "y"],
+    "zig_expr": "x * 2.0 + y"
+  },
+  {
+    "id": "mul_add_const",
+    "dsl": "x * (y + 3) - 4",
+    "params": ["x", "y"],
+    "zig_expr": "x * (y + 3.0) - 4.0"
+  },
+  {
+    "id": "nested_arith",
+    "dsl": "(x + y) * (x - y)",
+    "params": ["x", "y"],
+    "zig_expr": "(x + y) * (x - y)"
+  },
+  {
+    "id": "pow_chain",
+    "dsl": "x^2 + y^2",
+    "params": ["x", "y"],
+    "zig_expr": "x * x + y * y"
+  },
+  {
+    "id": "ternary_max",
+    "dsl": "x > y ? x : y",
+    "params": ["x", "y"],
+    "zig_expr": "if (x > y) x else y"
+  },
+  {
+    "id": "ternary_absdiff",
+    "dsl": "x >= y ? x - y : y - x",
+    "params": ["x", "y"],
+    "zig_expr": "if (x >= y) x - y else y - x"
+  },
+  {
+    "id": "fn_add",
+    "dsl": "add(a, b) = a + b; add(x, y)",
+    "params": ["x", "y"],
+    "zig_helpers": "fn add(a: f64, b: f64) f64 { return a + b; }",
+    "zig_expr": "add(x, y)"
+  }
+]

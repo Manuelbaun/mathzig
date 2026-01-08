@@ -1,0 +1,7 @@
+// Translated from libs/mathjs/examples/advanced/function_transform.js
+// MathZig translation (edit this file directly)
+// Cases: 1 (core=0, extended=1)
+
+// line 37 [extended]
+addIt(2, 4)
+

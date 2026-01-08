@@ -1,0 +1,16 @@
+[
+  {
+    "id": "logic_and_01",
+    "expr": "1 and 1",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  },
+  {
+    "id": "logic_or_01",
+    "expr": "1 or 0",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  }
+]

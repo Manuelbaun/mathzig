@@ -1,0 +1,26 @@
+{
+  "name": "progress",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun ../../tools/progress/build_app_data.ts && vite --port 5174",
+    "build": "bun ../../tools/progress/build_app_data.ts && vite build",
+    "build:check": "bun ../../tools/progress/build_app_data.ts && tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --pretty",
+    "app-data": "bun ../../tools/progress/build_app_data.ts"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.16.1",
+    "solid-js": "^1.9.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "@types/node": "^24.13.2",
+    "tailwindcss": "^4.3.2",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1",
+    "vite-plugin-solid": "^2.11.12"
+  }
+}

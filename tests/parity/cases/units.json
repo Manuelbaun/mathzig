@@ -1,0 +1,18 @@
+[
+  {
+    "id": "unit_conv_01",
+    "expr": "conv(5 * cm, in)",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "unit_add_01",
+    "expr": "(2 * m) + (50 * cm)",
+    "vars": {},
+    "expected": { "tag": "unit" },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  }
+]

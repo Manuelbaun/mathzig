@@ -1,0 +1,196 @@
+{
+  "source": "libs/mathjs/examples/complex_numbers.js",
+  "slug": "complex_numbers_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 12,
+    "core": 2,
+    "extended": 10,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "complex_numbers_js_001",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 7,
+      "expr": "a",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_002",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 10,
+      "expr": "a.re",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_003",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 11,
+      "expr": "a.im",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_004",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 15,
+      "expr": "clone",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": "function theTypedFn(arg0, arg1) {\n          if (arguments.length === len0 && test00(arg0) && test01(arg1))\n            return fn0.apply(this, arguments);\n          if (arguments.length === len1 && test10(arg0) && test11(arg1))\n            return fn1.apply(this, arguments);\n          if (arguments.length === len2 && test20(arg0) && test21(arg1))\n            return fn2.apply(this, arguments);\n          if (arguments.length === len3 && test30(arg0) && test31(arg1))\n            return fn3.apply(this, arguments);\n          if (arguments.length === len4 && test40(arg0) && test41(arg1))\n            return fn4.apply(this, arguments);\n          if (arguments.length === len5 && test50(arg0) && test51(arg1))\n            return fn5.apply(this, arguments);\n          return generic.apply(this, arguments);\n        }",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 0.000001,
+      "compareMode": "assignment"
+    },
+    {
+      "id": "complex_numbers_js_005",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 23,
+      "expr": "b",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__unit": true,
+        "value": 0,
+        "unit": "b"
+      },
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_006",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 28,
+      "expr": "a + b",
+      "tier": "extended",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "requires mathjs scope object",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_007",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 29,
+      "expr": "a * b",
+      "tier": "extended",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "requires mathjs scope object",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_008",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 30,
+      "expr": "sin(a)",
+      "tier": "extended",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol a"
+      },
+      "mathjsError": "Undefined symbol a",
+      "reason": "requires mathjs scope object",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "complex_numbers_js_009",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 33,
+      "expr": "sqrt(4)",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "expected": 2,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_010",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 34,
+      "expr": "sqrt(-4)",
+      "tier": "core",
+      "category": "translated",
+      "setup": [],
+      "expected": {
+        "__complex": true,
+        "re": 0,
+        "im": 2
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_011",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 40,
+      "expr": "c",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol c"
+      },
+      "mathjsError": "Undefined symbol c",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "complex_numbers_js_012",
+      "source": "libs/mathjs/examples/complex_numbers.js",
+      "line": 62,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

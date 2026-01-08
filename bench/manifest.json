@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "tiers": {
+    "smoke": [
+      "arith.scalar",
+      "arith.batch_simd",
+      "ref.mandelbrot",
+      "ref.binarytree"
+    ],
+    "standard": [
+      "arith.scalar",
+      "arith.batch_simd",
+      "complex.div_batch",
+      "complex.pow_batch",
+      "vm.index.dynamic",
+      "vm.index.const",
+      "kernel.gemm",
+      "kernel.vecdot",
+      "timeseries.agg",
+      "timeseries.stats",
+      "ode.harmonic",
+      "ode.lorenz",
+      "ref.mandelbrot",
+      "ref.binarytree"
+    ],
+    "full": ["*"]
+  },
+  "benchmarks": [
+    {
+      "id": "arith.scalar",
+      "suite": "hot",
+      "description": "Scalar arithmetic fast path (x * 0.5 + 2.0)",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 3,
+      "aliases": [
+        "zig_arithmetic_scalar_fast",
+        "ffi_arithmetic_scalar_fast",
+        "native_js_arithmetic"
+      ]
+    },
+    {
+      "id": "arith.batch_simd",
+      "suite": "hot",
+      "description": "SIMD batch arithmetic evaluation",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 3,
+      "aliases": [
+        "zig_arithmetic_batch_simd",
+        "ffi_arithmetic_batch_simd"
+      ]
+    },
+    {
+      "id": "complex.div_batch",
+      "suite": "hot",
+      "description": "Complex division batch SIMD",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 5,
+      "aliases": [
+        "zig_complex_div_batch_simd",
+        "ffi_complex_div_batch_simd"
+      ]
+    },
+    {
+      "id": "complex.pow_batch",
+      "suite": "hot",
+      "description": "Complex power batch SIMD",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 5,
+      "aliases": ["zig_complex_pow_batch_simd"]
+    },
+    {
+      "id": "vm.index.dynamic",
+      "suite": "vm",
+      "description": "Dynamic vector indexing v[idx]",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 5,
+      "aliases": ["zig_vm_get_index_dynamic_key_vector"]
+    },
+    {
+      "id": "vm.index.const",
+      "suite": "vm",
+      "description": "Constant vector indexing v[0]",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 5,
+      "aliases": ["zig_vm_get_index_const_key_vector"]
+    },
+    {
+      "id": "kernel.gemm",
+      "suite": "kernels",
+      "description": "Matrix multiply 100x100",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 3,
+      "aliases": ["zig_matrix_multiply_100x100"]
+    },
+    {
+      "id": "kernel.vecdot",
+      "suite": "kernels",
+      "description": "Vector dot product",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 3,
+      "aliases": ["zig_vecdot_"]
+    },
+    {
+      "id": "timeseries.agg",
+      "suite": "integration",
+      "description": "Time-series SIMD aggregations 1M samples",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 8,
+      "aliases": [
+        "zig_timeseries_simd_aggregations_1M",
+        "zig_timeseries_scalar_aggregations_1M"
+      ]
+    },
+    {
+      "id": "timeseries.stats",
+      "suite": "integration",
+      "description": "Time-series stats (sum, twa, rsi) 100k",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 8,
+      "aliases": ["zig_timeseries_stats_100k"]
+    },
+    {
+      "id": "ode.harmonic",
+      "suite": "integration",
+      "description": "ODE harmonic oscillator 10k steps",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 8,
+      "aliases": ["zig_ode_solve_10k_steps"]
+    },
+    {
+      "id": "ode.lorenz",
+      "suite": "integration",
+      "description": "Lorenz attractor 5k steps",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 8,
+      "aliases": ["zig_lorenz_5k_steps"]
+    },
+    {
+      "id": "ref.mandelbrot",
+      "suite": "reference",
+      "description": "Mandelbrot set iteration count (Benchmarks Game style)",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 5,
+      "aliases": [
+        "ref_zig_mandelbrot",
+        "ref_c_mandelbrot"
+      ]
+    },
+    {
+      "id": "ref.binarytree",
+      "suite": "reference",
+      "description": "Binary search tree lookups",
+      "unit": "ops/s",
+      "higher_is_better": true,
+      "regression_threshold_pct": 5,
+      "aliases": [
+        "ref_zig_binarytree_search",
+        "ref_c_binarytree_search"
+      ]
+    }
+  ],
+  "backend_from_test_name": [
+    { "prefix": "zig_", "backend": "mathzig_zig", "strip_prefix": true },
+    { "prefix": "ffi_", "backend": "mathzig_ffi", "strip_prefix": true },
+    { "prefix": "native_js_", "backend": "native_js", "strip_prefix": true },
+    { "prefix": "ref_zig_", "backend": "ref_zig", "strip_prefix": true },
+    { "prefix": "ref_c_", "backend": "ref_c", "strip_prefix": true }
+  ],
+  "thread_suffix_pattern": "_t(\\d+)$"
+}

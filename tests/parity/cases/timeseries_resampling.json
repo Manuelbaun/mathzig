@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ts_resample_01",
+    "expr": "resample(series([0, 5, 12, 30], [10, 10, 20, 15]), 10s)",
+    "vars": {},
+    "expected": { "tag": "series", "shape": [4] },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "ts_slice_01",
+    "expr": "last(slice(series([0, 10, 20, 30, 40], [1, 2, 3, 4, 5]), 10, 35))",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "latex_basic_arithmetic",
+    "expr": "toLaTeX(\"1 + 2 * 3\")",
+    "vars": {},
+    "expected": { "tag": "string" },
+    "skip": ["ts_wasm_vm"],
+    "note": "Basic arithmetic LaTeX generation with precedence"
+  },
+  {
+    "id": "latex_fraction",
+    "expr": "toLaTeX(\"1 / 2\")",
+    "vars": {},
+    "expected": { "tag": "string" },
+    "skip": ["ts_wasm_vm"],
+    "note": "Division as LaTeX fraction"
+  },
+  {
+    "id": "latex_sqrt",
+    "expr": "toLaTeX(\"sqrt(x^2 + y^2)\")",
+    "vars": {},
+    "expected": { "tag": "string" },
+    "skip": ["ts_wasm_vm"],
+    "note": "Square root and power LaTeX"
+  },
+  {
+    "id": "latex_matrix",
+    "expr": "toLaTeX(\"[1, 2; 3, 4]\")",
+    "vars": {},
+    "expected": { "tag": "string" },
+    "skip": ["ts_wasm_vm"],
+    "note": "Matrix LaTeX environment"
+  },
+  {
+    "id": "latex_unit_convert",
+    "expr": "toLaTeX(\"10m to cm\")",
+    "vars": {},
+    "expected": { "tag": "string" },
+    "skip": ["ts_wasm_vm"],
+    "note": "Unit conversion LaTeX"
+  }
+]

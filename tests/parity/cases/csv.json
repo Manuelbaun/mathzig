@@ -1,0 +1,10 @@
+[
+  {
+    "id": "csv_parse_01",
+    "expr": "read_csv(\"tests/scripts/data/sample_prices.csv\", { time: \"Date\", price: \"Close\" })",
+    "vars": {},
+    "expected": { "tag": "record", "keys": ["price"] },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  }
+]

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Pin zig to macOS 15.4 SDK (26.4 SDK tbd dropped arm64-macos, breaks zig 0.15.2)
+for a in "$@"; do
+  case "$a" in
+    --show-sdk-path) echo /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk; exit 0;;
+    --show-sdk-version) echo 15.4; exit 0;;
+  esac
+done
+exec /usr/bin/xcrun "$@"

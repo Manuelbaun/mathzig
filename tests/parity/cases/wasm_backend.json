@@ -1,0 +1,16 @@
+[
+  {
+    "id": "wasm_compile_sin_01",
+    "expr": "sin(0)",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "wasm_compile_add_01",
+    "expr": "1 + 2",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  }
+]

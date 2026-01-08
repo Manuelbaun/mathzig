@@ -1,0 +1,101 @@
+[
+  {
+    "id": "units_aot_conv_cm_to_in",
+    "expr": "conv(5 * cm, in)",
+    "vars": {},
+    "expected": { "type": "number", "value": 1.968503937007874 },
+    "tolerance": 1e-9,
+    "note": "static fold: 5 cm → inches (0.05 / 0.0254)"
+  },
+  {
+    "id": "units_aot_number_cm_to_in",
+    "expr": "number(5 * cm, in)",
+    "vars": {},
+    "expected": { "type": "number", "value": 1.968503937007874 },
+    "tolerance": 1e-9,
+    "note": "number() same static conversion fold as conv()"
+  },
+  {
+    "id": "units_aot_add_mixed_prefix",
+    "expr": "(2 * m) + (50 * cm)",
+    "vars": {},
+    "expected": { "tag": "unit" },
+    "tolerance": 1e-12,
+    "note": "SI magnitude 2.5 m; dimensions length"
+  },
+  {
+    "id": "units_aot_add_si_value",
+    "expr": "number((2 * m) + (50 * cm), m)",
+    "vars": {},
+    "expected": { "type": "number", "value": 2.5 },
+    "tolerance": 1e-12,
+    "note": "mixed-prefix sum expressed in meters"
+  },
+  {
+    "id": "units_aot_mul_area_si",
+    "expr": "10 * m * 5 * m",
+    "vars": {},
+    "expected": { "tag": "unit" },
+    "tolerance": 1e-12,
+    "note": "area product → SI magnitude 50 m^2 with length^2 dimensions"
+  },
+  {
+    "id": "units_aot_km_to_m",
+    "expr": "conv(1 * km, m)",
+    "vars": {},
+    "expected": { "type": "number", "value": 1000 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "units_aot_bracket_conv",
+    "expr": "conv(1 [km], [m])",
+    "vars": {},
+    "expected": { "type": "number", "value": 1000 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "units_aot_h_to_s",
+    "expr": "conv(1 * h, s)",
+    "vars": {},
+    "expected": { "type": "number", "value": 3600 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "units_aot_ft_to_m",
+    "expr": "conv(1 * ft, m)",
+    "vars": {},
+    "expected": { "type": "number", "value": 0.3048 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "units_aot_var_magnitude",
+    "expr": "conv(x * cm, in)",
+    "vars": { "x": 5 },
+    "expected": { "type": "number", "value": 1.968503937007874 },
+    "tolerance": 1e-9,
+    "note": "runtime magnitude, static unit fold"
+  },
+  {
+    "id": "units_aot_matrix_literal_conv_rejected",
+    "expr": "conv([1m, 2m], cm)",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip (task-15): unit-bearing matrix literal rejected (was blessed SI strip + elementwise conv)."
+  },
+  {
+    "id": "units_aot_matrix_literal_number_rejected",
+    "expr": "number([1m, 2m], cm)",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip: number() on unit-bearing matrix literal rejected at mat_create/AOT."
+  },
+  {
+    "id": "units_aot_matrix_times_unit_conv",
+    "expr": "conv([1, 2] * m, cm)",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [1, 2], "data": [100.0, 200.0] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"],
+    "note": "Retained value case: matrix * unit → SI matrix, then elementwise conv. WASM VM skip: pre-existing matrix unit path gap."
+  }
+]

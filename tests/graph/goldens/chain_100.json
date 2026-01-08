@@ -1,0 +1,1229 @@
+{
+  "id": "chain_100_plus_one",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      {
+        "id": "x",
+        "type": "input"
+      },
+      {
+        "id": "n1",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n2",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n3",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n4",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n5",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n6",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n7",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n8",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n9",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n10",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n11",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n12",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n13",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n14",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n15",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n16",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n17",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n18",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n19",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n20",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n21",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n22",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n23",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n24",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n25",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n26",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n27",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n28",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n29",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n30",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n31",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n32",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n33",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n34",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n35",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n36",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n37",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n38",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n39",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n40",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n41",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n42",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n43",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n44",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n45",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n46",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n47",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n48",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n49",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n50",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n51",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n52",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n53",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n54",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n55",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n56",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n57",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n58",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n59",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n60",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n61",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n62",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n63",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n64",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n65",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n66",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n67",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n68",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n69",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n70",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n71",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n72",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n73",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n74",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n75",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n76",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n77",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n78",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n79",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n80",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n81",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n82",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n83",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n84",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n85",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n86",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n87",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n88",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n89",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n90",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n91",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n92",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n93",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n94",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n95",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n96",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n97",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n98",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n99",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      },
+      {
+        "id": "n100",
+        "type": "expr",
+        "expr": "x + 1",
+        "inputs": [
+          "x"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "x.out",
+        "to": "n1.x"
+      },
+      {
+        "from": "n1.out",
+        "to": "n2.x"
+      },
+      {
+        "from": "n2.out",
+        "to": "n3.x"
+      },
+      {
+        "from": "n3.out",
+        "to": "n4.x"
+      },
+      {
+        "from": "n4.out",
+        "to": "n5.x"
+      },
+      {
+        "from": "n5.out",
+        "to": "n6.x"
+      },
+      {
+        "from": "n6.out",
+        "to": "n7.x"
+      },
+      {
+        "from": "n7.out",
+        "to": "n8.x"
+      },
+      {
+        "from": "n8.out",
+        "to": "n9.x"
+      },
+      {
+        "from": "n9.out",
+        "to": "n10.x"
+      },
+      {
+        "from": "n10.out",
+        "to": "n11.x"
+      },
+      {
+        "from": "n11.out",
+        "to": "n12.x"
+      },
+      {
+        "from": "n12.out",
+        "to": "n13.x"
+      },
+      {
+        "from": "n13.out",
+        "to": "n14.x"
+      },
+      {
+        "from": "n14.out",
+        "to": "n15.x"
+      },
+      {
+        "from": "n15.out",
+        "to": "n16.x"
+      },
+      {
+        "from": "n16.out",
+        "to": "n17.x"
+      },
+      {
+        "from": "n17.out",
+        "to": "n18.x"
+      },
+      {
+        "from": "n18.out",
+        "to": "n19.x"
+      },
+      {
+        "from": "n19.out",
+        "to": "n20.x"
+      },
+      {
+        "from": "n20.out",
+        "to": "n21.x"
+      },
+      {
+        "from": "n21.out",
+        "to": "n22.x"
+      },
+      {
+        "from": "n22.out",
+        "to": "n23.x"
+      },
+      {
+        "from": "n23.out",
+        "to": "n24.x"
+      },
+      {
+        "from": "n24.out",
+        "to": "n25.x"
+      },
+      {
+        "from": "n25.out",
+        "to": "n26.x"
+      },
+      {
+        "from": "n26.out",
+        "to": "n27.x"
+      },
+      {
+        "from": "n27.out",
+        "to": "n28.x"
+      },
+      {
+        "from": "n28.out",
+        "to": "n29.x"
+      },
+      {
+        "from": "n29.out",
+        "to": "n30.x"
+      },
+      {
+        "from": "n30.out",
+        "to": "n31.x"
+      },
+      {
+        "from": "n31.out",
+        "to": "n32.x"
+      },
+      {
+        "from": "n32.out",
+        "to": "n33.x"
+      },
+      {
+        "from": "n33.out",
+        "to": "n34.x"
+      },
+      {
+        "from": "n34.out",
+        "to": "n35.x"
+      },
+      {
+        "from": "n35.out",
+        "to": "n36.x"
+      },
+      {
+        "from": "n36.out",
+        "to": "n37.x"
+      },
+      {
+        "from": "n37.out",
+        "to": "n38.x"
+      },
+      {
+        "from": "n38.out",
+        "to": "n39.x"
+      },
+      {
+        "from": "n39.out",
+        "to": "n40.x"
+      },
+      {
+        "from": "n40.out",
+        "to": "n41.x"
+      },
+      {
+        "from": "n41.out",
+        "to": "n42.x"
+      },
+      {
+        "from": "n42.out",
+        "to": "n43.x"
+      },
+      {
+        "from": "n43.out",
+        "to": "n44.x"
+      },
+      {
+        "from": "n44.out",
+        "to": "n45.x"
+      },
+      {
+        "from": "n45.out",
+        "to": "n46.x"
+      },
+      {
+        "from": "n46.out",
+        "to": "n47.x"
+      },
+      {
+        "from": "n47.out",
+        "to": "n48.x"
+      },
+      {
+        "from": "n48.out",
+        "to": "n49.x"
+      },
+      {
+        "from": "n49.out",
+        "to": "n50.x"
+      },
+      {
+        "from": "n50.out",
+        "to": "n51.x"
+      },
+      {
+        "from": "n51.out",
+        "to": "n52.x"
+      },
+      {
+        "from": "n52.out",
+        "to": "n53.x"
+      },
+      {
+        "from": "n53.out",
+        "to": "n54.x"
+      },
+      {
+        "from": "n54.out",
+        "to": "n55.x"
+      },
+      {
+        "from": "n55.out",
+        "to": "n56.x"
+      },
+      {
+        "from": "n56.out",
+        "to": "n57.x"
+      },
+      {
+        "from": "n57.out",
+        "to": "n58.x"
+      },
+      {
+        "from": "n58.out",
+        "to": "n59.x"
+      },
+      {
+        "from": "n59.out",
+        "to": "n60.x"
+      },
+      {
+        "from": "n60.out",
+        "to": "n61.x"
+      },
+      {
+        "from": "n61.out",
+        "to": "n62.x"
+      },
+      {
+        "from": "n62.out",
+        "to": "n63.x"
+      },
+      {
+        "from": "n63.out",
+        "to": "n64.x"
+      },
+      {
+        "from": "n64.out",
+        "to": "n65.x"
+      },
+      {
+        "from": "n65.out",
+        "to": "n66.x"
+      },
+      {
+        "from": "n66.out",
+        "to": "n67.x"
+      },
+      {
+        "from": "n67.out",
+        "to": "n68.x"
+      },
+      {
+        "from": "n68.out",
+        "to": "n69.x"
+      },
+      {
+        "from": "n69.out",
+        "to": "n70.x"
+      },
+      {
+        "from": "n70.out",
+        "to": "n71.x"
+      },
+      {
+        "from": "n71.out",
+        "to": "n72.x"
+      },
+      {
+        "from": "n72.out",
+        "to": "n73.x"
+      },
+      {
+        "from": "n73.out",
+        "to": "n74.x"
+      },
+      {
+        "from": "n74.out",
+        "to": "n75.x"
+      },
+      {
+        "from": "n75.out",
+        "to": "n76.x"
+      },
+      {
+        "from": "n76.out",
+        "to": "n77.x"
+      },
+      {
+        "from": "n77.out",
+        "to": "n78.x"
+      },
+      {
+        "from": "n78.out",
+        "to": "n79.x"
+      },
+      {
+        "from": "n79.out",
+        "to": "n80.x"
+      },
+      {
+        "from": "n80.out",
+        "to": "n81.x"
+      },
+      {
+        "from": "n81.out",
+        "to": "n82.x"
+      },
+      {
+        "from": "n82.out",
+        "to": "n83.x"
+      },
+      {
+        "from": "n83.out",
+        "to": "n84.x"
+      },
+      {
+        "from": "n84.out",
+        "to": "n85.x"
+      },
+      {
+        "from": "n85.out",
+        "to": "n86.x"
+      },
+      {
+        "from": "n86.out",
+        "to": "n87.x"
+      },
+      {
+        "from": "n87.out",
+        "to": "n88.x"
+      },
+      {
+        "from": "n88.out",
+        "to": "n89.x"
+      },
+      {
+        "from": "n89.out",
+        "to": "n90.x"
+      },
+      {
+        "from": "n90.out",
+        "to": "n91.x"
+      },
+      {
+        "from": "n91.out",
+        "to": "n92.x"
+      },
+      {
+        "from": "n92.out",
+        "to": "n93.x"
+      },
+      {
+        "from": "n93.out",
+        "to": "n94.x"
+      },
+      {
+        "from": "n94.out",
+        "to": "n95.x"
+      },
+      {
+        "from": "n95.out",
+        "to": "n96.x"
+      },
+      {
+        "from": "n96.out",
+        "to": "n97.x"
+      },
+      {
+        "from": "n97.out",
+        "to": "n98.x"
+      },
+      {
+        "from": "n98.out",
+        "to": "n99.x"
+      },
+      {
+        "from": "n99.out",
+        "to": "n100.x"
+      }
+    ],
+    "outputs": {
+      "value": "n100.out"
+    }
+  },
+  "inputs": {
+    "x": 1
+  },
+  "params": [],
+  "composed_expr": "x + 100",
+  "composed_vars": {
+    "x": 1
+  },
+  "expected_outputs": {
+    "value": 101
+  },
+  "tolerance": 1e-12
+}

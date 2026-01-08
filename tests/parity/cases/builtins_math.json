@@ -1,0 +1,263 @@
+[
+  {
+    "id": "math_abs_01",
+    "expr": "abs(-5.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_sqrt_01",
+    "expr": "sqrt(16)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_sqrt_02",
+    "expr": "sqrt(16, 2)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0,
+    "note": "nthRoot style"
+  },
+  {
+    "id": "math_cbrt_01",
+    "expr": "cbrt(27)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-09,
+    "note": "standalone poly cbrt=exp(log/3); host path still exact"
+  },
+  {
+    "id": "math_exp_01",
+    "expr": "exp(1)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "math_log_01",
+    "expr": "log(exp(2))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-09,
+    "note": "composed poly; host path exact"
+  },
+  {
+    "id": "math_log_02",
+    "expr": "log(100, 10)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12,
+    "note": "log with base"
+  },
+  {
+    "id": "math_log10_01",
+    "expr": "log10(1000)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-09,
+    "note": "standalone poly log10; host path exact"
+  },
+  {
+    "id": "math_log2_01",
+    "expr": "log2(256)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "math_square_01",
+    "expr": "square(5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_cube_01",
+    "expr": "cube(3)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_nthRoot_01",
+    "expr": "nthRoot(8, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "math_log1p_01",
+    "expr": "log1p(1e-10)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-15
+  },
+  {
+    "id": "math_expm1_01",
+    "expr": "expm1(1e-10)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-15
+  },
+  {
+    "id": "math_floor_01",
+    "expr": "floor(3.9)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_ceil_01",
+    "expr": "ceil(3.1)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_round_01",
+    "expr": "round(3.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_trunc_01",
+    "expr": "trunc(-3.9)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_clamp_01",
+    "expr": "clamp(15, 0, 10)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_sign_01",
+    "expr": "sign(-42)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_sign_02",
+    "expr": "sign(0)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_sign_03",
+    "expr": "sign(42)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_min_01",
+    "expr": "min(10, 20)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "math_max_01",
+    "expr": "max(10, 20)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "round_decimals_e3",
+    "expr": "round(2.718281828459045, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "number",
+      "value": 2.718
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot",
+      "wasm_aot_standalone"
+    ],
+    "note": " AOT: round(x,n) UnsupportedOpcode; skip until codegen."
+  },
+  {
+    "id": "round_decimals_two_places",
+    "expr": "round(1.2345, 2)",
+    "vars": {},
+    "expected": {
+      "tag": "number",
+      "value": 1.23
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot",
+      "wasm_aot_standalone"
+    ],
+    "note": " AOT: round(x,n) UnsupportedOpcode; skip until codegen."
+  },
+  {
+    "id": "round_one_arg_half",
+    "expr": "round(3.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number",
+      "value": 4
+    },
+    "tolerance": 1e-12
+  }
+]

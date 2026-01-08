@@ -1,0 +1,3 @@
+conv(100, degC)
+conv(373.15, degC)
+conv(373.15[K], degC)

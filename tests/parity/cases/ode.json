@@ -1,0 +1,10 @@
+[
+  {
+    "id": "ode_simple_01",
+    "expr": "simple_deriv(t, y) = -0.5 * y; ode_solve_euler(\"simple_deriv\", [1], [0, 2], 0.1)",
+    "vars": {},
+    "expected": { "tag": "matrix" },
+    "tolerance": 1e-6,
+    "skip": ["ts_wasm_vm"]
+  }
+]

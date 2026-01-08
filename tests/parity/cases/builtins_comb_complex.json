@@ -1,0 +1,9 @@
+[
+  { "id": "comb_combinations_01", "expr": "combinations(5, 2)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "comb_permutations_01", "expr": "permutations(5, 2)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "complex_re_01", "expr": "re(3 + 4i)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "complex_im_01", "expr": "im(3 + 4i)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "complex_arg_01", "expr": "arg(1 + i)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 1e-12 },
+  { "id": "complex_conj_01", "expr": "conj(3 + 4i)", "vars": {}, "expected": { "tag": "complex" }, "tolerance": 0 },
+  { "id": "builtin_complex_abs_01", "expr": "abs(3 + 4i)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 }
+]

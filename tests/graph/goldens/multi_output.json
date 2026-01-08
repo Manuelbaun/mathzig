@@ -1,0 +1,26 @@
+{
+  "id": "multi_output_mid_and_end",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      { "id": "x", "type": "input" },
+      { "id": "double", "type": "expr", "expr": "x * 2", "inputs": ["x"] },
+      { "id": "plus", "type": "expr", "expr": "x + 1", "inputs": ["x"] }
+    ],
+    "edges": [
+      { "from": "x.out", "to": "double.x" },
+      { "from": "double.out", "to": "plus.x" }
+    ],
+    "outputs": {
+      "mid": "double.out",
+      "end": "plus.out"
+    }
+  },
+  "inputs": { "x": 7 },
+  "params": [],
+  "composed_expr": "(x * 2) + 1",
+  "composed_vars": { "x": 7 },
+  "expected_outputs": { "mid": 14, "end": 15 },
+  "tolerance": 1e-12,
+  "note": "composed_expr matches 'end' only; mid is graph-structure-only (checked via expected_outputs)"
+}

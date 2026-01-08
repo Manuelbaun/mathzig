@@ -1,0 +1,24 @@
+{
+  "source": "libs/mathjs/examples/advanced/custom_evaluate_using_factories.js",
+  "slug": "advanced_custom_evaluate_using_factories_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 1,
+    "core": 0,
+    "extended": 1,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "advanced_custom_evaluate_using_factories_js_001",
+      "source": "libs/mathjs/examples/advanced/custom_evaluate_using_factories.js",
+      "line": 22,
+      "expr": "2 + 3 * 4",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "expected": 14,
+      "tolerance": 1e-9
+    }
+  ]
+}

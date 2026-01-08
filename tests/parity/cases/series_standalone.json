@@ -1,0 +1,82 @@
+[
+  {
+    "id": "series_standalone_mean",
+    "expr": "mean(series([1, 2, 3], [10, 20, 30]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 20 },
+    "tolerance": 1e-12,
+    "note": "Tier-4 linear_memory series mean"
+  },
+  {
+    "id": "series_standalone_sum",
+    "expr": "sum(series([1, 2, 3], [10, 20, 30]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 60 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_standalone_count",
+    "expr": "count(series([1, 2, 3, 4], [1, 2, 3, 4]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 4 },
+    "tolerance": 0
+  },
+  {
+    "id": "series_standalone_last",
+    "expr": "last(series([1, 2, 3], [10, 20, 30]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 30 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_standalone_head_last",
+    "expr": "last(head(series([1, 2, 3, 4], [10, 20, 30, 40]), 2))",
+    "vars": {},
+    "expected": { "type": "number", "value": 20 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_standalone_tail_last",
+    "expr": "last(tail(series([1, 2, 3, 4], [10, 20, 30, 40]), 2))",
+    "vars": {},
+    "expected": { "type": "number", "value": 40 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_standalone_cumsum",
+    "expr": "last(cumsum(series([0, 1, 2], [1, 2, 3])))",
+    "vars": {},
+    "expected": { "type": "number", "value": 6 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_standalone_diff",
+    "expr": "last(diff(series([0, 1, 2, 3], [10, 12, 15, 19]), 1))",
+    "vars": {},
+    "expected": { "type": "number", "value": 4 },
+    "tolerance": 1e-12,
+    "note": "diff period=1; last delta 19-15=4"
+  },
+  {
+    "id": "series_standalone_rolling_mean",
+    "expr": "last(rolling_mean(series([1, 2, 3, 4, 5], [10, 20, 30, 40, 50]), 3))",
+    "vars": {},
+    "expected": { "type": "number", "value": 40 },
+    "tolerance": 1e-12,
+    "note": "window 3: (30+40+50)/3=40"
+  },
+  {
+    "id": "series_standalone_sma",
+    "expr": "last(sma(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3))",
+    "vars": {},
+    "expected": { "type": "number", "value": 40 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_standalone_create_tag",
+    "expr": "series([0, 1, 2], [5, 6, 7])",
+    "vars": {},
+    "expected": { "tag": "series", "shape": [3] },
+    "tolerance": 1e-12
+  }
+]

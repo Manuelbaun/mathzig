@@ -1,0 +1,9 @@
+[
+  {
+    "id": "syntax_error_01",
+    "expr": "1 +",
+    "vars": {},
+    "expected": { "tag": "error" },
+    "tolerance": 0
+  }
+]

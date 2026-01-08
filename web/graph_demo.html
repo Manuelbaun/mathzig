@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MathZig · Graph demo (B3)</title>
+  <!--
+    Shared graph code: browser and bun both use src/ts/graph/.
+    Browser loads web/graph_bundle.js (built by: bun tools/build_graph_bundle.ts).
+    Bun tests import ../../src/ts/graph directly — no forks.
+
+    Serve (compile API for expr nodes):
+      bun web/graph_demo_server.ts
+      open http://localhost:8787/graph_demo.html
+
+    Static-only (python) works for assets but Load needs /api/aot_compile:
+      python3 -m http.server 8080 --directory web
+  -->
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --inset: #0d1117;
+      --line: #2d3a4d;
+      --fg: #e6edf3;
+      --muted: #8b9cb3;
+      --accent: #3d9cf0;
+      --ok: #3fb950;
+      --err: #f85149;
+      --warn: #d29922;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    header .tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    #status {
+      margin-left: auto;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    #status.ready { color: var(--ok); }
+    #status.error { color: var(--err); }
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 800px) {
+      main { grid-template-columns: 1fr; }
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+    }
+    section h2 {
+      margin: 0 0 0.6rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      line-height: 1.45;
+      background: var(--inset);
+      color: var(--fg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.6rem 0.75rem;
+      resize: vertical;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+      align-items: center;
+    }
+    button {
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--inset);
+      color: var(--fg);
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    #error {
+      margin-top: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--err);
+      white-space: pre-wrap;
+      display: none;
+    }
+    #error.visible { display: block; }
+    .param, .input-ctl {
+      display: grid;
+      grid-template-columns: 7rem 1fr 3.5rem;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0.35rem 0;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+    }
+    .param label, .input-ctl label { color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+    input[type="range"] { width: 100%; }
+    input[type="number"] {
+      width: 100%;
+      font: inherit;
+      background: var(--inset);
+      color: var(--fg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.2rem 0.35rem;
+    }
+    #outputs {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+    .out-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .out-row .name { color: var(--muted); min-width: 5rem; }
+    .gv-matrix {
+      border-collapse: collapse;
+      font-size: 0.7rem;
+    }
+    .gv-matrix td {
+      border: 1px solid var(--line);
+      padding: 0.15rem 0.4rem;
+      text-align: right;
+    }
+    .hint {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+    code { font-family: var(--mono); color: var(--accent); font-size: 0.85em; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="tag">task-09 · B3</span>
+    <h1>Node graph demo</h1>
+    <span id="status" data-testid="status">loading…</span>
+  </header>
+  <main>
+    <section>
+      <h2>Graph JSON</h2>
+      <textarea id="json" spellcheck="false"></textarea>
+      <div class="row">
+        <button type="button" class="primary" id="btn-load" data-testid="btn-load">Load</button>
+        <button type="button" id="btn-example">Reset example</button>
+      </div>
+      <div id="error" data-testid="error"></div>
+      <p class="hint">
+        Same <code>src/ts/graph</code> code as bun tests (via <code>graph_bundle.js</code>).
+        Expr nodes compile through <code>/api/aot_compile</code> (demo server).
+        Param slider range: default∈[0,1]→0..1; ∈(1,10]→0..2×default; else default±max(10,|d|×10).
+      </p>
+    </section>
+    <section>
+      <h2>Inputs</h2>
+      <div id="inputs"><span class="hint">Load a graph to edit inputs.</span></div>
+      <h2 style="margin-top:1rem">Params</h2>
+      <div id="params" data-testid="params"><span class="hint">Params appear after Load.</span></div>
+      <div class="row" style="margin-top:1rem">
+        <button type="button" class="primary" id="btn-tick" data-testid="btn-tick" disabled>Tick</button>
+        <label style="font-size:0.8rem;display:flex;align-items:center;gap:0.35rem">
+          <input type="checkbox" id="auto-tick" disabled /> Auto-tick
+        </label>
+        <label style="font-size:0.75rem;color:var(--muted)">
+          ms <input type="number" id="auto-ms" value="100" min="16" max="5000" step="10" style="width:4.5rem" />
+        </label>
+      </div>
+      <h2 style="margin-top:1rem">Outputs</h2>
+      <div id="outputs" data-testid="outputs"><span class="hint">—</span></div>
+    </section>
+  </main>
+
+  <script type="module">
+    import {
+      GraphRunner,
+      createDefaultScalarWasmImports,
+    } from "./graph_bundle.js";
+    import {
+      createGraphController,
+      paramSliderRange,
+      formatGraphValue,
+      EXAMPLE_GRAPH,
+    } from "./graph_controller.js";
+
+    const statusEl = document.getElementById("status");
+    const jsonEl = document.getElementById("json");
+    const errorEl = document.getElementById("error");
+    const inputsEl = document.getElementById("inputs");
+    const paramsEl = document.getElementById("params");
+    const outputsEl = document.getElementById("outputs");
+    const btnLoad = document.getElementById("btn-load");
+    const btnExample = document.getElementById("btn-example");
+    const btnTick = document.getElementById("btn-tick");
+    const autoTick = document.getElementById("auto-tick");
+    const autoMs = document.getElementById("auto-ms");
+
+    /** @type {WasmCompiler} */
+    const compiler = {
+      version: "graph-demo",
+      async compile(expr, numParams) {
+        const res = await fetch(`/api/aot_compile?params=${encodeURIComponent(String(numParams))}`, {
+          method: "POST",
+          headers: { "content-type": "text/plain;charset=utf-8" },
+          body: expr,
+        });
+        if (!res.ok) {
+          const msg = await res.text();
+          throw new Error(msg || `compile failed (${res.status})`);
+        }
+        const buf = await res.arrayBuffer();
+        return new Uint8Array(buf);
+      },
+    };
+
+    const controller = createGraphController({
+      GraphRunner,
+      createDefaultScalarWasmImports,
+      compiler,
+    });
+
+    function showError(msg) {
+      if (!msg) {
+        errorEl.textContent = "";
+        errorEl.classList.remove("visible");
+        return;
+      }
+      errorEl.textContent = msg;
+      errorEl.classList.add("visible");
+    }
+
+    function renderOutputs(outs) {
+      const names = Object.keys(outs || {});
+      if (names.length === 0) {
+        outputsEl.innerHTML = `<span class="hint">—</span>`;
+        return;
+      }
+      outputsEl.innerHTML = names
+        .map((name) => {
+          const fmt = formatGraphValue(outs[name]);
+          return `<div class="out-row"><span class="name">${name}</span><div>${fmt.html}</div></div>`;
+        })
+        .join("");
+    }
+
+    function renderControls(params, inputNames) {
+      inputsEl.innerHTML = "";
+      for (const name of inputNames) {
+        const val = controller.getInputValues()[name] ?? 0;
+        const range = paramSliderRange(val === 0 ? 1 : val);
+        const row = document.createElement("div");
+        row.className = "input-ctl";
+        row.dataset.input = name;
+        row.innerHTML = `
+          <label title="${name}">${name}</label>
+          <input type="range" min="${range.min}" max="${range.max}" step="${range.step}" value="${val}" />
+          <input type="number" step="any" value="${val}" />
+        `;
+        const slider = row.querySelector('input[type="range"]');
+        const num = row.querySelector('input[type="number"]');
+        const sync = (v) => {
+          const n = Number(v);
+          if (!Number.isFinite(n)) return;
+          controller.setInput(name, n);
+          slider.value = String(n);
+          num.value = String(n);
+        };
+        slider.addEventListener("input", () => sync(slider.value));
+        num.addEventListener("change", () => sync(num.value));
+        inputsEl.appendChild(row);
+      }
+      if (inputNames.length === 0) {
+        inputsEl.innerHTML = `<span class="hint">No inputs.</span>`;
+      }
+
+      paramsEl.innerHTML = "";
+      for (const p of params) {
+        const range = paramSliderRange(p.value);
+        const row = document.createElement("div");
+        row.className = "param";
+        const label = `${p.nodeId}.${p.name}`;
+        row.dataset.param = label;
+        row.innerHTML = `
+          <label title="${label}">${label}</label>
+          <input type="range" min="${range.min}" max="${range.max}" step="${range.step}" value="${p.value}" />
+          <input type="number" step="any" value="${p.value}" />
+        `;
+        const slider = row.querySelector('input[type="range"]');
+        const num = row.querySelector('input[type="number"]');
+        const sync = (v) => {
+          const n = Number(v);
+          if (!Number.isFinite(n)) return;
+          try {
+            controller.setParam(p.nodeId, p.name, n);
+            showError("");
+            slider.value = String(n);
+            num.value = String(n);
+          } catch (e) {
+            showError(String(e?.message ?? e));
+          }
+        };
+        slider.addEventListener("input", () => sync(slider.value));
+        num.addEventListener("change", () => sync(num.value));
+        paramsEl.appendChild(row);
+      }
+      if (params.length === 0) {
+        paramsEl.innerHTML = `<span class="hint">No params.</span>`;
+      }
+    }
+
+    async function doLoad() {
+      showError("");
+      statusEl.textContent = "compiling…";
+      statusEl.className = "";
+      const result = await controller.loadJson(jsonEl.value);
+      if (!result.ok) {
+        statusEl.textContent = "error";
+        statusEl.className = "error";
+        showError(result.error);
+        btnTick.disabled = true;
+        autoTick.disabled = true;
+        return;
+      }
+      statusEl.textContent = "ready";
+      statusEl.className = "ready";
+      renderControls(result.params, result.inputs);
+      btnTick.disabled = false;
+      autoTick.disabled = false;
+      try {
+        renderOutputs(controller.tick());
+      } catch (e) {
+        showError(String(e?.message ?? e));
+      }
+    }
+
+    btnLoad.addEventListener("click", () => void doLoad());
+    btnExample.addEventListener("click", () => {
+      jsonEl.value = JSON.stringify(EXAMPLE_GRAPH, null, 2);
+      showError("");
+    });
+    btnTick.addEventListener("click", () => {
+      try {
+        showError("");
+        renderOutputs(controller.tick());
+      } catch (e) {
+        showError(String(e?.message ?? e));
+      }
+    });
+    autoTick.addEventListener("change", () => {
+      const ms = Number(autoMs.value) || 100;
+      controller.setAutoTick(autoTick.checked, (outs, err) => {
+        if (err) showError(err);
+        else {
+          showError("");
+          renderOutputs(outs);
+        }
+      }, ms);
+    });
+
+    jsonEl.value = JSON.stringify(EXAMPLE_GRAPH, null, 2);
+
+    // Probe compile API
+    try {
+      const probe = await fetch("/api/aot_compile?params=0", {
+        method: "POST",
+        body: "1 + 1",
+      });
+      if (!probe.ok) throw new Error(await probe.text());
+      statusEl.textContent = "compiler ok — load a graph";
+      statusEl.className = "ready";
+    } catch (e) {
+      statusEl.textContent = "no compile API";
+      statusEl.className = "error";
+      showError(
+        `AOT compile endpoint unavailable (${e?.message ?? e}).\n` +
+          `Run: bun web/graph_demo_server.ts\n` +
+          `Then open http://localhost:8787/graph_demo.html`,
+      );
+    }
+  </script>
+</body>
+</html>

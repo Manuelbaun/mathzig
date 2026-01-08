@@ -1,0 +1,907 @@
+{
+  "summary": {
+    "total": 212,
+    "have": 103,
+    "miss": 109
+  },
+  "byCategory": {
+    "algebra": {
+      "total": 21,
+      "have": 2,
+      "miss": 19
+    },
+    "arithmetic": {
+      "total": 37,
+      "have": 27,
+      "miss": 10
+    },
+    "bitwise": {
+      "total": 7,
+      "have": 6,
+      "miss": 1
+    },
+    "combinatorics": {
+      "total": 4,
+      "have": 0,
+      "miss": 4
+    },
+    "complex": {
+      "total": 4,
+      "have": 4,
+      "miss": 0
+    },
+    "geometry": {
+      "total": 2,
+      "have": 0,
+      "miss": 2
+    },
+    "logical": {
+      "total": 5,
+      "have": 1,
+      "miss": 4
+    },
+    "matrix": {
+      "total": 39,
+      "have": 19,
+      "miss": 20
+    },
+    "numeric": {
+      "total": 1,
+      "have": 0,
+      "miss": 1
+    },
+    "probability": {
+      "total": 13,
+      "have": 8,
+      "miss": 5
+    },
+    "relational": {
+      "total": 11,
+      "have": 1,
+      "miss": 10
+    },
+    "set": {
+      "total": 10,
+      "have": 0,
+      "miss": 10
+    },
+    "signal": {
+      "total": 2,
+      "have": 0,
+      "miss": 2
+    },
+    "special": {
+      "total": 2,
+      "have": 1,
+      "miss": 1
+    },
+    "statistics": {
+      "total": 13,
+      "have": 10,
+      "miss": 3
+    },
+    "string": {
+      "total": 2,
+      "have": 1,
+      "miss": 1
+    },
+    "trigonometry": {
+      "total": 25,
+      "have": 20,
+      "miss": 5
+    },
+    "unit": {
+      "total": 2,
+      "have": 0,
+      "miss": 2
+    },
+    "utils": {
+      "total": 12,
+      "have": 3,
+      "miss": 9
+    }
+  },
+  "missing": [
+    "algebra/decomposition/lup",
+    "algebra/decomposition/qr",
+    "algebra/decomposition/schur",
+    "algebra/decomposition/slu",
+    "algebra/leafCount",
+    "algebra/lyap",
+    "algebra/polynomialRoot",
+    "algebra/rationalize",
+    "algebra/simplify",
+    "algebra/simplifyConstant",
+    "algebra/simplifyCore",
+    "algebra/solver/lsolve",
+    "algebra/solver/lsolveAll",
+    "algebra/solver/lusolve",
+    "algebra/solver/usolve",
+    "algebra/solver/usolveAll",
+    "algebra/sparse/csLu",
+    "algebra/sylvester",
+    "algebra/symbolicEqual",
+    "arithmetic/addScalar",
+    "arithmetic/createHypot",
+    "arithmetic/dotDivide",
+    "arithmetic/dotPow",
+    "arithmetic/invmod",
+    "arithmetic/nthRoots",
+    "arithmetic/subtractScalar",
+    "arithmetic/unaryMinus",
+    "arithmetic/unaryPlus",
+    "arithmetic/xgcd",
+    "bitwise/rightLogShift",
+    "combinatorics/bellNumbers",
+    "combinatorics/catalan",
+    "combinatorics/composition",
+    "combinatorics/stirlingS2",
+    "geometry/distance",
+    "geometry/intersect",
+    "logical/not",
+    "logical/nullish",
+    "logical/or",
+    "logical/xor",
+    "matrix/column",
+    "matrix/concat",
+    "matrix/ctranspose",
+    "matrix/eigs",
+    "matrix/expm",
+    "matrix/fft",
+    "matrix/ifft",
+    "matrix/kron",
+    "matrix/mapSlices",
+    "matrix/matrixFrom",
+    "matrix/partitionSelect",
+    "matrix/pinv",
+    "matrix/range",
+    "matrix/resize",
+    "matrix/rotate",
+    "matrix/rotationMatrix",
+    "matrix/sort",
+    "matrix/sqrtm",
+    "matrix/squeeze",
+    "matrix/subset",
+    "numeric/solveODE",
+    "probability/bernoulli",
+    "probability/combinationsWithRep",
+    "probability/kldivergence",
+    "probability/multinomial",
+    "probability/seededrandom",
+    "relational/compareNatural",
+    "relational/compareText",
+    "relational/deepEqual",
+    "relational/equal",
+    "relational/equalText",
+    "relational/larger",
+    "relational/largerEq",
+    "relational/smaller",
+    "relational/smallerEq",
+    "relational/unequal",
+    "set/setCartesian",
+    "set/setDifference",
+    "set/setDistinct",
+    "set/setIntersect",
+    "set/setIsSubset",
+    "set/setMultiplicity",
+    "set/setPowerset",
+    "set/setSize",
+    "set/setSymDifference",
+    "set/setUnion",
+    "signal/freqz",
+    "signal/zpk2tf",
+    "special/zeta",
+    "statistics/corr",
+    "statistics/mode",
+    "statistics/quantileSeq",
+    "string/print",
+    "trigonometry/acos",
+    "trigonometry/atan",
+    "trigonometry/cosh",
+    "trigonometry/sinh",
+    "trigonometry/tanh",
+    "unit/to",
+    "unit/toBest",
+    "utils/clone",
+    "utils/hasNumericValue",
+    "utils/isBounded",
+    "utils/isNegative",
+    "utils/isNumeric",
+    "utils/isPositive",
+    "utils/isPrime",
+    "utils/isZero",
+    "utils/typeof"
+  ],
+  "covered": [
+    {
+      "case": "algebra/derivative",
+      "hits": [
+        "tests/scripts/csv_analysis.mzig:37:derivative(data.price)",
+        "tests/scripts/replay.mzig:123:derivative(S2)",
+        "tests/ts/parity/timeseries.test.ts:88:expect(evalNum('last(derivative(series([0, 1, 2], [0, 10, 20])))')).toBe(10);"
+      ]
+    },
+    {
+      "case": "algebra/resolve",
+      "hits": [
+        "tests/ts/parity/parity_runner.test.ts:159:const reportPath = resolve(\"tests/artifacts/parity/parity_report.md\");"
+      ]
+    },
+    {
+      "case": "arithmetic/abs",
+      "hits": [
+        "tests/parity/cases/complex.json:3:{ \"id\": \"complex_abs_01\", \"expr\": \"abs(3 + 4i)\", \"vars\": {}, \"expected\": { \"tag\": \"number\" }, \"tolerance\": 1e-12, \"skip\": [\"ts_wasm_vm\"] },",
+        "tests/scripts/replay.mzig:21:abs(-42)            # 42",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:136:'abs(-5.5)', 'abs(5.5)', 'abs(0)',"
+      ]
+    },
+    {
+      "case": "arithmetic/add",
+      "hits": [
+        "tests/parity/cases/dsl_functions.json:3:{ \"id\": \"dsl_fn_02\", \"expr\": \"add(a, b) = a + b; add(5, 7)\", \"vars\": {}, \"expected\": { \"tag\": \"number\" }, \"tolerance\": 0 },",
+        "tests/ts/parity/api_hardening.test.ts:99:const sum = v1.add(v2, undefined);",
+        "tests/ts/parity/api_surface.test.ts:208:const v3 = v1.add(v2, undefined);"
+      ]
+    },
+    {
+      "case": "arithmetic/cbrt",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:145:'cbrt(27)', 'cbrt(-8)',"
+      ]
+    },
+    {
+      "case": "arithmetic/ceil",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:137:'ceil(5.1)', 'ceil(-5.1)',",
+        "tests/ts/parity/compiler.test.ts:148:res = mathzig.eval('ceil(3.2)');",
+        "tests/ts/parity/test_mathzig.test.ts:59:res = ctx.eval('ceil(3.2)');"
+      ]
+    },
+    {
+      "case": "arithmetic/cube",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:147:'square(4)', 'cube(3)',"
+      ]
+    },
+    {
+      "case": "arithmetic/divide",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:172:{ expr: 'divide(10, 2)', zig: '10 / 2' },",
+        "tests/ts/simulations/rocket_simulation/full-simulation.test.ts:106:const steps = Math.round(math.number(math.divide(tmax, dt)) as number);"
+      ]
+    },
+    {
+      "case": "arithmetic/dotMultiply",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:266:it('element-wise multiply', () => check('dotMultiply([1, 2], [3, 4])', { zigExpr: 'sum([1, 2] .* [3, 4])', todo: false }));",
+        "tests/ts/simulations/rocket_simulation/full-simulation.test.ts:111:const delta = math.dotMultiply(deriv, dt);"
+      ]
+    },
+    {
+      "case": "arithmetic/exp",
+      "hits": [
+        "tests/scripts/replay.mzig:23:exp(0)              # 1",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:140:'exp(2)', 'exp(0)', 'exp(-1)',",
+        "tests/ts/parity/comparison_mathjs_parity.test.ts:116:const expr = 'sin(0.5) + cos(0.2) + exp(0.1)';"
+      ]
+    },
+    {
+      "case": "arithmetic/expm1",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:149:'log1p(0.5)', 'expm1(0.5)',"
+      ]
+    },
+    {
+      "case": "arithmetic/fix",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:148:'fix(5.9)', 'fix(-5.9)',"
+      ]
+    },
+    {
+      "case": "arithmetic/floor",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:138:'floor(5.9)', 'floor(-5.1)',",
+        "tests/ts/parity/compiler.test.ts:145:res = mathzig.eval('floor(3.7)');",
+        "tests/ts/parity/test_mathzig.test.ts:56:res = ctx.eval('floor(3.7)');"
+      ]
+    },
+    {
+      "case": "arithmetic/gcd",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:179:{ expr: 'gcd(12, 15)', zig: 'gcd(12, 15)' },"
+      ]
+    },
+    {
+      "case": "arithmetic/lcm",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:180:{ expr: 'lcm(12, 15)', zig: 'lcm(12, 15)' },"
+      ]
+    },
+    {
+      "case": "arithmetic/log",
+      "hits": [
+        "tests/scripts/replay.mzig:22:log(e)              # 1",
+        "tests/ts/parity/api_surface.test.ts:61:console.log(\"Starting batch eval test with fresh context\");",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:55:// console.log(`Debug: ${zigExpr} -> tag=${actualRaw.tag}`);"
+      ]
+    },
+    {
+      "case": "arithmetic/log10",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:87:expect(actual.re).toBeCloseTo(expected.re, -Math.log10(epsilon));"
+      ]
+    },
+    {
+      "case": "arithmetic/log1p",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:149:'log1p(0.5)', 'expm1(0.5)',"
+      ]
+    },
+    {
+      "case": "arithmetic/log2",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:143:'log2(8)', 'log2(0.5)',"
+      ]
+    },
+    {
+      "case": "arithmetic/mod",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:176:{ expr: 'mod(10, 3)', zig: '10 % 3' },"
+      ]
+    },
+    {
+      "case": "arithmetic/multiply",
+      "hits": [
+        "tests/ts/parity/api_hardening.test.ts:60:const c = a.multiply(b, undefined);",
+        "tests/ts/parity/api_surface.test.ts:146:const c = a.multiply(b, undefined);",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:171:{ expr: 'multiply(3, 4)', zig: '3 * 4' },"
+      ]
+    },
+    {
+      "case": "arithmetic/norm",
+      "hits": [
+        "tests/scripts/replay.mzig:93:norm([3, 4])        # 5",
+        "tests/ts/parity/api_surface.test.ts:227:expect(v.norm()).toBe(5);",
+        "tests/ts/parity/matrix.test.ts:124:expect(evalNum('norm([3, 4])')).toBe(5);"
+      ]
+    },
+    {
+      "case": "arithmetic/nthRoot",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:185:{ expr: 'nthRoot(27, 3)', zig: 'nthRoot(27, 3)', approx: true },"
+      ]
+    },
+    {
+      "case": "arithmetic/pow",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:173:{ expr: 'pow(2, 3)', zig: '2 ^ 3' },"
+      ]
+    },
+    {
+      "case": "arithmetic/round",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:139:'round(5.5)', 'round(5.4)', 'round(-5.5)',",
+        "tests/ts/simulations/rocket_simulation/full-simulation.test.ts:106:const steps = Math.round(math.number(math.divide(tmax, dt)) as number);"
+      ]
+    },
+    {
+      "case": "arithmetic/sign",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:146:'sign(-5)', 'sign(5)', 'sign(0)',"
+      ]
+    },
+    {
+      "case": "arithmetic/sqrt",
+      "hits": [
+        "tests/parity/mathjs_examples/cases/advanced/convert_fraction_to_bignumber.json:14:\"expr\": \"sqrt(4)\",",
+        "tests/parity/mathjs_examples/cases/expressions.json:22:\"expr\": \"sqrt(3^2 + 4^2)\",",
+        "tests/scripts/replay.mzig:20:sqrt(16)            # 4"
+      ]
+    },
+    {
+      "case": "arithmetic/square",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:147:'square(4)', 'cube(3)',"
+      ]
+    },
+    {
+      "case": "arithmetic/subtract",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:170:{ expr: 'subtract(5, 2)', zig: '5 - 2' },"
+      ]
+    },
+    {
+      "case": "bitwise/bitAnd",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:296:it('bitAnd(6, 3)', () => check('bitAnd(6, 3)', { zigExpr: '6 & 3' }));"
+      ]
+    },
+    {
+      "case": "bitwise/bitNot",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:301:it('bitNot(6)', () => check('bitNot(6)', { zigExpr: '~6' }));"
+      ]
+    },
+    {
+      "case": "bitwise/bitOr",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:297:it('bitOr(6, 3)', () => check('bitOr(6, 3)', { zigExpr: '6 | 3' }));"
+      ]
+    },
+    {
+      "case": "bitwise/bitXor",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:298:it('bitXor(6, 3)', () => check('bitXor(6, 3)', { zigExpr: '6 ^^ 3' })); // Zig uses ^^? No, Zig parser uses caret_caret maps to bxor."
+      ]
+    },
+    {
+      "case": "bitwise/leftShift",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:302:it('leftShift(2, 1)', () => check('leftShift(2, 1)', { zigExpr: '2 << 1' }));"
+      ]
+    },
+    {
+      "case": "bitwise/rightArithShift",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:303:it('rightArithShift(4, 1)', () => check('rightArithShift(4, 1)', { zigExpr: '4 >> 1' }));"
+      ]
+    },
+    {
+      "case": "complex/arg",
+      "hits": [
+        "tests/scripts/replay.mzig:35:arg(i)              # pi/2",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:238:it('arg(1 + 1i)', () => check('arg(1 + 1i)'));"
+      ]
+    },
+    {
+      "case": "complex/conj",
+      "hits": [
+        "tests/scripts/replay.mzig:33:conj(10 + i)        # 10 - i",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:239:it('conj(2 + 3i)', () => check('conj(2 + 3i)'));"
+      ]
+    },
+    {
+      "case": "complex/im",
+      "hits": [
+        "tests/scripts/complex_test.mzig:6:assert(im(z3), 6)",
+        "tests/scripts/replay.mzig:32:im(5 + 3i)          # 3",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:60:// Workaround: Use re() and im() builtins to extract parts"
+      ]
+    },
+    {
+      "case": "complex/re",
+      "hits": [
+        "tests/scripts/complex_test.mzig:5:assert(re(z3), 4)",
+        "tests/scripts/replay.mzig:31:re(5 + 3i)          # 5",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:60:// Workaround: Use re() and im() builtins to extract parts"
+      ]
+    },
+    {
+      "case": "logical/and",
+      "hits": [
+        "tests/ts/parity/wasm_memory.test.ts:38:const { result } = await compileAndRun(\"(M1 = [1, 2]) and (M2 = [3, 4]) and (M1[0, 0] + M2[0, 1])\");"
+      ]
+    },
+    {
+      "case": "matrix/count",
+      "hits": [
+        "tests/scripts/csv_analysis.mzig:42:count(data.price) where value > 160",
+        "tests/scripts/replay.mzig:151:count(S2) where dt > 15"
+      ]
+    },
+    {
+      "case": "matrix/cross",
+      "hits": [
+        "tests/ts/parity/matrix.test.ts:118:const result = mathzig.eval('cross([1, 0, 0], [0, 1, 0])');"
+      ]
+    },
+    {
+      "case": "matrix/det",
+      "hits": [
+        "tests/parity/cases/matrix_ops_extended.json:3:{ \"id\": \"matrix_det_01\", \"expr\": \"det([1, 2; 3, 4])\", \"vars\": {}, \"expected\": { \"tag\": \"number\" }, \"tolerance\": 1e-9, \"skip\": [\"ts_wasm_vm\"] },",
+        "tests/parity/mathjs_examples/cases/basic_usage.json:38:\"expr\": \"det([-1, 2; 3, 1])\",",
+        "tests/scripts/replay.mzig:87:det(A)              # -2"
+      ]
+    },
+    {
+      "case": "matrix/diag",
+      "hits": [
+        "tests/scripts/replay.mzig:92:diag(A)             # [1; 4]"
+      ]
+    },
+    {
+      "case": "matrix/diff",
+      "hits": [
+        "tests/scripts/replay.mzig:125:diff(S1, 1)",
+        "tests/ts/parity/timeseries.test.ts:92:expect(evalNum('last(diff(series([1, 2, 3], [10, 20, 50]), 1))')).toBe(30);"
+      ]
+    },
+    {
+      "case": "matrix/dot",
+      "hits": [
+        "tests/scripts/replay.mzig:84:dot([1, 2, 3], [4, 5, 6]) # 32",
+        "tests/ts/parity/api_hardening.test.ts:105:const dot = v1.dot(v2);",
+        "tests/ts/parity/api_surface.test.ts:221:expect(v1.dot(v2)).toBe(32);"
+      ]
+    },
+    {
+      "case": "matrix/filter",
+      "hits": [
+        "tests/ts/parity/parity_runner.test.ts:163:const failed = results.filter((r) => r.status === \"FAIL\");"
+      ]
+    },
+    {
+      "case": "matrix/flatten",
+      "hits": [
+        "tests/scripts/replay.mzig:96:flatten(A)          # 4x1",
+        "tests/ts/simulations/rocket_simulation/full-simulation.test.ts:296:mjParser.evaluate(\"x_s1_end = flatten(result_stage1[end,:])\");"
+      ]
+    },
+    {
+      "case": "matrix/forEach",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:158:unaryTests.forEach(expr => {",
+        "tests/ts/simulations/rocket_simulation/parity/comprehensive.test.ts:42:constants.forEach(({ expr, name }) => {"
+      ]
+    },
+    {
+      "case": "matrix/identity",
+      "hits": [
+        "tests/scripts/replay.mzig:98:identity(3)",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:268:it('identity(3)', () => check('det(identity(3))'));",
+        "tests/ts/parity/matrix.test.ts:41:const result = mathzig.eval('identity(3)');"
+      ]
+    },
+    {
+      "case": "matrix/inv",
+      "hits": [
+        "tests/scripts/replay.mzig:88:inv([4, 7; 2, 6])",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:254:it('det(inv([1, 2; 3, 4]))', () => {",
+        "tests/ts/parity/comparison_mathjs_parity.test.ts:102:const expr = 'sum(inv([1, 2; 3, 4]))';"
+      ]
+    },
+    {
+      "case": "matrix/map",
+      "hits": [
+        "tests/ts/simulations/rocket_simulation/full-simulation.test.ts:110:const deriv = funcs.map((fn: any) => fn(...current));"
+      ]
+    },
+    {
+      "case": "matrix/ones",
+      "hits": [
+        "tests/scripts/replay.mzig:100:ones(1, 5)",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:271:it('sum(ones(3, 3))', () => check('sum(ones(3, 3))'));",
+        "tests/ts/parity/matrix.test.ts:54:const result = mathzig.eval('ones(3, 3)');"
+      ]
+    },
+    {
+      "case": "matrix/reshape",
+      "hits": [
+        "tests/scripts/replay.mzig:97:reshape([1, 2, 3, 4, 5, 6], 2, 3)"
+      ]
+    },
+    {
+      "case": "matrix/row",
+      "hits": [
+        "tests/ts/simulations/rocket_simulation/integration/ode-basic.test.ts:242:console.log(\"First row (t=0):\");"
+      ]
+    },
+    {
+      "case": "matrix/size",
+      "hits": [
+        "tests/scripts/replay.mzig:91:size(A)",
+        "tests/ts/parity/ode_solver.test.ts:15:const rows = mz.eval(\"size(sol).rows\");",
+        "tests/ts/simulations/rocket_simulation/full-simulation.test.ts:284:const mzRowsNum = mzNum(mz, \"size(mz_result_stage1).rows\");"
+      ]
+    },
+    {
+      "case": "matrix/trace",
+      "hits": [
+        "tests/parity/cases/matrix_ops_extended.json:2:{ \"id\": \"matrix_trace_01\", \"expr\": \"trace([1, 2; 3, 4])\", \"vars\": {}, \"expected\": { \"tag\": \"number\" }, \"tolerance\": 1e-12, \"skip\": [\"ts_wasm_vm\"] },",
+        "tests/scripts/replay.mzig:90:trace(A)            # 5",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:258:it('trace([1, 2; 3, 4])', () => check('trace([1, 2; 3, 4])'));"
+      ]
+    },
+    {
+      "case": "matrix/transpose",
+      "hits": [
+        "tests/scripts/replay.mzig:89:transpose(A)",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:264:it('det(transpose([1, 2; 3, 4]))', () => check('det(transpose([1, 2; 3, 4]))'));",
+        "tests/ts/parity/matrix.test.ts:74:expect(evalNum('trace(transpose([1, 2; 3, 4]))')).toBe(5);"
+      ]
+    },
+    {
+      "case": "matrix/zeros",
+      "hits": [
+        "tests/parity/mathjs_examples/cases/expressions.json:152:\"expr\": \"l = zeros(2, 2)\",",
+        "tests/scripts/replay.mzig:99:zeros(2, 2)",
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:270:it('sum(zeros(3, 3))', () => check('sum(zeros(3, 3))'));"
+      ]
+    },
+    {
+      "case": "probability/combinations",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:183:{ expr: 'combinations(5, 2)', zig: 'combinations(5, 2)' },"
+      ]
+    },
+    {
+      "case": "probability/factorial",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:288:it('factorial(5)', () => check('factorial(5)'));"
+      ]
+    },
+    {
+      "case": "probability/gamma",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:155:'erf(0.5)', 'gamma(1.5)', 'lgamma(1.5)',"
+      ]
+    },
+    {
+      "case": "probability/lgamma",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:155:'erf(0.5)', 'gamma(1.5)', 'lgamma(1.5)',"
+      ]
+    },
+    {
+      "case": "probability/permutations",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:184:{ expr: 'permutations(5, 2)', zig: 'permutations(5, 2)' },"
+      ]
+    },
+    {
+      "case": "probability/pickRandom",
+      "hits": [
+        "tests/ts/parity/probability.test.ts:59:const val = evalNum('pickRandom([10, 20, 30])');"
+      ]
+    },
+    {
+      "case": "probability/random",
+      "hits": [
+        "tests/parity/cases/probability.json:2:{ \"id\": \"prob_random_01\", \"expr\": \"random(10.0)\", \"vars\": {}, \"expected\": { \"type\": \"any\" }, \"tolerance\": 0, \"skip\": [\"ts_wasm_vm\"], \"note\": \"requires fixed RNG seed\" },",
+        "tests/ts/parity/probability.test.ts:34:const val = evalNum('random()');"
+      ]
+    },
+    {
+      "case": "probability/randomInt",
+      "hits": [
+        "tests/parity/cases/probability.json:3:{ \"id\": \"prob_randint_01\", \"expr\": \"randomInt(5, 15)\", \"vars\": {}, \"expected\": { \"type\": \"any\" }, \"tolerance\": 0, \"skip\": [\"ts_wasm_vm\"], \"note\": \"requires fixed RNG seed\" }",
+        "tests/ts/parity/probability.test.ts:50:const val = evalNum('randomInt(5, 15)');"
+      ]
+    },
+    {
+      "case": "relational/compare",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_parity.test.ts:74:const { valJS, valZig } = compare('1 + 2 * 3 / 4', { iterations: 1000, useWarm: true });"
+      ]
+    },
+    {
+      "case": "special/erf",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:155:'erf(0.5)', 'gamma(1.5)', 'lgamma(1.5)',"
+      ]
+    },
+    {
+      "case": "statistics/cumsum",
+      "hits": [
+        "tests/scripts/csv_analysis.mzig:32:cumsum(data.price)",
+        "tests/scripts/replay.mzig:118:cumsum(S1)",
+        "tests/scripts/test_series_display.mzig:3:cumsum(S1)"
+      ]
+    },
+    {
+      "case": "statistics/mad",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:289:it('mad', () => check(`mad(${list})`));"
+      ]
+    },
+    {
+      "case": "statistics/max",
+      "hits": [
+        "tests/parity/cases/timeseries_stats.json:20:\"expr\": \"max(series([1, 2, 3], [10, 5, 30]))\",",
+        "tests/scripts/csv_analysis.mzig:16:max(data.price)",
+        "tests/scripts/replay.mzig:111:max(S1)             # 30"
+      ]
+    },
+    {
+      "case": "statistics/mean",
+      "hits": [
+        "tests/parity/cases/timeseries_filters.json:20:\"expr\": \"mean(series([1, 2, 3, 4], [10, -5, 20, -3])) where value > 0\",",
+        "tests/parity/cases/timeseries_stats.json:4:\"expr\": \"mean(series([1, 2, 3, 4], [10, -5, 20, -3]))\",",
+        "tests/scripts/csv_analysis.mzig:14:mean(data.price)"
+      ]
+    },
+    {
+      "case": "statistics/median",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:283:it('median', () => check(`median(${list})`));"
+      ]
+    },
+    {
+      "case": "statistics/min",
+      "hits": [
+        "tests/parity/cases/timeseries_stats.json:12:\"expr\": \"min(series([1, 2, 3], [10, 5, 30]))\",",
+        "tests/scripts/csv_analysis.mzig:15:min(data.price)",
+        "tests/scripts/replay.mzig:110:min(S1)             # 10"
+      ]
+    },
+    {
+      "case": "statistics/prod",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:286:it('prod', () => check(`prod(${list})`));"
+      ]
+    },
+    {
+      "case": "statistics/std",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:284:it('std', () => check(`std(${list})`, { epsilon: 1e-4 }));"
+      ]
+    },
+    {
+      "case": "statistics/sum",
+      "hits": [
+        "tests/parity/cases/matrix_ops_extended.json:4:{ \"id\": \"matrix_sum_01\", \"expr\": \"sum([1, 2; 3, 4])\", \"vars\": {}, \"expected\": { \"tag\": \"number\" }, \"tolerance\": 1e-12, \"skip\": [\"ts_wasm_vm\"] }",
+        "tests/parity/cases/timeseries.json:12:\"expr\": \"sum(series([0, 1, 2], [10, 20, 30]))\",",
+        "tests/scripts/csv_analysis.mzig:17:sum(data.vol)"
+      ]
+    },
+    {
+      "case": "statistics/variance",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:285:it('variance', () => check(`variance(${list})`));"
+      ]
+    },
+    {
+      "case": "string/format",
+      "hits": [
+        "tests/ts/simulations/rocket_simulation/full-simulation.test.ts:35:const formatted = mz.eval(`\"${expr} = \" + format(${expr})`);"
+      ]
+    },
+    {
+      "case": "trigonometry/acosh",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:150:'asinh(0.5)', 'acosh(1.5)', 'atanh(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/acot",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:152:'asec(1.5)', 'acsc(1.5)', 'acot(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/acoth",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:154:'asech(0.5)', 'acsch(0.5)', 'acoth(1.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/acsc",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:152:'asec(1.5)', 'acsc(1.5)', 'acot(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/acsch",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:154:'asech(0.5)', 'acsch(0.5)', 'acoth(1.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/asec",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:152:'asec(1.5)', 'acsc(1.5)', 'acot(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/asech",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:154:'asech(0.5)', 'acsch(0.5)', 'acoth(1.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/asin",
+      "hits": [
+        "tests/zig/config.test.zig:25:const res3 = try ctx.eval(\"asin(1)\");"
+      ]
+    },
+    {
+      "case": "trigonometry/asinh",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:150:'asinh(0.5)', 'acosh(1.5)', 'atanh(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/atan2",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:181:{ expr: 'atan2(1, 1)', zig: 'atan2(1, 1)' },"
+      ]
+    },
+    {
+      "case": "trigonometry/atanh",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:150:'asinh(0.5)', 'acosh(1.5)', 'atanh(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/cos",
+      "hits": [
+        "tests/parity/mathjs_examples/cases/expressions.json:40:\"expr\": \"cos(45 deg)\",",
+        "tests/parity/mathjs_examples/cases/units.json:14:\"expr\": \"cos(45 deg)\",",
+        "tests/ts/parity/comparison_mathjs_parity.test.ts:116:const expr = 'sin(0.5) + cos(0.2) + exp(0.1)';"
+      ]
+    },
+    {
+      "case": "trigonometry/cot",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:151:'sec(0.5)', 'csc(0.5)', 'cot(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/coth",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:153:'sech(0.5)', 'csch(0.5)', 'coth(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/csc",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:151:'sec(0.5)', 'csc(0.5)', 'cot(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/csch",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:153:'sech(0.5)', 'csch(0.5)', 'coth(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/sec",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:151:'sec(0.5)', 'csc(0.5)', 'cot(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/sech",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:153:'sech(0.5)', 'csch(0.5)', 'coth(0.5)',"
+      ]
+    },
+    {
+      "case": "trigonometry/sin",
+      "hits": [
+        "tests/parity/cases/core_arithmetic.json:25:\"expr\": \"sin(pi / 2)\",",
+        "tests/parity/cases/wasm_backend.json:4:\"expr\": \"sin(0)\",",
+        "tests/parity/mathjs_examples/cases/algebra.json:50:\"expr\": \"sin(2x)\","
+      ]
+    },
+    {
+      "case": "trigonometry/tan",
+      "hits": [
+        "tests/ts/parity/compiler.test.ts:159:res = mathzig.eval('tan(0)');"
+      ]
+    },
+    {
+      "case": "utils/isFinite",
+      "hits": [
+        "tests/ts/parity/integration.test.ts:152:expect(isNaN(val) || !isFinite(val)).toBe(true);",
+        "tests/ts/parity/si_units_extreme.test.ts:105:expect(Number.isFinite(got)).toBe(true);",
+        "tests/ts/parity/wasm_builtins.test.ts:37:expect(Number.isFinite(r1)).toBe(true);"
+      ]
+    },
+    {
+      "case": "utils/isInteger",
+      "hits": [
+        "tests/ts/parity/comparison_mathjs_comprehensive.test.ts:114:if (options.approx || !Number.isInteger(expected)) {",
+        "tests/ts/parity/probability.test.ts:53:expect(Number.isInteger(val)).toBe(true);"
+      ]
+    },
+    {
+      "case": "utils/isNaN",
+      "hits": [
+        "tests/ts/parity/ffi_boundary_validation.test.ts:470:expect(Number.isNaN(result.toNumber())).toBe(true);",
+        "tests/ts/parity/integration.test.ts:146:expect(isNaN(res as number)).toBe(true);",
+        "tests/ts/parity/parity_runner.test.ts:117:if (isNaN(a) && isNaN(b)) return true;"
+      ]
+    }
+  ]
+}

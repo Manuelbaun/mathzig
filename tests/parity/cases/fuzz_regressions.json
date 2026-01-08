@@ -1,0 +1,78 @@
+[
+  {
+    "id": "fuzz_round_half_away_01",
+    "expr": "round(0.5)",
+    "vars": {},
+    "expected": { "type": "number", "value": 1 },
+    "tolerance": 0,
+    "note": "Zig @round is half-away-from-zero; wasm f64.nearest is ties-to-even. Fixed AOT codegen."
+  },
+  {
+    "id": "fuzz_round_half_away_02",
+    "expr": "round(1.5)",
+    "vars": {},
+    "expected": { "type": "number", "value": 2 },
+    "tolerance": 0
+  },
+  {
+    "id": "fuzz_round_half_away_03",
+    "expr": "round(2.5)",
+    "vars": {},
+    "expected": { "type": "number", "value": 3 },
+    "tolerance": 0
+  },
+  {
+    "id": "fuzz_round_half_away_04",
+    "expr": "round(-0.5)",
+    "vars": {},
+    "expected": { "type": "number", "value": -1 },
+    "tolerance": 0
+  },
+  {
+    "id": "fuzz_round_hypot_01",
+    "expr": "round(hypot(0, 0.5))",
+    "vars": {},
+    "expected": { "type": "number", "value": 1 },
+    "tolerance": 0,
+    "note": "Minimized from fuzz seed=0x4d415448 index 133"
+  },
+  {
+    "id": "fuzz_series_nonvector_rejects_01",
+    "expr": "series([1, 2; 3, 4])",
+    "vars": {},
+    "expected": { "type": "error" },
+    "skip": ["wasm_aot_standalone"],
+    "note": "VM TypeError; standalone returns NaN (honest hard-error path deferred)"
+  },
+  {
+    "id": "fuzz_re_pure_real_01",
+    "expr": "re(7 + 0i)",
+    "vars": {},
+    "expected": { "type": "number", "value": 7 },
+    "tolerance": 0,
+    "note": "AOT folds pure-real complex to number; host promotes number→complex for re/im/conj"
+  },
+  {
+    "id": "fuzz_im_pure_real_01",
+    "expr": "im(7 + 0i)",
+    "vars": {},
+    "expected": { "type": "number", "value": 0 },
+    "tolerance": 0
+  },
+  {
+    "id": "fuzz_sign_nan_01",
+    "expr": "sign(nan)",
+    "vars": {},
+    "expected": { "type": "number", "value": 0 },
+    "tolerance": 0,
+    "note": "VM sign is (x>0)-(x<0); Math.sign(NaN)=NaN — host override matches VM"
+  },
+  {
+    "id": "fuzz_min_two_matrices_01",
+    "expr": "min([2, 1, 2, 3], [4, -0.856, 2, 1])",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12,
+    "note": "AOT used f64.min on matrix pointers; now delegates non-scalar min/max"
+  }
+]

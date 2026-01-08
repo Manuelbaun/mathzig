@@ -1,0 +1,15 @@
+{
+  "id": "single_node_passthrough",
+  "form": "success",
+  "graph": {
+    "nodes": [{ "id": "x", "type": "input" }],
+    "edges": [],
+    "outputs": { "value": "x.out" }
+  },
+  "inputs": { "x": 42 },
+  "params": [],
+  "composed_expr": "x",
+  "composed_vars": { "x": 42 },
+  "expected_outputs": { "value": 42 },
+  "tolerance": 1e-12
+}

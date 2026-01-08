@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ode_standalone_euler_scalar",
+    "expr": "simple_deriv(t, y) = -0.5 * y; ode_solve_euler(\"simple_deriv\", [1], [0, 2], 0.1)",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [21, 2] },
+    "tolerance": 1e-6,
+    "note": "Tier-3 standalone Euler scalar; trajectory steps×(1+dim). Value parity vs host AOT (zig_vm multi-stmt ODE may not step)."
+  },
+  {
+    "id": "ode_standalone_rk4_decay",
+    "expr": "decay_deriv(t, y) = -0.5 * y; ode_solve(\"decay_deriv\", [1], [0, 2], 0.25)",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [9, 2] },
+    "tolerance": 1e-9,
+    "note": "Tier-3 standalone RK4 scalar decay trajectory"
+  },
+  {
+    "id": "ode_standalone_euler_3d",
+    "expr": "simple3d(t, y) = [y[1]; y[2]; y[0]]; ode_solve_euler(\"simple3d\", [1; 2; 3], [0, 1], 0.1)",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [11, 4] },
+    "tolerance": 1e-6,
+    "note": "Tier-3 standalone multi-dim Euler; matches zig_vm on this case"
+  }
+]

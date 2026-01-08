@@ -1,0 +1,7 @@
+// This should fail currently because 's' is a unit (seconds)
+f(s) = s^2
+print(f(10))
+
+// This should also fail or work depending on resolution
+g(m) = m + 1
+print(g(5))

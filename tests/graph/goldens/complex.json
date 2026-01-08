@@ -1,0 +1,32 @@
+{
+  "id": "complex_scale_then_conj",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      {
+        "id": "g",
+        "type": "expr",
+        "expr": "(3 + 4i) * 2",
+        "outputKind": "complex"
+      },
+      {
+        "id": "f",
+        "type": "expr",
+        "expr": "conj(x)",
+        "inputs": ["x"],
+        "inputKinds": ["complex"],
+        "outputKind": "complex"
+      }
+    ],
+    "edges": [{ "from": "g.out", "to": "f.x" }],
+    "outputs": { "value": "f.out" }
+  },
+  "inputs": {},
+  "params": [],
+  "composed_expr": "conj((3 + 4i) * 2)",
+  "composed_vars": {},
+  "expected_outputs": {
+    "value": { "tag": "complex", "re": 6, "im": -8 }
+  },
+  "tolerance": 1e-12
+}

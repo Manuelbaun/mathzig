@@ -1,0 +1,17 @@
+# Test complex variable storage and arithmetic
+z1 = 1 + 2i
+z2 = 3 + 4i
+z3 = z1 + z2
+assert(re(z3), 4)
+assert(im(z3), 6)
+
+z4 = z1 * z2
+# (1+2i)*(3+4i) = 3 + 4i + 6i + 8i^2 = 3 + 10i - 8 = -5 + 10i
+assert(z4, -5 + 10i)
+
+# Test mixing with scalars
+z5 = z1 * 2
+assert(z5, 2 + 4i)
+
+z6 = z1 + 5
+assert(z6, 6 + 2i)

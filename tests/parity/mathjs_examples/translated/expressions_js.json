@@ -1,0 +1,1252 @@
+{
+  "source": "libs/mathjs/examples/expressions.js",
+  "slug": "expressions_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 51,
+    "core": 18,
+    "extended": 33,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "expressions_js_001",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 22,
+      "expr": "sqrt(3^2 + 4^2)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "expected": 5,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_002",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 23,
+      "expr": "sqrt(-4)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)"
+      ],
+      "expected": {
+        "__complex": true,
+        "re": 0,
+        "im": 2
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_003",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 24,
+      "expr": "2 inch to cm",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)"
+      ],
+      "expected": {
+        "__unit": true,
+        "value": 5.08,
+        "unit": "cm"
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_004",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 25,
+      "expr": "cos(45 deg)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm"
+      ],
+      "expected": 0.7071067811865476,
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_005",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 43,
+      "expr": "a * b",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "a": 3,
+        "b": 4
+      },
+      "expected": 12,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_006",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 43,
+      "expr": "a * b', scope)) // 12\n\n// variable assignments are written to the scope\nprint(evaluate('c = 2.3 + 4.5', scope)) // 6.8\nprint(scope.c) // 6.8\n\n// scope can contain both variables and functions\nscope.hello = function (name) {\n  return 'hello, ' + name + '!'\n}\nprint(evaluate('hello(\"hero\")', scope)) // \"hello, hero!\"\n\n// define a function as an expression\nconst f = evaluate('f(x) = x ^ a', scope)\nprint(f(2)) // 8\nprint(scope.f(2)) // 8\n\n// 2. using function parse\n//\n// Function `parse` parses expressions into a node tree. The syntax is\n// similar to function `evaluate`.\n// Function `parse` accepts a single expression or an array with\n// expressions as first argument. The function returns a node tree, which\n// then can be compiled against math, and then evaluated against an (optional\n// scope. This scope is a regular JavaScript Object. The scope will be used\n// to resolve symbols, and to write assigned variables or function.\nconsole.log('\\n2. USING FUNCTION MATH.PARSE",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Unexpected operator , (char 7)"
+      },
+      "mathjsError": "Unexpected operator , (char 7)",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_007",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 46,
+      "expr": "c = 2.3 + 4.5",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "a": 3,
+        "b": 4
+      },
+      "expected": 6.8,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_008",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 47,
+      "expr": "scope.c",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol scope"
+      },
+      "mathjsError": "Undefined symbol scope",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_009",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 53,
+      "expr": "hello(\"hero\")",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "a": 3,
+        "b": 4
+      },
+      "expected": {
+        "__error": true,
+        "message": "Undefined function hello"
+      },
+      "mathjsError": "Undefined function hello",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_010",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 56,
+      "expr": "f(x) = x ^ a",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "a": 3,
+        "b": 4
+      },
+      "expected": "function theTypedFn(arg0, arg1) {\n          if (arguments.length === len0 && test00(arg0) && test01(arg1))\n            return fn0.apply(this, arguments);\n          if (arguments.length === len1 && test10(arg0) && test11(arg1))\n            return fn1.apply(this, arguments);\n          if (arguments.length === len2 && test20(arg0) && test21(arg1))\n            return fn2.apply(this, arguments);\n          if (arguments.length === len3 && test30(arg0) && test31(arg1))\n            return fn3.apply(this, arguments);\n          if (arguments.length === len4 && test40(arg0) && test41(arg1))\n            return fn4.apply(this, arguments);\n          if (arguments.length === len5 && test50(arg0) && test51(arg1))\n            return fn5.apply(this, arguments);\n          return generic.apply(this, arguments);\n        }",
+      "reason": "mathjs returns function object",
+      "tolerance": 1e-9,
+      "compareMode": "assignment"
+    },
+    {
+      "id": "expressions_js_011",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 57,
+      "expr": "f(2)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined function f"
+      },
+      "mathjsError": "Undefined function f",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_012",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 58,
+      "expr": "scope.f(2)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol scope"
+      },
+      "mathjsError": "Undefined symbol scope",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_013",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 74,
+      "expr": "node1.toString()",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol node1"
+      },
+      "mathjsError": "Undefined symbol node1",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_014",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 78,
+      "expr": "node1.evaluate()",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol node1"
+      },
+      "mathjsError": "Undefined symbol node1",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_015",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 84,
+      "expr": "node2.toString()",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol node2"
+      },
+      "mathjsError": "Undefined symbol node2",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_016",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 89,
+      "expr": "code2.evaluate(scope2)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol code2"
+      },
+      "mathjsError": "Undefined symbol code2",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_017",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 111,
+      "expr": "code3.evaluate()",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol code3"
+      },
+      "mathjsError": "Undefined symbol code3",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_018",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 120,
+      "expr": "scope3.a",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol scope3"
+      },
+      "mathjsError": "Undefined symbol scope3",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_019",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 133,
+      "expr": "myParser.evaluate('sqrt(3^2 + 4^2)')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_020",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 134,
+      "expr": "myParser.evaluate('sqrt(-4)')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_021",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 135,
+      "expr": "myParser.evaluate('2 inch to cm')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_022",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 136,
+      "expr": "myParser.evaluate('cos(45 deg)')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_023",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 140,
+      "expr": "myParser.evaluate('x = 7 / 2')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_024",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 140,
+      "expr": "x = 7 / 2",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)"
+      ],
+      "expected": 3.5,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_025",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 141,
+      "expr": "myParser.evaluate('x + 3')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_026",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 141,
+      "expr": "x + 3",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2"
+      ],
+      "expected": 6.5,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_027",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 142,
+      "expr": "f2(x, y) = x^y",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3"
+      ],
+      "expected": "function theTypedFn(arg0, arg1) {\n          if (arguments.length === len0 && test00(arg0) && test01(arg1))\n            return fn0.apply(this, arguments);\n          if (arguments.length === len1 && test10(arg0) && test11(arg1))\n            return fn1.apply(this, arguments);\n          if (arguments.length === len2 && test20(arg0) && test21(arg1))\n            return fn2.apply(this, arguments);\n          if (arguments.length === len3 && test30(arg0) && test31(arg1))\n            return fn3.apply(this, arguments);\n          if (arguments.length === len4 && test40(arg0) && test41(arg1))\n            return fn4.apply(this, arguments);\n          if (arguments.length === len5 && test50(arg0) && test51(arg1))\n            return fn5.apply(this, arguments);\n          return generic.apply(this, arguments);\n        }",
+      "reason": "mathjs returns function object",
+      "tolerance": 1e-9,
+      "compareMode": "assignment"
+    },
+    {
+      "id": "expressions_js_028",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 142,
+      "expr": "myParser.evaluate('f2(x, y) = x^y')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_029",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 143,
+      "expr": "f2(2, 3)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y"
+      ],
+      "expected": 8,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_030",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 143,
+      "expr": "myParser.evaluate('f2(2, 3)')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_031",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 150,
+      "expr": "k = [1, 2; 3, 4]",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_032",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 150,
+      "expr": "myParser.evaluate('k = [1, 2; 3, 4]')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_033",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 151,
+      "expr": "l = zeros(2, 2)",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_034",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 151,
+      "expr": "myParser.evaluate('l = zeros(2, 2)')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_035",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 152,
+      "expr": "l[1, 1:2] = [5, 6]",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          5,
+          6
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_036",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 152,
+      "expr": "myParser.evaluate('l[1, 1:2] = [5, 6]')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_037",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 153,
+      "expr": "l",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          [
+            5,
+            6
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_038",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 153,
+      "expr": "myParser.evaluate('l')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_039",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 154,
+      "expr": "l[2, :] = [7, 8]",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          7,
+          8
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_040",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 154,
+      "expr": "myParser.evaluate('l[2, :] = [7, 8]')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_041",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 156,
+      "expr": "m = k * l",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          [
+            19,
+            22
+          ],
+          [
+            43,
+            50
+          ]
+        ]
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_042",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 156,
+      "expr": "myParser.evaluate('m = k * l')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_043",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 157,
+      "expr": "myParser.evaluate('n = m[2, 1]')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_044",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 157,
+      "expr": "n = m[2, 1]",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l"
+      ],
+      "expected": 43,
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_045",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 158,
+      "expr": "myParser.evaluate('n = m[:, 1]')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l",
+        "n = m[2, 1]"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_046",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 158,
+      "expr": "n = m[:, 1]",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l",
+        "n = m[2, 1]"
+      ],
+      "expected": {
+        "__matrix": true,
+        "data": [
+          19,
+          43
+        ]
+      },
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_047",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 170,
+      "expr": "i / 2",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l",
+        "n = m[2, 1]",
+        "n = m[:, 1]"
+      ],
+      "expected": {
+        "__complex": true,
+        "re": 0,
+        "im": 0.5
+      },
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_048",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 170,
+      "expr": "myParser.evaluate('i / 2')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l",
+        "n = m[2, 1]",
+        "n = m[:, 1]",
+        "i / 2"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_049",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 174,
+      "expr": "hello(\"hero\")",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l",
+        "n = m[2, 1]",
+        "n = m[:, 1]",
+        "i / 2"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined function hello"
+      },
+      "mathjsError": "Undefined function hello",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "expressions_js_050",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 174,
+      "expr": "myParser.evaluate('hello(\"hero\")')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l",
+        "n = m[2, 1]",
+        "n = m[:, 1]",
+        "i / 2"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol myParser"
+      },
+      "mathjsError": "Undefined symbol myParser",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "expressions_js_051",
+      "source": "libs/mathjs/examples/expressions.js",
+      "line": 183,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "sqrt(3^2 + 4^2)",
+        "sqrt(-4)",
+        "2 inch to cm",
+        "cos(45 deg)",
+        "x = 7 / 2",
+        "x + 3",
+        "f2(x, y) = x^y",
+        "f2(2, 3)",
+        "k = [1, 2; 3, 4]",
+        "l = zeros(2, 2)",
+        "l[1, 1:2] = [5, 6]",
+        "l",
+        "l[2, :] = [7, 8]",
+        "m = k * l",
+        "n = m[2, 1]",
+        "n = m[:, 1]",
+        "i / 2"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

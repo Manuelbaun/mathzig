@@ -1,0 +1,28 @@
+// Translated from libs/mathjs/examples/chaining.js
+// MathZig translation (edit this file directly)
+// Cases: 8 (core=0, extended=8)
+
+// line 10 [extended] — variable reference requires JS object state
+a
+
+// line 18 [extended] — variable reference requires JS object state
+b
+
+// line 26 [extended] — variable reference requires JS object state
+str
+
+// line 31 [extended] — direct JS API call
+myChain.valueOf()
+
+// line 32 [extended] — direct JS API call
+myChain + 2
+
+// line 39 [extended] — variable reference requires JS object state
+v
+
+// line 45 [extended] — variable reference requires JS object state
+m
+
+// line 51 [extended] — variable reference requires JS object state
+value
+

@@ -1,0 +1,7 @@
+// Translated from libs/mathjs/examples/advanced/custom_evaluate_using_factories.js
+// MathZig translation (edit this file directly)
+// Cases: 1 (core=0, extended=1)
+
+// line 22 [extended]
+2 + 3 * 4
+

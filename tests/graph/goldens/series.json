@@ -1,0 +1,30 @@
+{
+  "id": "series_build_then_mean",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      {
+        "id": "g",
+        "type": "expr",
+        "expr": "series([0, 1, 2], [10, 20, 30])",
+        "outputKind": "series"
+      },
+      {
+        "id": "f",
+        "type": "expr",
+        "expr": "mean(x)",
+        "inputs": ["x"],
+        "inputKinds": ["series"],
+        "outputKind": "number"
+      }
+    ],
+    "edges": [{ "from": "g.out", "to": "f.x" }],
+    "outputs": { "value": "f.out" }
+  },
+  "inputs": {},
+  "params": [],
+  "composed_expr": "mean(series([0, 1, 2], [10, 20, 30]))",
+  "composed_vars": {},
+  "expected_outputs": { "value": 20 },
+  "tolerance": 1e-12
+}

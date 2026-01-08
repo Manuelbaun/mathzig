@@ -1,0 +1,24 @@
+{
+  "id": "params_setparam_gain",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      { "id": "signal", "type": "input" },
+      {
+        "id": "gain",
+        "type": "expr",
+        "expr": "x * y",
+        "inputs": ["x"],
+        "params": { "y": 2 }
+      }
+    ],
+    "edges": [{ "from": "signal.out", "to": "gain.x" }],
+    "outputs": { "value": "gain.out" }
+  },
+  "inputs": { "signal": 5 },
+  "params": [{ "nodeId": "gain", "name": "y", "value": 3 }],
+  "composed_expr": "x * 3",
+  "composed_vars": { "x": 5 },
+  "expected_outputs": { "value": 15 },
+  "tolerance": 1e-12
+}

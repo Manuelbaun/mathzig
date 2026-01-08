@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "description": "Quarantine manifest for strict bun gate (docs/guides/quality.md (strict bun gate)). Unexpected fail/pass fails the gate.",
+  "since_baseline": "2026-07-15",
+  "standalone_skip_budget": {
+    "note": "Enforced by tests/parity/cli.ts via tools/testing/standalone_skip_budget.ts when wasm_aot_standalone runs. Ceiling may only shrink after this baseline. Capture 2026-07-15: bun tests/parity/cli.ts --full --standalone --backends=wasm_aot_standalone → covered=355 skipped=274 failed=0 (629 cases). One-time re-baseline above audit-era 266: catalog grew (~629 vs historical ~533) and most skips are runtime StandaloneUnsupportedError; +7 catalog skips for residual error-shape/empty edges (task-12 residual; see generate_gauntlet STANDALONE_RESIDUAL). max_fails stays 0.",
+    "max_skips": 274,
+    "max_fails": 0
+  },
+  "entries": [
+    {
+      "id": "tests/ts/parity/integration.test.ts::Integration Tests > Edge Cases > should handle very large expressions",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "OOM on ~200-term additive chain via FFI (arena/stack limit). Test-contract vs engine capacity; not a silent wrong-answer. Track as capacity limit, not MathJS parity.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "decision:quarantine_capacity; re-eval after compiler stack/arena work"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/basic_usage.js > line 27: pow([[-1, 2], [3, 1]], 2)",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Matrix integer power M^n not implemented (historical task 0091).",
+      "since": "2026-07-15",
+      "ticket_or_decision": "MathJS quarantine: matrix integer power (see STATUS)"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/basic_usage.js > line 52: 5 mm * 3",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Unit literal magnitude / display mismatch vs MathJS for mm scale.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "docs/guides/capabilities.md residual units honesty; historical units gaps"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/expressions.js > line 153: l",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Matrix slice state after prior assignment chain; depends on 1-based hybrid slice semantics / prior lines in example.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "MathJS quarantine: matrix slice / example chain (see STATUS)"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/expressions.js > line 154: l[2, :] = [7, 8]",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Matrix full-row slice assignment parity with MathJS example.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "0093 residual / A3"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/expressions.js > line 156: m = k * l",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Depends on prior matrix state in expressions.js chain (cascade from slice assign).",
+      "since": "2026-07-15",
+      "ticket_or_decision": "cascade from expressions.js slice chain"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/expressions.js > line 157: n = m[2, 1]",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Cascade from prior matrix multiply / index convention in example chain.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "cascade from expressions.js"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/expressions.js > line 158: n = m[:, 1]",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Column slice read after cascade; hybrid 0/1-based indexing vs MathJS.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "0093 residual"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/expressions.js > line 170: i / 2",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Complex or unit division path mismatch for example variable i (MathJS i vs imag).",
+      "since": "2026-07-15",
+      "ticket_or_decision": "complex/unit divide long-tail"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/objects.js > line 22: obj.prop = 43",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Record field assignment / mutation not MathJS-object equivalent.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "record mutation gap; objects.js"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/units.js > line 15: a + b",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Unit addition / conversion honesty vs MathJS (task-15).",
+      "since": "2026-07-15",
+      "ticket_or_decision": "docs/guides/capabilities.md residual units honesty"
+    },
+    {
+      "id": "tests/ts/parity/mathjs_examples/run_translated.test.ts::mathjs examples — per-file translations > libs/mathjs/examples/units.js > line 81: [1, 0, 0] T",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Matrix-of-units / unit-vector construction; mat_create strips units (audit D6).",
+      "since": "2026-07-15",
+      "ticket_or_decision": "AUDIT D6 / task-15"
+    },
+    {
+      "id": "tests/ts/simulations/rocket_simulation/parity/comprehensive.test.ts::Rocket Simulation Parity > runs the full simulation with line-by-line parity",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Rocket full-sim MathJS parity diverges after units-honesty hard-errors on unit-bearing matrix literals / ODE unit paths (task-15). Requires rocket harness rewrite, not silent unit strip restore.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "docs/guides/capabilities.md residual units honesty / rocket"
+    },
+    {
+      "id": "tests/ts/simulations/rocket_simulation/integration/ode-basic.test.ts::ODE Basic Tests > should create state vector and test matrix access",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "Hard-error: unit-bearing matrix literals unsupported (task-15 honesty). Test still uses […]*unit matrix form.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "docs/guides/capabilities.md residual units honesty"
+    },
+    {
+      "id": "tests/ts/simulations/rocket_simulation/integration/ode-basic.test.ts::ODE Basic Tests > should handle ODE with unit conversion in derivative",
+      "suite": "bun",
+      "scope": "full",
+      "kind": "fail",
+      "reason": "ODE derivative path with unit conversion fails under units-honesty (task-15); rewrite to homogeneous scale form.",
+      "since": "2026-07-15",
+      "ticket_or_decision": "docs/guides/capabilities.md residual units honesty"
+    }
+  ],
+  "todo_entries": [
+    {
+      "id": "tests/ts/parity/mathjs_unit/arithmetic_round_ceil_floor.test.ts::arithmetic/round_ceil_floor > round > should round to a given number of decimals",
+      "note": "Was todo; VM now implements round(x,n) — if still todo, convert to live test (follow-up).",
+      "ticket_or_decision": "0085 closed 2026-07-15 — promote off todo when suite updated"
+    }
+  ],
+  "notes": [
+    "Stable bun id: relative file path + '::' + full test name chain as printed by bun.",
+    "suite=bun, scope=full applies to default `bun test` / strict_bun_gate.",
+    "When a quarantined test starts passing, remove its entry (unexpected_pass fails the gate).",
+    "Progress package / build_app_data expectation drifts were fixed as stale tests, not quarantined."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "record_build_then_field",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      {
+        "id": "g",
+        "type": "expr",
+        "expr": "{a: 10, b: 20}",
+        "outputKind": "record"
+      },
+      {
+        "id": "f",
+        "type": "expr",
+        "expr": "x.a",
+        "inputs": ["x"],
+        "inputKinds": ["record"],
+        "outputKind": "number"
+      }
+    ],
+    "edges": [{ "from": "g.out", "to": "f.x" }],
+    "outputs": { "value": "f.out" }
+  },
+  "inputs": {},
+  "params": [],
+  "composed_expr": "{a: 10, b: 20}.a",
+  "composed_vars": {},
+  "expected_outputs": { "value": 10 },
+  "tolerance": 1e-12
+}

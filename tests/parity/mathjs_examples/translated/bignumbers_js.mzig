@@ -1,0 +1,40 @@
+// Translated from libs/mathjs/examples/bignumbers.js
+// MathZig translation (edit this file directly)
+// Cases: 12 (core=2, extended=10)
+
+// line 16 [extended] — direct JS API call
+math.add(0.1, 0.2)
+
+// line 17 [extended] — direct JS API call
+math.divide(0.3, 0.2)
+
+// line 21 [extended] — direct JS API call
+math.add(math.bignumber(0.1), math.bignumber(0.2))
+
+// line 22 [extended] — direct JS API call
+math.divide(math.bignumber(0.3), math.bignumber(0.2))
+
+// line 26 [extended] — direct JS API call
+math.bignumber(1.2e+500)
+
+// line 27 [extended] — direct JS API call
+math.bignumber('1.2e+500')
+
+// line 33 [extended] — variable reference requires JS object state
+total
+
+// line 39 [core]
+0.1 + 0.2
+
+// line 39 [extended] — direct JS API call
+math.evaluate('0.1 + 0.2')
+
+// line 40 [core]
+0.3 / 0.2
+
+// line 40 [extended] — direct JS API call
+math.evaluate('0.3 / 0.2')
+
+// line 47 [extended] — variable reference requires JS object state
+value
+

@@ -1,0 +1,49 @@
+// Translated from libs/mathjs/examples/browser/basic_usage.html
+// MathZig translation (edit this file directly)
+// Cases: 16 (core=4, extended=11)
+
+// line 11 [extended] — variable reference requires JS object state
+value
+
+// line 17 [extended] — direct JS API call
+math.round(math.e, 3)
+
+// line 18 [extended] — direct JS API call
+math.atan2(3, -3) / math.pi
+
+// line 19 [extended] — direct JS API call
+math.log(10000, 10)
+
+// line 20 [extended] — direct JS API call
+math.sqrt(-4)
+
+// line 21 [extended] — direct JS API call
+math.pow([[-1, 2], [3, 1]], 2)
+
+// line 25 [core]
+12 / (2.3 + 0.7)
+
+// line 25 [extended] — direct JS API call
+math.evaluate('12 / (2.3 + 0.7)')
+
+// line 26 [core]
+12.7 cm to inch
+
+// line 26 [extended] — direct JS API call
+math.evaluate('12.7 cm to inch')
+
+// line 27 [core]
+9 / 3 + 2i
+
+// line 27 [extended] — direct JS API call
+math.evaluate('9 / 3 + 2i')
+
+// line 28 [core]
+det([-1, 2; 3, 1])
+
+// line 28 [extended] — direct JS API call
+math.evaluate('det([-1, 2; 3, 1])')
+
+// line 35 [extended] — variable reference requires JS object state
+a
+

@@ -1,0 +1,29 @@
+# Test Named Parameters
+s = series([0, 10, 20, 30, 40], [1, 2, 3, 4, 5])
+
+# Positional order: bollinger(series, period, mult)
+# Using names out of order
+b1 = bollinger(s, mult: 2.0, period: 3)
+b2 = bollinger(s, 3, 2.0)
+
+# Test with other functions
+v1 = conv(value: 100, unit: degC)
+v2 = conv(100, degC)
+assert(v1, v2)
+
+# Check results are same using sum (returns a number)
+assert(sum(b1.upper), sum(b2.upper))
+assert(sum(b1.lower), sum(b2.lower))
+
+# Mix positional and named
+b3 = bollinger(s, 3, mult: 2.0)
+assert(sum(b3.upper), sum(b1.upper))
+
+# Test MACD with named parameters
+# macd(series, fast, slow, signal)
+m1 = macd(s, slow: 5, fast: 2, signal: 3)
+m2 = macd(s, 2, 5, 3)
+assert(sum(m1.macd), sum(m2.macd))
+assert(sum(m1.signal), sum(m2.signal))
+
+"Named Parameters Test Completed"

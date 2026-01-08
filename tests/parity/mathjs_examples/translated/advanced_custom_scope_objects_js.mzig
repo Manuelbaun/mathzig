@@ -1,0 +1,34 @@
+// Translated from libs/mathjs/examples/advanced/custom_scope_objects.js
+// MathZig translation (edit this file directly)
+// Cases: 10 (core=0, extended=10)
+
+// line 12 [extended]
+x
+
+// line 12 [extended] — requires mathjs scope object
+x
+
+// line 13 [extended]
+y = 2 x
+
+// line 13 [extended] — requires mathjs scope object
+y = 2 x
+
+// line 14 [extended]
+scalar = 1
+
+// line 14 [extended]
+scalar = 1
+
+// line 15 [extended] — mathjs returns function object
+area(length, width) = length * width * scalar
+
+// line 15 [extended] — mathjs returns function object
+area(length, width) = length * width * scalar
+
+// line 16 [extended]
+A = area(x, y)
+
+// line 16 [extended] — requires mathjs scope object
+A = area(x, y)
+

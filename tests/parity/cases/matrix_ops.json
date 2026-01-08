@@ -1,0 +1,18 @@
+[
+  {
+    "id": "matrix_add_01",
+    "expr": "[1, 2; 3, 4] + [2, 2; 2, 2]",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "matrix_mul_01",
+    "expr": "[1, 2; 3, 4] * [2, 0; 1, 2]",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-9,
+    "skip": ["ts_wasm_vm"]
+  }
+]

@@ -1,0 +1,3 @@
+[test]
+# Run tests in a specific test directory
+root = "tests/ts"

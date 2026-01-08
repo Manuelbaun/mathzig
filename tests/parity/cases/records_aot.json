@@ -1,0 +1,59 @@
+[
+  {
+    "id": "records_aot_field_a",
+    "expr": "{a: 1, b: 2}.a",
+    "vars": {},
+    "expected": { "type": "number", "value": 1 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "records_aot_field_b",
+    "expr": "{a: 1, b: 2}.b",
+    "vars": {},
+    "expected": { "type": "number", "value": 2 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "records_aot_nested_get",
+    "expr": "{x: 10, y: 20, z: 30}.y",
+    "vars": {},
+    "expected": { "type": "number", "value": 20 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "records_aot_compute_field",
+    "expr": "{sum: 1 + 2, prod: 3 * 4}.sum",
+    "vars": {},
+    "expected": { "type": "number", "value": 3 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "records_aot_compute_prod",
+    "expr": "{sum: 1 + 2, prod: 3 * 4}.prod",
+    "vars": {},
+    "expected": { "type": "number", "value": 12 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "records_aot_literal_tag",
+    "expr": "{a: 1, b: 2}",
+    "vars": {},
+    "expected": { "tag": "record", "keys": ["a", "b"] },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "records_aot_size_rows",
+    "expr": "size([1, 2; 3, 4]).rows",
+    "vars": {},
+    "expected": { "type": "number", "value": 2 },
+    "tolerance": 0,
+    "note": "size(matrix) returns a record; read .rows"
+  },
+  {
+    "id": "records_aot_size_cols",
+    "expr": "size([1, 2; 3, 4]).cols",
+    "vars": {},
+    "expected": { "type": "number", "value": 2 },
+    "tolerance": 0
+  }
+]

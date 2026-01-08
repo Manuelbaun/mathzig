@@ -1,0 +1,32 @@
+{
+  "id": "matrix_scale_then_matmul",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      {
+        "id": "g",
+        "type": "expr",
+        "expr": "[1, 2; 3, 4] * 2",
+        "outputKind": "matrix"
+      },
+      {
+        "id": "f",
+        "type": "expr",
+        "expr": "x * [1, 0; 0, 1]",
+        "inputs": ["x"],
+        "inputKinds": ["matrix"],
+        "outputKind": "matrix"
+      }
+    ],
+    "edges": [{ "from": "g.out", "to": "f.x" }],
+    "outputs": { "value": "f.out" }
+  },
+  "inputs": {},
+  "params": [],
+  "composed_expr": "([1, 2; 3, 4] * 2) * [1, 0; 0, 1]",
+  "composed_vars": {},
+  "expected_outputs": {
+    "value": { "tag": "matrix", "rows": 2, "cols": 2, "data": [2, 4, 6, 8] }
+  },
+  "tolerance": 1e-12
+}

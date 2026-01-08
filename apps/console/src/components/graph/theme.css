@@ -1,0 +1,218 @@
+/* Solid Flow ↔ console theme bridge */
+.mz-flow {
+  --xy-background-color: var(--color-inset);
+  --xy-background-pattern-color: var(--color-line);
+  --xy-node-background-color: var(--color-panel);
+  --xy-node-border: 1px solid var(--color-line);
+  --xy-node-color: var(--color-fg);
+  --xy-node-boxshadow-hover: 0 0 0 1px var(--color-focus);
+  --xy-node-boxshadow-selected: 0 0 0 1px var(--color-keyword);
+  --xy-edge-stroke: var(--color-fg-muted);
+  --xy-edge-stroke-selected: var(--color-keyword);
+  --xy-connectionline-stroke: var(--color-keyword);
+  --xy-handle-background-color: var(--color-keyword);
+  --xy-handle-border-color: var(--color-panel);
+  --xy-minimap-background-color: var(--color-panel);
+  --xy-controls-button-background-color: var(--color-active);
+  --xy-controls-button-color: var(--color-fg-secondary);
+  --xy-controls-button-border-color: var(--color-line);
+  --xy-controls-button-background-color-hover: var(--color-raised);
+  --xy-attribution-background-color: transparent;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  background: var(--color-inset);
+}
+
+/* SolidFlow root must fill the pane or handle coords are wrong */
+.mz-flow > .solid-flow,
+.mz-flow .solid-flow {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 360px;
+}
+
+.mz-flow .solid-flow__attribution {
+  display: none;
+}
+
+/* Handles measure against the node box — must not clip */
+.mz-flow .solid-flow__node,
+.mz-flow .solid-flow__nodes {
+  overflow: visible !important;
+}
+
+.mz-node {
+  position: relative;
+  min-width: 148px;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  color: var(--color-fg);
+  font-size: 11px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+  overflow: visible;
+}
+
+.mz-node.selected {
+  border-color: var(--color-keyword);
+}
+
+.mz-node.mz-node-error {
+  border-color: var(--color-err);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-err) 50%, transparent);
+}
+
+.mz-node.mz-node-warn {
+  border-color: var(--color-warn);
+}
+
+.mz-node-issue {
+  padding: 0.2rem 0.6rem 0.3rem;
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.3;
+  max-width: 200px;
+}
+
+/* Header height and port row height are fixed so handle `top` offsets in
+   MzNodes.tsx (HEADER_H / ROW_H) line up with the rendered rows. */
+.mz-node-header {
+  box-sizing: border-box;
+  height: 22px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--color-line);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.mz-node-body {
+  padding: 3px 10px 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--color-fg-secondary);
+}
+.mz-node-body:empty {
+  display: none;
+}
+
+/* One in-flow row per port; handles sit on the node edge at the row center */
+.mz-port-row {
+  box-sizing: border-box;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 12px;
+}
+.mz-port-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-fg-secondary);
+  white-space: nowrap;
+  line-height: 1;
+}
+.mz-port-kind {
+  color: var(--color-fg-muted);
+}
+
+/* Handles: visible 14px, larger hit target via box-shadow/padding area */
+.mz-flow .solid-flow__handle.mz-handle,
+.mz-handle.solid-flow__handle {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  border: 2px solid var(--color-panel) !important;
+  z-index: 5;
+  /* Expand click/hit area without changing measured handle center much */
+  box-shadow: 0 0 0 6px transparent;
+}
+
+.mz-flow .solid-flow__handle.mz-handle:focus-visible,
+.mz-handle.solid-flow__handle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.mz-node:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Ensure connectable handles receive pointer events (library sets class) */
+.mz-flow .solid-flow__handle.connectionindicator {
+  pointer-events: all !important;
+  cursor: crosshair;
+}
+
+.mz-handle.kind-number {
+  background: var(--color-number) !important;
+}
+.mz-handle.kind-boolean {
+  background: var(--color-keyword) !important;
+}
+.mz-handle.kind-matrix {
+  background: var(--color-function) !important;
+}
+.mz-handle.kind-series {
+  background: var(--color-type) !important;
+}
+.mz-handle.kind-complex {
+  background: var(--color-variable) !important;
+}
+.mz-handle.kind-string {
+  background: var(--color-string) !important;
+}
+.mz-handle.kind-record,
+.mz-handle.kind-any {
+  background: var(--color-fg-muted) !important;
+}
+
+/* Connection drag affordances */
+.mz-handle.mz-handle-required {
+  box-shadow: 0 0 0 2px var(--color-err) !important;
+}
+
+.mz-handle.mz-handle-compatible {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-ok) 70%, transparent) !important;
+  z-index: 6;
+}
+
+.mz-handle.mz-handle-incompatible {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.mz-handle.mz-handle-dim {
+  opacity: 0.45;
+}
+
+.mz-node-type-input .mz-node-header {
+  color: var(--color-number);
+}
+.mz-node-type-const .mz-node-header {
+  color: var(--color-string);
+}
+.mz-node-type-expr .mz-node-header {
+  color: var(--color-keyword);
+}
+.mz-node-type-wasm .mz-node-header {
+  color: var(--color-function);
+}
+.mz-node-type-output .mz-node-header {
+  color: var(--color-type);
+}

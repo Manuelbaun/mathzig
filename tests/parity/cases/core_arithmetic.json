@@ -1,0 +1,155 @@
+[
+  {
+    "id": "core_add_01",
+    "expr": "1 + 2 * 3",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_sub_01",
+    "expr": "10 - 5 - 2",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_mul_01",
+    "expr": "2 * 3 * 4",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_div_01",
+    "expr": "10 / 2 / 2",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_mod_01",
+    "expr": "10 % 3",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_pow_01",
+    "expr": "2 ^ 10",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_neg_01",
+    "expr": "-5 + 10",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_var_01",
+    "expr": "x * 0.5 + 2.0",
+    "vars": { "x": 4 },
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_trig_01",
+    "expr": "sin(pi / 2)",
+    "vars": { "pi": 3.141592653589793 },
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "core_cmp_01",
+    "expr": "5 > 3",
+    "vars": {},
+    "expected": { "tag": "boolean" },
+    "tolerance": 0
+  },
+  {
+    "id": "core_matrix_scalar_add",
+    "expr": "[1, 2; 3, 4] + 10",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "core_matrix_scalar_mul",
+    "expr": "[1, 2; 3, 4] * 2",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "core_scalar_matrix_div",
+    "expr": "10 / [2, 5; 1, 10]",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "core_matrix_matrix_emul",
+    "expr": "[1, 2; 3, 4] .* [10, 20; 30, 40]",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "core_matrix_matrix_ediv",
+    "expr": "[10, 20; 30, 40] ./ [2, 2; 3, 4]",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "core_matrix_matrix_epow",
+    "expr": "[2, 3; 4, 5] .^ [2, 2; 0.5, 0]",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [2, 2] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"]
+  },
+  {
+    "id": "core_bitwise_and",
+    "expr": "0b1010 & 0b1100",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  },
+  {
+    "id": "core_bitwise_or",
+    "expr": "0b1010 | 0b1100",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  },
+  {
+    "id": "core_bitwise_xor",
+    "expr": "0b1010 ^^ 0b1100",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  },
+  {
+    "id": "core_bitwise_shl",
+    "expr": "1 << 5",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  },
+  {
+    "id": "core_bitwise_shr",
+    "expr": "32 >> 2",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 0
+  }
+]

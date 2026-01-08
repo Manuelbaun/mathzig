@@ -1,0 +1,162 @@
+{
+  "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+  "slug": "advanced_custom_scope_objects_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 10,
+    "core": 0,
+    "extended": 10,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "advanced_custom_scope_objects_js_001",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 12,
+      "expr": "x",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "x": 3
+      },
+      "expected": 3,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_002",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 12,
+      "expr": "x",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol x"
+      },
+      "mathjsError": "Undefined symbol x",
+      "reason": "requires mathjs scope object",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_003",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 13,
+      "expr": "y = 2 x",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "x": 3
+      },
+      "expected": 6,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_004",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 13,
+      "expr": "y = 2 x",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol x"
+      },
+      "mathjsError": "Undefined symbol x",
+      "reason": "requires mathjs scope object",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_005",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 14,
+      "expr": "scalar = 1",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "x": 3
+      },
+      "expected": 1,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_006",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 14,
+      "expr": "scalar = 1",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "expected": 1,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_007",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 15,
+      "expr": "area(length, width) = length * width * scalar",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "x": 3
+      },
+      "expected": "function theTypedFn(arg0, arg1) {\n          if (arguments.length === len0 && test00(arg0) && test01(arg1))\n            return fn0.apply(this, arguments);\n          if (arguments.length === len1 && test10(arg0) && test11(arg1))\n            return fn1.apply(this, arguments);\n          if (arguments.length === len2 && test20(arg0) && test21(arg1))\n            return fn2.apply(this, arguments);\n          if (arguments.length === len3 && test30(arg0) && test31(arg1))\n            return fn3.apply(this, arguments);\n          if (arguments.length === len4 && test40(arg0) && test41(arg1))\n            return fn4.apply(this, arguments);\n          if (arguments.length === len5 && test50(arg0) && test51(arg1))\n            return fn5.apply(this, arguments);\n          return generic.apply(this, arguments);\n        }",
+      "reason": "mathjs returns function object",
+      "tolerance": 0.000001,
+      "compareMode": "assignment"
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_008",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 15,
+      "expr": "area(length, width) = length * width * scalar",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [
+        "scalar = 1"
+      ],
+      "expected": "function theTypedFn(arg0, arg1) {\n          if (arguments.length === len0 && test00(arg0) && test01(arg1))\n            return fn0.apply(this, arguments);\n          if (arguments.length === len1 && test10(arg0) && test11(arg1))\n            return fn1.apply(this, arguments);\n          if (arguments.length === len2 && test20(arg0) && test21(arg1))\n            return fn2.apply(this, arguments);\n          if (arguments.length === len3 && test30(arg0) && test31(arg1))\n            return fn3.apply(this, arguments);\n          if (arguments.length === len4 && test40(arg0) && test41(arg1))\n            return fn4.apply(this, arguments);\n          if (arguments.length === len5 && test50(arg0) && test51(arg1))\n            return fn5.apply(this, arguments);\n          return generic.apply(this, arguments);\n        }",
+      "reason": "mathjs returns function object",
+      "tolerance": 0.000001,
+      "compareMode": "assignment"
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_009",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 16,
+      "expr": "A = area(x, y)",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [],
+      "vars": {
+        "x": 3
+      },
+      "expected": 18,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "advanced_custom_scope_objects_js_010",
+      "source": "libs/mathjs/examples/advanced/custom_scope_objects.js",
+      "line": 16,
+      "expr": "A = area(x, y)",
+      "tier": "extended",
+      "category": "evaluate",
+      "setup": [
+        "scalar = 1",
+        "area(length, width) = length * width * scalar"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol x"
+      },
+      "mathjsError": "Undefined symbol x",
+      "reason": "requires mathjs scope object",
+      "tolerance": 1e-9
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+# ============================================================================
+# CSV Analysis Example
+# ============================================================================
+# This script demonstrates loading CSV data and performing analysis.
+#
+# Run with: zig build repl -- tests/scripts/csv_analysis.mzig
+# ============================================================================
+
+# --- Load Data ---
+data = read_csv("tests/scripts/data/sample_prices.csv", { time: "Date", price: "Close", vol: "Volume" })
+
+# --- Basic Statistics ---
+len(data.price)
+mean(data.price)
+min(data.price)
+max(data.price)
+sum(data.vol)
+
+# --- Indexing ---
+data.price[0]
+data.price[4]
+data.price[9]
+
+# --- Moving Averages ---
+sma(data.price, 3)
+ema(data.price, 5)
+
+# --- Time-Weighted Average ---
+twa(data.price)
+
+# --- Cumulative Operations ---
+cumsum(data.price)
+cummax(data.price)
+cummin(data.price)
+
+# --- Calculus ---
+derivative(data.price)
+integrate(data.price)
+
+# --- Filtering with Predicates ---
+mean(data.price) where value > 155
+count(data.price) where value > 160
+sum(data.vol) where value > 1100000
+
+# --- Technical Indicators ---
+rsi(data.price, 3)
+bollinger(data.price, 3, 2)
+macd(data.price, 2, 4, 3)
+
+# --- Rolling Windows ---
+rolling_mean(data.price, 3)
+rolling_sum(data.vol, 3)
+rolling_stddev(data.price, 3)

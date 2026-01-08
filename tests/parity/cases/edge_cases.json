@@ -1,0 +1,4 @@
+[
+  { "id": "edge_div_zero", "expr": "1 / 0", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "edge_nan", "expr": "nan", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 }
+]

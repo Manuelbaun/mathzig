@@ -1,0 +1,37 @@
+// Translated from libs/mathjs/examples/fractions.js
+// MathZig translation (edit this file directly)
+// Cases: 11 (core=3, extended=8)
+
+// line 24 [extended] — direct JS API call
+math.add(0.1, 0.2)
+
+// line 25 [extended] — direct JS API call
+math.divide(0.3, 0.2)
+
+// line 29 [extended] — direct JS API call
+math.add(math.fraction(0.1), math.fraction(0.2))
+
+// line 30 [extended] — direct JS API call
+math.divide(math.fraction(0.3), math.fraction(0.2))
+
+// line 34 [extended] — direct JS API call
+math.fraction('1/3')
+
+// line 35 [extended] — direct JS API call
+math.fraction('2/7')
+
+// line 36 [extended] — direct JS API call
+math.fraction('23/11')
+
+// line 42 [core]
+0.1 + 0.2
+
+// line 43 [core]
+0.3 / 0.2
+
+// line 44 [core]
+23 / 11
+
+// line 70 [extended] — variable reference requires JS object state
+value
+

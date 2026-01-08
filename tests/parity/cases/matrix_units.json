@@ -1,0 +1,68 @@
+[
+  {
+    "id": "matrix_units_literal_add_rejected",
+    "expr": "[1m, 2m] + [50cm, 100cm]",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip (task-15): unit-bearing mat_create elements rejected (was blessed SI strip). MatrixUnitElementUnsupported."
+  },
+  {
+    "id": "matrix_units_literal_mul_rejected",
+    "expr": "[1m, 1s] * 2",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip: mixed unit-bearing matrix literal rejected (was silent SI strip of mixed dims)."
+  },
+  {
+    "id": "matrix_units_literal_conv_rejected",
+    "expr": "conv([1m, 2m], cm)",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip: [1m,2m] fails at mat_create before conv (was SI strip then elementwise conv)."
+  },
+  {
+    "id": "matrix_units_literal_number_rejected",
+    "expr": "number([1m, 2m], cm)",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip: number() on unit-bearing matrix literal rejected at mat_create."
+  },
+  {
+    "id": "matrix_units_literal_conv_cm_rejected",
+    "expr": "conv([100cm, 200cm], m)",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip: unit-bearing mat_create rejected (was SI strip to [1,2] then identity conv to m)."
+  },
+  {
+    "id": "matrix_units_conv_matrix_times_unit",
+    "expr": "conv([1, 2] * m, cm)",
+    "vars": {},
+    "expected": { "tag": "matrix", "shape": [1, 2], "data": [100.0, 200.0] },
+    "tolerance": 1e-12,
+    "skip": ["ts_wasm_vm"],
+    "note": "Retained value case: homogeneous numeric matrix * unit then elementwise conv (not unit-bearing mat_create)."
+  },
+  {
+    "id": "matrix_units_literal_2d_rejected",
+    "expr": "conv([1m, 2m; 3m, 4m], cm)",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip: 2x2 unit-bearing literal rejected at mat_create."
+  },
+  {
+    "id": "matrix_units_literal_to_rejected",
+    "expr": "[1m, 2m] to cm",
+    "vars": {},
+    "expected": { "type": "error" },
+    "note": "D7 flip: unit_convert path still requires matrix first; mat_create rejects unit elements."
+  },
+  {
+    "id": "matrix_units_homogeneous_scale",
+    "expr": "([1, 2] * m)[0, 0]",
+    "vars": {},
+    "expected": { "type": "number", "value": 1.0 },
+    "tolerance": 1e-12,
+    "note": "Homogeneous [1,2]*m remains valid (SI magnitude at element 0)."
+  }
+]

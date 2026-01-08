@@ -1,0 +1,29 @@
+{
+  "source": "libs/mathjs/examples/browser/custom_separators.html",
+  "slug": "browser_custom_separators_html",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 1,
+    "core": 0,
+    "extended": 1,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "browser_custom_separators_html_001",
+      "source": "libs/mathjs/examples/browser/custom_separators.html",
+      "line": 42,
+      "expr": "sum(3,4; 2,1; 2,0)",
+      "tier": "extended",
+      "category": "html_input",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Parenthesis ) expected (char 8)"
+      },
+      "mathjsError": "Parenthesis ) expected (char 8)",
+      "reason": "default expression input",
+      "tolerance": 1e-9
+    }
+  ]
+}

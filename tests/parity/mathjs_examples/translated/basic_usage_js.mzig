@@ -1,0 +1,52 @@
+// Translated from libs/mathjs/examples/basic_usage.js
+// MathZig translation (edit this file directly)
+// Cases: 17 (core=14, extended=2)
+
+// line 23 [core]
+round(e, 3)
+
+// line 24 [core]
+atan2(3, -3) / pi
+
+// line 25 [core]
+log(10000, 10)
+
+// line 26 [core]
+sqrt(-4)
+
+// line 27 [core]
+pow([[-1, 2], [3, 1]], 2)
+
+// line 33 [core]
+1.2 * (2 + 4.5)
+
+// line 34 [core]
+12.7 cm to inch
+
+// line 35 [core]
+sin(45 deg) ^ 2
+
+// line 36 [core]
+9 / 3 + 2i
+
+// line 37 [core]
+det([-1, 2; 3, 1])
+
+// line 46 [extended] — variable reference requires JS object state
+a
+
+// line 51 [core]
+4 + [5, 6]
+
+// line 52 [core]
+5 mm * 3
+
+// line 53 [core]
+[2, 3, 4] - 5
+
+// line 54 [core]
+[2, 3] + [4, 5]
+
+// line 61 [extended] — variable reference requires JS object state
+value
+

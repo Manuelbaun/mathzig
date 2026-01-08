@@ -1,0 +1,10 @@
+// Translated from libs/mathjs/examples/advanced/convert_fraction_to_bignumber.js
+// MathZig translation (edit this file directly)
+// Cases: 2 (core=2, extended=0)
+
+// line 44 [core]
+1/3 + 1/4
+
+// line 50 [core]
+sqrt(4)
+

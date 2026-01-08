@@ -1,0 +1,16 @@
+{
+  "id": "self_edge_error",
+  "form": "load_error",
+  "graph": {
+    "nodes": [
+      { "id": "a", "type": "expr", "expr": "x + 1", "inputs": ["x"] }
+    ],
+    "edges": [
+      { "from": "a.out", "to": "a.x" }
+    ],
+    "outputs": { "value": "a.out" }
+  },
+  "error_code": "Cycle",
+  "offending": "a",
+  "note": "Self-edge a.out→a.x is a cycle; load-error goldens have no composed_expr."
+}

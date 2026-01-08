@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    { "id": "a", "type": "expr", "expr": "x + 1", "inputs": ["x"] },
+    { "id": "b", "type": "expr", "expr": "x + 1", "inputs": ["x"] }
+  ],
+  "edges": [
+    { "from": "a.out", "to": "b.x" },
+    { "from": "b.out", "to": "a.x" }
+  ],
+  "outputs": { "y": "a.out" }
+}

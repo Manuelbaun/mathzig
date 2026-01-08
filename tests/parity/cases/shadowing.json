@@ -1,0 +1,30 @@
+[
+  {
+    "id": "shadow_unit_m_vs_var",
+    "expr": "10m",
+    "vars": { "m": 5 },
+    "expected": { "tag": "unit" },
+    "note": "Literal suffix 'm' should be treated as a unit even if variable 'm' exists"
+  },
+  {
+    "id": "shadow_var_m_implicit_mul",
+    "expr": "10 m",
+    "vars": { "m": 5 },
+    "expected": { "tag": "number" },
+    "note": "Space between number and 'm' should trigger implicit multiplication if 'm' is a variable"
+  },
+  {
+    "id": "shadow_unit_s_vs_var",
+    "expr": "30s",
+    "vars": { "s": 2 },
+    "expected": { "tag": "unit" },
+    "note": "Literal suffix 's' should be treated as a unit (seconds)"
+  },
+  {
+    "id": "shadow_unit_conversion_overlap",
+    "expr": "conv(1m, cm)",
+    "vars": { "m": 100, "cm": 0.1 },
+    "expected": { "tag": "number" },
+    "note": "conv arguments should be treated as unit identifiers even if variables exist"
+  }
+]

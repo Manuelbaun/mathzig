@@ -1,0 +1,52 @@
+[
+  {
+    "id": "series_aot_create_mean",
+    "expr": "mean(series([1, 2, 3], [10, 20, 30]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 20 },
+    "tolerance": 1e-12,
+    "note": "env-import series uses host_handle (custom section series_repr)"
+  },
+  {
+    "id": "series_aot_create_sum",
+    "expr": "sum(series([1, 2, 3], [10, 20, 30]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 60 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_aot_last",
+    "expr": "last(series([1, 2, 3], [10, 20, 30]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 30 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_aot_count",
+    "expr": "count(series([1, 2, 3, 4], [1, 2, 3, 4]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 4 },
+    "tolerance": 0
+  },
+  {
+    "id": "series_aot_tag",
+    "expr": "series([0, 1, 2], [5, 6, 7])",
+    "vars": {},
+    "expected": { "tag": "series", "shape": [3] },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_aot_head_last",
+    "expr": "last(head(series([1, 2, 3, 4], [10, 20, 30, 40]), 2))",
+    "vars": {},
+    "expected": { "type": "number", "value": 20 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "series_aot_min_max",
+    "expr": "min(series([1, 2, 3], [9, 1, 5])) + max(series([1, 2, 3], [9, 1, 5]))",
+    "vars": {},
+    "expected": { "type": "number", "value": 10 },
+    "tolerance": 1e-12
+  }
+]

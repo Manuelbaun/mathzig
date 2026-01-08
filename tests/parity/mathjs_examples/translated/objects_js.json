@@ -1,0 +1,149 @@
+{
+  "source": "libs/mathjs/examples/objects.js",
+  "slug": "objects_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 9,
+    "core": 7,
+    "extended": 2,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "objects_js_001",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 5,
+      "expr": "{x: 2 + 1, y: 4}",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "expected": "[object Object]",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "objects_js_002",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 6,
+      "expr": "{\"name\": \"John\"}",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "{x: 2 + 1, y: 4}"
+      ],
+      "expected": "[object Object]",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "objects_js_003",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 9,
+      "expr": "{a: 2, b: {c: 3, d: 4}}",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "{x: 2 + 1, y: 4}",
+        "{\"name\": \"John\"}"
+      ],
+      "expected": "[object Object]",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "objects_js_004",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 18,
+      "expr": "obj.prop",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "preSetup": [
+        "obj = {prop: 42}"
+      ],
+      "expected": 42,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "objects_js_005",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 19,
+      "expr": "obj[\"prop\"]",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "preSetup": [
+        "obj = {prop: 42}"
+      ],
+      "expected": 42,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "objects_js_006",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 22,
+      "expr": "obj.prop = 43",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "preSetup": [
+        "obj = {prop: 42}"
+      ],
+      "expected": 43,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "objects_js_007",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 23,
+      "expr": "obj[\"prop\"] = 43",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "preSetup": [
+        "obj = {prop: 42}"
+      ],
+      "expected": 43,
+      "reason": "dynamic bracket assignment crashes native backend",
+      "tolerance": 1e-9,
+      "hazard": "crash"
+    },
+    {
+      "id": "objects_js_008",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 24,
+      "expr": "scope.obj",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "{x: 2 + 1, y: 4}",
+        "{\"name\": \"John\"}",
+        "{a: 2, b: {c: 3, d: 4}}"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol scope"
+      },
+      "mathjsError": "Undefined symbol scope",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "objects_js_009",
+      "source": "libs/mathjs/examples/objects.js",
+      "line": 30,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "{x: 2 + 1, y: 4}",
+        "{\"name\": \"John\"}",
+        "{a: 2, b: {c: 3, d: 4}}"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

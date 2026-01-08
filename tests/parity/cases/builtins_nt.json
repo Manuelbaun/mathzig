@@ -1,0 +1,10 @@
+[
+  { "id": "nt_gcd_01", "expr": "gcd(48, 18)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "nt_lcm_01", "expr": "lcm(12, 15)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "nt_isPrime_01", "expr": "isPrime(17)", "vars": {}, "expected": { "tag": "boolean" } },
+  { "id": "nt_isPrime_02", "expr": "isPrime(15)", "vars": {}, "expected": { "tag": "boolean" } },
+  { "id": "nt_factorial_01", "expr": "factorial(5)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "nt_gamma_01", "expr": "gamma(5)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 1e-12, "note": "gamma(n) = (n-1)!" },
+  { "id": "nt_lgamma_01", "expr": "lgamma(10)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 1e-12 },
+  { "id": "nt_erf_01", "expr": "erf(1.0)", "vars": {}, "expected": { "tag": "number" }, "tolerance": 1e-12 }
+]

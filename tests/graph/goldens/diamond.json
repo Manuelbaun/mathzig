@@ -1,0 +1,30 @@
+{
+  "id": "diamond_fanout_fanin",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      { "id": "x", "type": "input" },
+      { "id": "left", "type": "expr", "expr": "x * 2", "inputs": ["x"] },
+      { "id": "right", "type": "expr", "expr": "x * 3", "inputs": ["x"] },
+      {
+        "id": "join",
+        "type": "expr",
+        "expr": "x + y",
+        "inputs": ["x", "y"]
+      }
+    ],
+    "edges": [
+      { "from": "x.out", "to": "left.x" },
+      { "from": "x.out", "to": "right.x" },
+      { "from": "left.out", "to": "join.x" },
+      { "from": "right.out", "to": "join.y" }
+    ],
+    "outputs": { "value": "join.out" }
+  },
+  "inputs": { "x": 4 },
+  "params": [],
+  "composed_expr": "(x * 2) + (x * 3)",
+  "composed_vars": { "x": 4 },
+  "expected_outputs": { "value": 20 },
+  "tolerance": 1e-12
+}

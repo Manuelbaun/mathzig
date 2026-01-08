@@ -1,0 +1,22 @@
+{
+  "id": "scalar_double_then_add",
+  "form": "success",
+  "graph": {
+    "nodes": [
+      { "id": "x", "type": "input" },
+      { "id": "g", "type": "expr", "expr": "x * 2", "inputs": ["x"] },
+      { "id": "f", "type": "expr", "expr": "x + 1", "inputs": ["x"] }
+    ],
+    "edges": [
+      { "from": "x.out", "to": "g.x" },
+      { "from": "g.out", "to": "f.x" }
+    ],
+    "outputs": { "value": "f.out" }
+  },
+  "inputs": { "x": 7 },
+  "params": [],
+  "composed_expr": "(x * 2) + 1",
+  "composed_vars": { "x": 7 },
+  "expected_outputs": { "value": 15 },
+  "tolerance": 1e-12
+}

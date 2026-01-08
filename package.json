@@ -1,0 +1,24 @@
+{
+  "name": "mathzig",
+  "private": true,
+  "bin": {
+    "mz": "tools/mz/cli.ts"
+  },
+  "scripts": {
+    "mz": "bun tools/mz/cli.ts",
+    "status:report": "bun tools/status_report.ts",
+    "test:parity:coverage": "bun tools/testing/parity_case_coverage.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^26.1.1",
+    "playwright": "^1.53.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "mathjs": "^15.1.0"
+  }
+}

@@ -1,0 +1,4 @@
+[
+  { "id": "ffi_var_01", "expr": "x", "vars": { "x": 42 }, "expected": { "tag": "number" }, "tolerance": 0 },
+  { "id": "ffi_var_02", "expr": "y", "vars": { "y": 42 }, "expected": { "tag": "number" }, "tolerance": 0 }
+]

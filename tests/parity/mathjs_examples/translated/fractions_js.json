@@ -1,0 +1,183 @@
+{
+  "source": "libs/mathjs/examples/fractions.js",
+  "slug": "fractions_js",
+  "generatedAt": "2026-07-07T11:03:48.267Z",
+  "summary": {
+    "total": 11,
+    "core": 3,
+    "extended": 8,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "fractions_js_001",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 24,
+      "expr": "math.add(0.1, 0.2)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "fractions_js_002",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 25,
+      "expr": "math.divide(0.3, 0.2)",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 1e-9
+    },
+    {
+      "id": "fractions_js_003",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 29,
+      "expr": "math.add(math.fraction(0.1), math.fraction(0.2))",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "fractions_js_004",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 30,
+      "expr": "math.divide(math.fraction(0.3), math.fraction(0.2))",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "fractions_js_005",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 34,
+      "expr": "math.fraction('1/3')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "fractions_js_006",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 35,
+      "expr": "math.fraction('2/7')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "fractions_js_007",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 36,
+      "expr": "math.fraction('23/11')",
+      "tier": "extended",
+      "category": "api",
+      "setup": [],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol math"
+      },
+      "mathjsError": "Undefined symbol math",
+      "reason": "direct JS API call",
+      "tolerance": 0.000001
+    },
+    {
+      "id": "fractions_js_008",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 42,
+      "expr": "0.1 + 0.2",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [],
+      "expected": 0.30000000000000004,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "fractions_js_009",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 43,
+      "expr": "0.3 / 0.2",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "0.1 + 0.2"
+      ],
+      "expected": 1.4999999999999998,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "fractions_js_010",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 44,
+      "expr": "23 / 11",
+      "tier": "core",
+      "category": "evaluate",
+      "setup": [
+        "0.1 + 0.2",
+        "0.3 / 0.2"
+      ],
+      "expected": 2.090909090909091,
+      "tolerance": 1e-9
+    },
+    {
+      "id": "fractions_js_011",
+      "source": "libs/mathjs/examples/fractions.js",
+      "line": 70,
+      "expr": "value",
+      "tier": "extended",
+      "category": "api",
+      "setup": [
+        "0.1 + 0.2",
+        "0.3 / 0.2",
+        "23 / 11"
+      ],
+      "expected": {
+        "__error": true,
+        "message": "Undefined symbol value"
+      },
+      "mathjsError": "Undefined symbol value",
+      "reason": "variable reference requires JS object state",
+      "tolerance": 1e-9
+    }
+  ]
+}

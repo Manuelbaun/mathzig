@@ -1,0 +1,30 @@
+[
+  {
+    "id": "vm_baseline_core_number_01",
+    "expr": "sqrt(81) + sin(pi / 2)",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "vm_baseline_compose_fn_01",
+    "expr": "f(x) = x^2 + 1; g(y) = f(y) + sum([1, 2, 3]); g(2)",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "vm_baseline_compose_units_01",
+    "expr": "conv(72 km/h, m/s)",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-9
+  },
+  {
+    "id": "vm_baseline_vm_exec_01",
+    "expr": "x = 5; (x + 3) * 2",
+    "vars": {},
+    "expected": { "tag": "number" },
+    "tolerance": 1e-12
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "complex_aot_add_cancel",
+    "expr": "(3 + 4i) - 4i",
+    "vars": {},
+    "expected": { "type": "number", "value": 3 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "complex_aot_abs",
+    "expr": "abs(3 + 4i)",
+    "vars": {},
+    "expected": { "type": "number", "value": 5 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "complex_aot_re",
+    "expr": "re(3 + 4i)",
+    "vars": {},
+    "expected": { "type": "number", "value": 3 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "complex_aot_im",
+    "expr": "im(3 + 4i)",
+    "vars": {},
+    "expected": { "type": "number", "value": 4 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "complex_aot_conj_re",
+    "expr": "re(conj(3 + 4i))",
+    "vars": {},
+    "expected": { "type": "number", "value": 3 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "complex_aot_conj_im",
+    "expr": "im(conj(3 + 4i))",
+    "vars": {},
+    "expected": { "type": "number", "value": -4 },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "complex_aot_div_scalarized",
+    "expr": "((4 + 2i) / (1 + i)) - (3 - i)",
+    "vars": {},
+    "expected": { "type": "number", "value": 0 },
+    "tolerance": 1e-9
+  },
+  {
+    "id": "complex_aot_mul",
+    "expr": "re((1 + 2i) * (3 + 4i))",
+    "vars": {},
+    "expected": { "type": "number", "value": -5 },
+    "tolerance": 1e-12,
+    "note": "(1+2i)(3+4i) = 3+4i+6i+8i^2 = -5+10i"
+  },
+  {
+    "id": "string_aot_latex_x2",
+    "expr": "toLaTeX(\"x^2\")",
+    "vars": {},
+    "expected": { "tag": "string" },
+    "tolerance": 0,
+    "note": "length-prefixed string return; content matched vs zig_vm"
+  },
+  {
+    "id": "string_aot_latex_frac",
+    "expr": "toLaTeX(\"1/2\")",
+    "vars": {},
+    "expected": { "tag": "string" },
+    "tolerance": 0
+  }
+]

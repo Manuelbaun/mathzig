@@ -1,0 +1,16 @@
+{
+  "id": "empty_graph",
+  "form": "success",
+  "graph": {
+    "nodes": [],
+    "edges": [],
+    "outputs": {}
+  },
+  "inputs": {},
+  "params": [],
+  "composed_expr": "0",
+  "composed_vars": {},
+  "expected_outputs": {},
+  "tolerance": 1e-12,
+  "note": "Degenerate: no nodes/outputs. composed_expr is a no-op oracle placeholder; runners return {}."
+}

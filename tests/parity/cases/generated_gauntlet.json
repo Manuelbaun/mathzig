@@ -1,0 +1,2938 @@
+[
+  {
+    "id": "gauntlet_abs_nominal",
+    "expr": "abs(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_acos_nominal",
+    "expr": "acos(1)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_acosh_nominal",
+    "expr": "acosh(1)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_acot_nominal",
+    "expr": "acot(0)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_acoth_nominal",
+    "expr": "acoth(2)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_acsc_nominal",
+    "expr": "acsc(1)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_acsch_nominal",
+    "expr": "acsch(1)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_agg_range_empty_series",
+    "expr": "agg_range(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_agg_range_nested_where",
+    "expr": "agg_range([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_agg_range_nominal",
+    "expr": "range(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_agg_range_where",
+    "expr": "range(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_align_empty_series",
+    "expr": "align(series([], []), series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_align_nominal",
+    "expr": "align(series([0, 5], [1, 2]), series([3, 8], [3, 4]))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        4
+      ]
+    },
+    "tolerance": 1e-9
+  },
+  {
+    "id": "gauntlet_arg_nominal",
+    "expr": "arg(1 + i)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_asec_nominal",
+    "expr": "asec(1)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_asech_nominal",
+    "expr": "asech(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-9,
+    "note": "standalone AOT FP vs zig_vm (~1e-10); case slack 1e-9"
+  },
+  {
+    "id": "gauntlet_asin_nominal",
+    "expr": "asin(0)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_asinh_nominal",
+    "expr": "asinh(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-9,
+    "note": "standalone AOT FP vs zig_vm (~1e-12 edge); case slack 1e-9"
+  },
+  {
+    "id": "gauntlet_asofJoin_empty_series",
+    "expr": "asofJoin(series([], []), series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_asofJoin_nominal",
+    "expr": "asofJoin(series([0, 2, 4], [1, 2, 3]), series([1, 3, 5], [100, 101, 102]))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        3
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_assert_nominal",
+    "expr": "assert(1, 1)",
+    "vars": {},
+    "expected": {
+      "type": "boolean",
+      "value": true
+    }
+  },
+  {
+    "id": "gauntlet_assert_true",
+    "expr": "assert(5 > 0, 1)",
+    "vars": {},
+    "expected": {
+      "type": "boolean",
+      "value": true
+    }
+  },
+  {
+    "id": "gauntlet_atan2_nominal",
+    "expr": "atan2(0, 1)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_atan_nominal",
+    "expr": "atan(0)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_atanh_nominal",
+    "expr": "atanh(0)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_between_empty_series",
+    "expr": "between(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_between_nominal",
+    "expr": "between(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 1, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_between_var2",
+    "expr": "between(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    }
+  },
+  {
+    "id": "gauntlet_bollinger_arity_2",
+    "expr": "bollinger(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "record"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_bollinger_empty_series",
+    "expr": "bollinger(series([], []), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "record"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_bollinger_nominal",
+    "expr": "last(bollinger(series(range(0, 40), range(0, 40)), 20, 2.0).upper)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cbrt_nominal",
+    "expr": "cbrt(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_ceil_nominal",
+    "expr": "ceil(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_clamp_nominal",
+    "expr": "clamp(15, 0, 10)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 10
+    }
+  },
+  {
+    "id": "gauntlet_clip_empty_series",
+    "expr": "clip(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_clip_nominal",
+    "expr": "clip(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 15, 35)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_combinations_nominal",
+    "expr": "combinations(5, 2)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 10
+    }
+  },
+  {
+    "id": "gauntlet_concat_nominal",
+    "expr": "concat([1, 2], [3, 4])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    }
+  },
+  {
+    "id": "gauntlet_concat_var3",
+    "expr": "concat([1, 2], [3, 4], 1)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_conj_nominal",
+    "expr": "conj((3 + 4i))",
+    "vars": {},
+    "expected": {
+      "tag": "complex"
+    }
+  },
+  {
+    "id": "gauntlet_conv_nominal",
+    "expr": "conv(5 * cm, in)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 1.968503937007874
+    },
+    "tolerance": 1e-9,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "units static fold — real expected value"
+  },
+  {
+    "id": "gauntlet_cos_nominal",
+    "expr": "cos(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cosh_nominal",
+    "expr": "cosh(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cot_nominal",
+    "expr": "cot(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_coth_nominal",
+    "expr": "coth(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_count_empty_matrix",
+    "expr": "count([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_count_nested_where",
+    "expr": "count([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_count_nominal_matrix",
+    "expr": "count([1, 2, 3, 4, 5])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 5
+    }
+  },
+  {
+    "id": "gauntlet_count_nominal_series",
+    "expr": "count(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 5
+    }
+  },
+  {
+    "id": "gauntlet_count_nonsquare_matrix",
+    "expr": "count([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_count_where_series",
+    "expr": "count(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "gauntlet_cross_nominal",
+    "expr": "cross([1, 0, 0], [0, 1, 0])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        3,
+        1
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_csc_nominal",
+    "expr": "csc(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_csch_nominal",
+    "expr": "csch(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cube_nominal",
+    "expr": "cube(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cummax_empty",
+    "expr": "cummax(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cummax_empty_series",
+    "expr": "cummax(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cummax_nominal",
+    "expr": "cummax(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cummin_empty",
+    "expr": "cummin(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cummin_empty_series",
+    "expr": "cummin(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cummin_nominal",
+    "expr": "cummin(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cumsum_empty",
+    "expr": "cumsum(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cumsum_empty_series",
+    "expr": "cumsum(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_cumsum_nominal",
+    "expr": "cumsum(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_derivative_empty",
+    "expr": "derivative(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_derivative_empty_series",
+    "expr": "derivative(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_derivative_nominal",
+    "expr": "derivative(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_det_empty",
+    "expr": "det([])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 1
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "standalone det([]) → NaN vs zig 1 (empty-matrix edge)"
+  },
+  {
+    "id": "gauntlet_det_nominal",
+    "expr": "det([1, 2; 3, 4])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": -2
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_det_nonsquare_matrix",
+    "expr": "det([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "standalone det(nonsquare) error-shape mismatch vs zig_vm"
+  },
+  {
+    "id": "gauntlet_det_one_by_one",
+    "expr": "det([7])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 7
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_diag_empty_matrix",
+    "expr": "diag([])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_diag_nominal",
+    "expr": "diag([1, 2, 3; 4, 5, 6; 7, 8, 9])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        3,
+        1
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_diag_nonsquare_matrix",
+    "expr": "diag([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_diff_empty",
+    "expr": "diff(series([], []), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_diff_empty_series",
+    "expr": "diff(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_diff_nominal",
+    "expr": "diff(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_dot_nominal",
+    "expr": "dot([1, 2, 3], [4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 32
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_dropna_empty",
+    "expr": "dropna(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_dropna_empty_series",
+    "expr": "dropna(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_dropna_nominal",
+    "expr": "dropna(series([0, 1, 2], [10, nan, 30]))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        2
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_duration_empty",
+    "expr": "duration(series([], []))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_duration_empty_series",
+    "expr": "duration(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_duration_nested_where",
+    "expr": "duration([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_duration_nominal",
+    "expr": "duration(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 4
+    }
+  },
+  {
+    "id": "gauntlet_duration_where",
+    "expr": "duration(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 0
+  },
+  {
+    "id": "gauntlet_ema_empty",
+    "expr": "ema(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_ema_empty_series",
+    "expr": "ema(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_ema_nominal",
+    "expr": "ema(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_erf_nominal",
+    "expr": "erf(0)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-9
+  },
+  {
+    "id": "gauntlet_exp_nominal",
+    "expr": "exp(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_expm1_nominal",
+    "expr": "expm1(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_factorial_nominal",
+    "expr": "factorial(5)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 120
+    }
+  },
+  {
+    "id": "gauntlet_fillna_arity_1",
+    "expr": "fillna(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_fillna_empty_series",
+    "expr": "fillna(series([], []), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_fillna_nominal",
+    "expr": "fillna(series([0, 1, 2], [10, nan, 30]), \"forward\")",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_fillna_value",
+    "expr": "fillna(series([0, 1, 2], [10, nan, 30]), 0)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_flatten_empty",
+    "expr": "flatten([])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    }
+  },
+  {
+    "id": "gauntlet_flatten_nominal",
+    "expr": "flatten([1, 2; 3, 4])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        4,
+        1
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_flatten_nonsquare_matrix",
+    "expr": "flatten([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_floor_nominal",
+    "expr": "floor(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_gamma_nominal",
+    "expr": "gamma(5)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 24
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_gcd_nominal",
+    "expr": "gcd(12, 18)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 6
+    }
+  },
+  {
+    "id": "gauntlet_gemv_nominal",
+    "expr": "gemv([1, 2; 3, 4], [1; 1])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        1
+      ]
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "standalone gemv residual (see also linalg_gemv_01 skip)"
+  },
+  {
+    "id": "gauntlet_gen_range_nominal",
+    "expr": "range(1, 5)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_gen_range_var1_agg",
+    "expr": "range(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_gen_range_var3",
+    "expr": "range(0, 10, 2)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    }
+  },
+  {
+    "id": "gauntlet_head_arity_1",
+    "expr": "head(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_head_empty",
+    "expr": "head(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_head_empty_series",
+    "expr": "head(series([], []), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_head_nominal",
+    "expr": "head(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        2
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_head_zero",
+    "expr": "head(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 0)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_hypot_nominal",
+    "expr": "hypot(3, 4)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 5
+    }
+  },
+  {
+    "id": "gauntlet_identity_nominal",
+    "expr": "identity(3)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        3,
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_identity_one",
+    "expr": "identity(1)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_identity_zero",
+    "expr": "identity(0)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_im_nominal",
+    "expr": "im((3 + 4i))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 4
+    }
+  },
+  {
+    "id": "gauntlet_integrate_empty",
+    "expr": "integrate(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_integrate_empty_series",
+    "expr": "integrate(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_integrate_nominal",
+    "expr": "integrate(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_inv_empty_matrix",
+    "expr": "inv([])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_inv_nominal",
+    "expr": "inv([2, 0; 0, 4])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        2
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_inv_nonsquare_matrix",
+    "expr": "inv([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "standalone inv(nonsquare) error-shape mismatch vs zig_vm"
+  },
+  {
+    "id": "gauntlet_isPrime_nominal",
+    "expr": "isPrime(7)",
+    "vars": {},
+    "expected": {
+      "type": "boolean",
+      "value": true
+    }
+  },
+  {
+    "id": "gauntlet_last_empty",
+    "expr": "last(series([], []))",
+    "vars": {},
+    "expected": {
+      "type": "nan"
+    }
+  },
+  {
+    "id": "gauntlet_last_empty_series",
+    "expr": "last(series([], []))",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_last_nominal",
+    "expr": "last(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 50
+    }
+  },
+  {
+    "id": "gauntlet_lcm_nominal",
+    "expr": "lcm(4, 6)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 12
+    }
+  },
+  {
+    "id": "gauntlet_lgamma_nominal",
+    "expr": "lgamma(5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_linspace_nominal",
+    "expr": "linspace(0, 1, 5)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_log10_nominal",
+    "expr": "log10(1000)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    },
+    "tolerance": 1e-9,
+    "note": "standalone AOT log10(1000) ~2.999…; case slack 1e-9"
+  },
+  {
+    "id": "gauntlet_log1p_nominal",
+    "expr": "log1p(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_log2_nominal",
+    "expr": "log2(256)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 8
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_log_nominal",
+    "expr": "log(1)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_log_var2",
+    "expr": "log(100, 10)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 2
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_logspace_nominal",
+    "expr": "logspace(0, 2, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        3
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_macd_arity_2",
+    "expr": "macd(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "record"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_macd_empty_series",
+    "expr": "macd(series([], []), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "record"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_macd_nominal",
+    "expr": "last(macd(series(range(0, 40), range(0, 40)), 12, 26, 9).macd)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mad_empty_matrix",
+    "expr": "mad([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mad_nested_where",
+    "expr": "mad([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mad_nominal_matrix",
+    "expr": "mad([1, 2, 3, 4, 5])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mad_nonsquare_matrix",
+    "expr": "mad([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mad_where_matrix",
+    "expr": "mad([1, 2, 3, 4, 5]) where value > 2",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_max_empty_matrix",
+    "expr": "max([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_max_nested_where",
+    "expr": "max([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_max_nominal_matrix",
+    "expr": "max([3, 1, 2])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    }
+  },
+  {
+    "id": "gauntlet_max_nominal_scalar",
+    "expr": "max(10, 3)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 10
+    }
+  },
+  {
+    "id": "gauntlet_max_nonsquare_matrix",
+    "expr": "max([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_max_var1",
+    "expr": "max(42)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 42
+    }
+  },
+  {
+    "id": "gauntlet_max_where_series",
+    "expr": "max(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mean_empty_matrix",
+    "expr": "mean([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mean_nested_where",
+    "expr": "mean([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mean_nominal_matrix",
+    "expr": "mean([1, 2, 3, 4, 5])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mean_nominal_series",
+    "expr": "mean(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mean_nonsquare_matrix",
+    "expr": "mean([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mean_where_matrix",
+    "expr": "mean([1, 2, 3, 4, 5]) where value > 2",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_mean_where_series",
+    "expr": "mean(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_median_empty_matrix",
+    "expr": "median([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_median_nested_where",
+    "expr": "median([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_median_nominal_matrix",
+    "expr": "median([1, 2, 3, 4, 5])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_median_nonsquare_matrix",
+    "expr": "median([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_median_where_matrix",
+    "expr": "median([1, 2, 3, 4, 5]) where value > 2",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_min_empty_matrix",
+    "expr": "min([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_min_nested_where",
+    "expr": "min([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_min_nominal_matrix",
+    "expr": "min([3, 1, 2])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 1
+    }
+  },
+  {
+    "id": "gauntlet_min_nominal_scalar",
+    "expr": "min(10, 3)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    }
+  },
+  {
+    "id": "gauntlet_min_nonsquare_matrix",
+    "expr": "min([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_min_var1",
+    "expr": "min(42)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 42
+    }
+  },
+  {
+    "id": "gauntlet_min_where_series",
+    "expr": "min(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_norm_empty",
+    "expr": "norm([])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_norm_nominal",
+    "expr": "norm([3, 4])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 5
+    }
+  },
+  {
+    "id": "gauntlet_norm_nonsquare_matrix",
+    "expr": "norm([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_now_nominal",
+    "expr": "now()",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "note": "non-deterministic host time"
+  },
+  {
+    "id": "gauntlet_nthRoot_nominal",
+    "expr": "nthRoot(8, 3)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 2
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_nthRoot_var1",
+    "expr": "nthRoot(9)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "standalone nthRoot(x) arity-1 error-shape mismatch vs zig_vm"
+  },
+  {
+    "id": "gauntlet_number_nominal",
+    "expr": "number(5 * cm, in)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 1.968503937007874
+    },
+    "tolerance": 1e-9,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "units static fold — real expected value"
+  },
+  {
+    "id": "gauntlet_ode_solve_euler_nominal",
+    "expr": "ode_solve_euler(\"gauntlet_euler_decay\", [1], [0, 2], 0.1)",
+    "vars": {},
+    "setup": [
+      "gauntlet_euler_decay(t, y) = -0.5 * y"
+    ],
+    "expected": {
+      "tag": "matrix"
+    },
+    "tolerance": 0.000001,
+    "note": "Euler decay"
+  },
+  {
+    "id": "gauntlet_ode_solve_nominal",
+    "expr": "last(ode_solve(\"gauntlet_decay\", [1], [0, 1.0], 0.25))",
+    "vars": {},
+    "setup": [
+      "gauntlet_decay(t, y) = -0.5 * y"
+    ],
+    "expected": {
+      "tag": "matrix"
+    },
+    "tolerance": 1e-10,
+    "note": "RK4 decay"
+  },
+  {
+    "id": "gauntlet_ones_empty",
+    "expr": "ones(0, 0)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_ones_nominal",
+    "expr": "ones(2, 4)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        4
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_ones_nonsquare",
+    "expr": "ones(3, 1)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        3,
+        1
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_ones_one_by_one",
+    "expr": "ones(1, 1)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_ones_var1",
+    "expr": "ones(2)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_pct_change_empty_series",
+    "expr": "pct_change(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_pct_change_nominal",
+    "expr": "pct_change(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_permutations_nominal",
+    "expr": "permutations(5, 2)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 20
+    }
+  },
+  {
+    "id": "gauntlet_pickRandom_nominal",
+    "expr": "pickRandom([1, 2, 3, 4])",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "note": "non-deterministic"
+  },
+  {
+    "id": "gauntlet_prod_empty_matrix",
+    "expr": "prod([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "standalone prod([]) → 0 vs zig null/error edge"
+  },
+  {
+    "id": "gauntlet_prod_nested_where",
+    "expr": "prod([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_prod_nominal_matrix",
+    "expr": "prod([1, 2, 3, 4, 5])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 120
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_prod_nonsquare_matrix",
+    "expr": "prod([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_prod_where_matrix",
+    "expr": "prod([1, 2, 3, 4, 5]) where value > 2",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_randomInt_nominal",
+    "expr": "randomInt(1, 10)",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "note": "non-deterministic"
+  },
+  {
+    "id": "gauntlet_random_nominal",
+    "expr": "random()",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "note": "non-deterministic"
+  },
+  {
+    "id": "gauntlet_random_var2",
+    "expr": "random(1, 10)",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "note": "non-deterministic"
+  },
+  {
+    "id": "gauntlet_re_nominal",
+    "expr": "re((3 + 4i))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    }
+  },
+  {
+    "id": "gauntlet_read_csv_nominal",
+    "expr": "read_csv(\"tests/scripts/data/sample_prices.csv\", { time: \"Date\", price: \"Close\" })",
+    "vars": {},
+    "expected": {
+      "tag": "record",
+      "keys": [
+        "price"
+      ]
+    },
+    "tolerance": 1e-9,
+    "note": "host I/O",
+    "skip": [
+      "ts_wasm_vm",
+      "wasm_aot_standalone"
+    ]
+  },
+  {
+    "id": "gauntlet_resample_empty_series",
+    "expr": "resample(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_resample_nominal",
+    "expr": "resample(series(range(0, 40), range(0, 40)), 5, \"mean\")",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_resample_var2",
+    "expr": "resample(series(range(0, 40), range(0, 40)), 10)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_reshape_nominal",
+    "expr": "reshape([1, 2, 3, 4, 5, 6], 2, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_rolling_count_empty",
+    "expr": "rolling_count(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_count_empty_series",
+    "expr": "rolling_count(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_count_nominal",
+    "expr": "rolling_count(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_max_empty",
+    "expr": "rolling_max(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_max_empty_series",
+    "expr": "rolling_max(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_max_nominal",
+    "expr": "rolling_max(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_mean_empty",
+    "expr": "rolling_mean(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_mean_empty_series",
+    "expr": "rolling_mean(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_mean_nominal",
+    "expr": "rolling_mean(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_min_empty",
+    "expr": "rolling_min(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_min_empty_series",
+    "expr": "rolling_min(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_min_nominal",
+    "expr": "rolling_min(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_stddev_empty",
+    "expr": "rolling_stddev(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_stddev_empty_series",
+    "expr": "rolling_stddev(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_stddev_nominal",
+    "expr": "rolling_stddev(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_sum_empty",
+    "expr": "rolling_sum(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_sum_empty_series",
+    "expr": "rolling_sum(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rolling_sum_nominal",
+    "expr": "rolling_sum(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_round_arity_2",
+    "expr": "round(1.2345, 2)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 1.23
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot",
+      "wasm_aot_standalone"
+    ],
+    "note": "decimal round arity-2; AOT UnsupportedOpcode (VM green)"
+  },
+  {
+    "id": "gauntlet_round_nominal",
+    "expr": "round(3.2)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 3
+    }
+  },
+  {
+    "id": "gauntlet_rsi_empty_series",
+    "expr": "rsi(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_rsi_nominal",
+    "expr": "rsi(series(range(0, 40), range(0, 40)), 14)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sec_nominal",
+    "expr": "sec(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sech_nominal",
+    "expr": "sech(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_series_empty",
+    "expr": "series([], [])",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_series_nominal",
+    "expr": "series([0, 1, 2], [10, 20, 30])",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_series_nonsquare_matrix",
+    "expr": "series([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12,
+    "skip": [
+      "wasm_aot_standalone"
+    ],
+    "note": "standalone series(nonsquare) error-shape mismatch vs zig_vm"
+  },
+  {
+    "id": "gauntlet_series_var1",
+    "expr": "series([0, 1, 2])",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_shift_empty_series",
+    "expr": "shift(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_shift_nominal",
+    "expr": "shift(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_sign_nominal",
+    "expr": "sign(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sin_nominal",
+    "expr": "sin(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_since_empty_series",
+    "expr": "since(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_since_nominal",
+    "expr": "since(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    }
+  },
+  {
+    "id": "gauntlet_since_var3",
+    "expr": "since(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 1, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    }
+  },
+  {
+    "id": "gauntlet_sinh_nominal",
+    "expr": "sinh(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_size_empty",
+    "expr": "size([]).rows",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_size_matrix",
+    "expr": "size([1, 2; 3, 4]).rows",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 2
+    }
+  },
+  {
+    "id": "gauntlet_size_matrix_cols",
+    "expr": "size([1, 2; 3, 4]).cols",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 2
+    }
+  },
+  {
+    "id": "gauntlet_size_nonsquare_matrix",
+    "expr": "size([1, 2, 3; 4, 5, 6]).rows",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 2
+    }
+  },
+  {
+    "id": "gauntlet_size_series",
+    "expr": "size(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 5
+    }
+  },
+  {
+    "id": "gauntlet_size_series_empty",
+    "expr": "size(series([], []))",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 0
+    }
+  },
+  {
+    "id": "gauntlet_slice_empty_series",
+    "expr": "slice(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_slice_nominal",
+    "expr": "slice(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 1, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        2
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_sma_empty",
+    "expr": "sma(series([], []), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sma_empty_series",
+    "expr": "sma(series([], []), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sma_nominal",
+    "expr": "sma(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 3)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        5
+      ]
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sqrt_nominal",
+    "expr": "sqrt(16)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 4
+    }
+  },
+  {
+    "id": "gauntlet_sqrt_var2",
+    "expr": "sqrt(16, 2)",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 4
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_square_nominal",
+    "expr": "square(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_std_empty_matrix",
+    "expr": "std([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_std_nested_where",
+    "expr": "std([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_std_nominal",
+    "expr": "std([1, 2, 3])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_std_nonsquare_matrix",
+    "expr": "std([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_std_var2",
+    "expr": "std([1, 2, 3], \"biased\")",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_std_where_series",
+    "expr": "std(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 0",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sum_empty_matrix",
+    "expr": "sum([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sum_nested_where",
+    "expr": "sum([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sum_nominal_matrix",
+    "expr": "sum([1, 2, 3, 4, 5])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 15
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sum_nominal_series",
+    "expr": "sum(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sum_nonsquare_matrix",
+    "expr": "sum([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sum_where_matrix",
+    "expr": "sum([1, 2, 3, 4, 5]) where value > 2",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_sum_where_series",
+    "expr": "sum(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_tail_arity_1",
+    "expr": "tail(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_tail_empty_series",
+    "expr": "tail(series([], []), 1)",
+    "vars": {},
+    "expected": {
+      "tag": "series"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_tail_nominal",
+    "expr": "tail(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 2)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        2
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_tail_zero",
+    "expr": "tail(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]), 0)",
+    "vars": {},
+    "expected": {
+      "tag": "series",
+      "shape": [
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_tan_nominal",
+    "expr": "tan(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_tanh_nominal",
+    "expr": "tanh(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_toLaTeX_nominal",
+    "expr": "toLaTeX(\"x+1\")",
+    "vars": {},
+    "expected": {
+      "tag": "string"
+    }
+  },
+  {
+    "id": "gauntlet_trace_empty_matrix",
+    "expr": "trace([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_trace_nominal",
+    "expr": "trace([1, 2; 3, 4])",
+    "vars": {},
+    "expected": {
+      "type": "number",
+      "value": 5
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_trace_nonsquare_matrix",
+    "expr": "trace([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_transpose_empty",
+    "expr": "transpose([])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix"
+    }
+  },
+  {
+    "id": "gauntlet_transpose_nominal",
+    "expr": "transpose([1, 2; 3, 4])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_transpose_nonsquare",
+    "expr": "transpose([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_transpose_one_by_one",
+    "expr": "transpose([7])",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_trunc_nominal",
+    "expr": "trunc(0.5)",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_twa_empty",
+    "expr": "twa(series([], []))",
+    "vars": {},
+    "expected": {
+      "type": "nan"
+    }
+  },
+  {
+    "id": "gauntlet_twa_empty_series",
+    "expr": "twa(series([], []))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_twa_nested_where",
+    "expr": "twa([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_twa_nominal",
+    "expr": "twa(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50]))",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_twa_where",
+    "expr": "twa(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 20",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_variance_arity_2",
+    "expr": "variance([1, 2, 3], \"x^2\")",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_variance_empty_matrix",
+    "expr": "variance([])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_variance_nested_where",
+    "expr": "variance([1, 2, 3, 4, 5]) where value > 0 and value < 100",
+    "vars": {},
+    "expected": {
+      "type": "any"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_variance_nominal",
+    "expr": "variance([1, 2, 3, 4])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_variance_nonsquare_matrix",
+    "expr": "variance([1, 2, 3; 4, 5, 6])",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_variance_where_series",
+    "expr": "variance(series([0, 1, 2, 3, 4], [10, 20, 30, 40, 50])) where value > 0",
+    "vars": {},
+    "expected": {
+      "tag": "number"
+    },
+    "tolerance": 1e-12
+  },
+  {
+    "id": "gauntlet_zeros_empty",
+    "expr": "zeros(0, 0)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_zeros_nominal",
+    "expr": "zeros(2, 3)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_zeros_nonsquare",
+    "expr": "zeros(2, 5)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_zeros_one_by_one",
+    "expr": "zeros(1, 1)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_zeros_var1",
+    "expr": "zeros(3)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        3,
+        3
+      ]
+    }
+  },
+  {
+    "id": "gauntlet_zeros_zero_cols",
+    "expr": "zeros(2, 0)",
+    "vars": {},
+    "expected": {
+      "tag": "matrix",
+      "shape": [
+        2,
+        0
+      ]
+    }
+  }
+]

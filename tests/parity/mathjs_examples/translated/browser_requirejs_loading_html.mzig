@@ -1,0 +1,7 @@
+// Translated from libs/mathjs/examples/browser/requirejs_loading.html
+// MathZig translation (edit this file directly)
+// Cases: 1 (core=0, extended=1)
+
+// line 14 [extended]
+1.2 * (2 + 4.5)
+

@@ -1,0 +1,4 @@
+[
+  { "id": "prob_random_01", "expr": "random(10.0)", "vars": {}, "expected": { "type": "any" }, "tolerance": 0, "skip": ["ts_wasm_vm"], "note": "requires fixed RNG seed" },
+  { "id": "prob_randint_01", "expr": "randomInt(5, 15)", "vars": {}, "expected": { "type": "any" }, "tolerance": 0, "skip": ["ts_wasm_vm"], "note": "requires fixed RNG seed" }
+]
