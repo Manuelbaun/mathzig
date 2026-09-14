@@ -2,6 +2,8 @@
 
 High-performance mathematical expression engine written in Zig.
 
+**Live demo (browser console):** [manuelbaun.github.io/mathzig](https://manuelbaun.github.io/mathzig/)
+
 **Version:** `0.1.0` (see `src/VERSION`)
 
 ---
